@@ -10,9 +10,13 @@ app.use(logger("short"));
 var publicPath = path.resolve(__dirname, "public");
 app.use(express.static(publicPath));
 
-app.use(function(request, response) {
-  response.writeHead(200, { "Content-Type": "text/plain" });
-  response.end("No static file found.");
+app.get("/about", function (request, response) {
+  response.end("About Me page!")
+});
+
+app.use(function (request, response) {
+  response.statusCode = 404;
+  response.end("404 page");
 });
 
 http.createServer(app).listen(3000);
