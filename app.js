@@ -11,7 +11,7 @@ var publicPath = path.resolve(__dirname, "public");
 app.use(express.static(publicPath));
 
 app.get("/about", function (request, response) {
-  response.end("About Me page!")
+  response.end("About Me page!");
 });
 
 app.use(function (request, response) {
