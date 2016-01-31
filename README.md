@@ -5,12 +5,17 @@ Client tech:
 
 
 Server tech:
+
 Node.js with Express
+
 Modules:
 * Helmet - security
 * Morgan - logging
 
 Dev tech:
+
 Gulp
+
 Nodemon
+
 Stylus
