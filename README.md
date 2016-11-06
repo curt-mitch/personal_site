@@ -14,8 +14,8 @@ Modules:
 
 Dev tech:
 
-Gulp
+Webpack
 
 Nodemon
 
-Stylus
+Less
