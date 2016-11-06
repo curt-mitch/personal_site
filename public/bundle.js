@@ -44,7 +44,9 @@
 /* 0 */
 /***/ function(module, exports) {
 
-	console.log('Hello from webpack')
+	const name = 'Curtis'
+
+	setTimeout(() => console.log(`Hello from ${name}`), 300)
 
 
 /***/ }
