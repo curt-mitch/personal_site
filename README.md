@@ -18,4 +18,4 @@ Webpack
 
 Nodemon
 
-Less
+LESS
