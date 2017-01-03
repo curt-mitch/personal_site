@@ -15,14 +15,10 @@ app.use(helmet());
 var publicPath = path.resolve(__dirname, 'public');
 app.use(express.static(publicPath));
 
-app.get('/about.html', function (req, res) {
+app.get('/about', function (req, res) {
   res.setHeader('Content-Type', 'text/html');
   res.statusCode = 200;
-
-  var file = fs.createReadStream(req.url);
-  file.on('open', function () {
-    file.pipe(res);
-  });
+  res.sendFile(publicPath + '/about.html');
 });
 
 app.use(function (req, res) {

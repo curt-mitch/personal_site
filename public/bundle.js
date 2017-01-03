@@ -86,7 +86,7 @@
 
 
 	// module
-	exports.push([module.id, "body {\n  font: 100% Helvetica, sans-serif;\n  color: grey;\n}\n", ""]);
+	exports.push([module.id, "body {\n  font: 100% Helvetica, sans-serif;\n  color: grey;\n}\ndiv.personal-description {\n  margin-bottom: 2rem;\n}\n", ""]);
 
 	// exports
 
