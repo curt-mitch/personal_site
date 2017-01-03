@@ -1,9 +1,16 @@
 @font-stack: Helvetica, sans-serif;
-@primary-color: grey;
+@primary-background: #292D3E;
+@primary-color: #EBEBF2;
+@link-color: darken(@primary-color, 20%);
 
 body {
   font: 100% @font-stack;
   color: @primary-color;
+  background-color: @primary-background;
+}
+
+a {
+  color: @link-color;
 }
 
 div.personal-description {
