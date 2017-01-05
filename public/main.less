@@ -13,6 +13,17 @@ a {
   color: @link-color;
 }
 
-div.personal-description {
-  margin-bottom: 2rem;
+div.section {
+  &.about {
+    div.personal-description {
+      margin-bottom: 2rem;
+    }
+    div.list {
+      margin-bottom: 1.5rem;
+    }
+  }
+  &-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
 }
