@@ -1,5 +1,5 @@
-require('!style!css!less!./main.less');
+// require('!style!css!less!./main.less');
 
-const name = 'Curtis';
+// const name = 'Curtis';
 
-setTimeout(() => console.log(`Hello from ${name}`), 300);
+// setTimeout(() => console.log(`Hello from ${name}`), 300);

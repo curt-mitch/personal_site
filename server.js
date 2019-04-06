@@ -1,29 +1,35 @@
 'use strict';
 
-var express = require('express');
-var logger = require('morgan');
-var path = require('path');
-var http = require('http');
-var fs = require('fs');
-var helmet = require('helmet');
+import express from 'express';
+import logger from 'morgan';
+import helmet from 'helmet';
+import next from 'next';
 
-var app = express();
+const app = next({ dev })
 
-app.use(logger('short'));
-app.use(helmet());
+// app.use(logger('short'));
+// app.use(helmet());
 
-var publicPath = path.resolve(__dirname, 'public');
-app.use(express.static(publicPath));
+app
+  .prepare()
+  .then(() => {
+    const server = express()
 
-app.get('/about', function (req, res) {
-  res.setHeader('Content-Type', 'text/html');
-  res.statusCode = 200;
-  res.sendFile(publicPath + '/about.html');
-});
+    server.get('*', (req, res) => {
+      return handle(req, res)
+    })
+
+    server.listen(3000, err => {
+      if (err) throw err
+      console.log('> Ready on http://localhost:3000')
+    })
+  })
+  .catch(ex => {
+    console.error(ex.stack)
+    process.exit(1)
+  })
 
 app.use(function (req, res) {
   res.statusCode = 404;
   res.end('404 page');
 });
-
-http.createServer(app).listen(3000);
