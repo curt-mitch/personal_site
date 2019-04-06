@@ -1,4 +1,4 @@
-# personal_site
+# Personal Site
 server and client code for personal site
 
 Client tech:
