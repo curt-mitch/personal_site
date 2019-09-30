@@ -1,10 +1,9 @@
 {
   "name": "personal-website",
   "author": "Curtis Mitchell",
-  "scripts": {
-  },
+  "scripts": {},
   "dependencies": {
+    "koa": "^2.8.2"
   },
-  "devDependencies": {
-  }
+  "devDependencies": {}
 }
