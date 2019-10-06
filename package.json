@@ -1,9 +1,19 @@
 {
   "name": "personal-website",
   "author": "Curtis Mitchell",
-  "scripts": {},
-  "dependencies": {
-    "koa": "^2.8.2"
+  "scripts": {
+    "watch-server": "nodemon --watch 'src/**/*' -e ts,tsx --exec ts-node ./src/server.ts"
   },
-  "devDependencies": {}
+  "dependencies": {
+    "koa": "^2.8.2",
+    "koa-router": "^7.4.0"
+  },
+  "devDependencies": {
+    "@types/koa": "^2.0.50",
+    "@types/koa-router": "^7.0.42",
+    "nodemon": "^1.19.3",
+    "ts-node": "^8.4.1",
+    "tslint": "^5.20.0",
+    "typescript": "^3.6.3"
+  }
 }
