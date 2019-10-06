@@ -3,7 +3,9 @@
   "author": "Curtis Mitchell",
   "scripts": {},
   "dependencies": {
-    "koa": "^2.8.2"
+    "koa": "^2.8.2",
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2"
   },
   "devDependencies": {}
 }
