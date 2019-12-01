@@ -42,6 +42,9 @@ class About extends React.Component {
         <a href="https://www.linkedin.com/in/curtislmitchell/">LinkedIn</a>
       </div>
       <div>
+        <a href="https://github.com/curt-mitch">GitHub</a>
+      </div>
+      <div>
         <a href="https://twitter.com/curt_mitch">Twitter</a>
       </div>
       <br></br>
