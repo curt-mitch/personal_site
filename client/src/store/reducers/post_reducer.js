@@ -5,7 +5,7 @@ const initialState = {
   comments: [],
 };
 
-const PostReducer = (state = initialState, action) => {
+const PostsReducer = (state = initialState, action) => {
   switch(action.type) {
     case ACTION_TYPES.FETCH_DB_POSTS:
       return {
@@ -32,4 +32,4 @@ const PostReducer = (state = initialState, action) => {
   }
 };
 
-export default PostReducer;
+export default PostsReducer;
