@@ -6,6 +6,7 @@ Repo for personal site.
 
 ### Frontend
 [React](https://reactjs.org/) - UI Framework\
+[Redux](https://redux.js.org/) - Frontend State Management Framework\
 [Axios](https://github.com/axios/axios) - HTTP Client\
 [Yarn](https://yarnpkg.com/) - Package Manager
 
