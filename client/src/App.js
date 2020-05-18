@@ -1,8 +1,32 @@
 import React, { Component } from 'react';
-import './App.css';
 import axios from 'axios';
+import { ThemeProvider } from '@material-ui/styles';
+import { createMuiTheme } from '@material-ui/core/styles'
+import './App.css';
+import Routes from './routes'
+import { blue, indigo } from '@material-ui/core/colors'
+
+const theme = createMuiTheme({
+  palette: {
+    secondary: {
+      main: blue[900]
+    },
+    primary: {
+      main: indigo[700]
+    }
+  },
+  typography: {
+    // Use the system font instead of the default Roboto font.
+    fontFamily: [
+      '"Lato"',
+      'sans-serif'
+    ].join(',')
+  }
+});
+
 
 class App extends Component {
+
   state = {
     hello: null,
   };
@@ -16,9 +40,9 @@ class App extends Component {
   render() {
     return (
       <div>
-        {this.state.hello
-          ? <div> { this.state.hello } </div>
-          : null }
+        <ThemeProvider theme={theme}>
+          <Routes />
+        </ThemeProvider>
       </div>
     );
   }
