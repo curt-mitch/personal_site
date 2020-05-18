@@ -12,7 +12,7 @@ router.get('/api/get/allposts', (req, res, next) => {
   });
 });
 
-router.posts('/api/posts/poststodb', (req, res, next) => {
+router.post('/api/posts/poststodb', (req, res, next) => {
   const values = [req.body.title, req.body.body, req.body.body.uid, req.body.username];
   pool.query(`INSERT INTO posts(title, body, user_id, author, date_created)
               VALUES($1, $2, $3, $4, NOW() )`, values, (q_err, q_res) => {
