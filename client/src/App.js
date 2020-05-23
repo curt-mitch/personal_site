@@ -16,9 +16,9 @@ const theme = createMuiTheme({
     }
   },
   typography: {
-    // Use the system font instead of the default Roboto font.
     fontFamily: [
-      '"Lato"',
+      '"Roboto"',
+      '"Helvetica"',
       'sans-serif'
     ].join(',')
   }
