@@ -126,16 +126,16 @@ class About extends Component {
             Background &#38; Side Projects
           </Typography>
           <Typography variant='body1' className={classes.block} >
-            I transitioned to software development after spending several years as a data analyst at an alternative energy and efficiency consultancy. I became a member of one of the first cohorts of the coding boot camp Hack Reactor in 2013 and since then have worked at various startups, primarily as a front-end engineer. Now I’m studying machine learning engineering in one of the first cohorts of that program via Springboard. I obtained a bachelor of science degree in physics and a bachelor of arts degree in math along with minors in German and Japanese from the University of North Texas.
+            I transitioned to software development after spending several years as a data analyst at an alternative energy and efficiency consultancy. I became a member of one of the first cohorts of the coding boot camp Hack Reactor in 2013 and since then have worked at various startups, primarily as a front-end engineer. Now I’m studying machine learning engineering as part of Springboard’s machine learning engineer track. I obtained a bachelor of science degree in physics and a bachelor of arts degree in math along with minors in German and Japanese from the University of North Texas.
           </Typography>
           <Typography variant='body1' className={classes.block} >
-            More recently I’ve been working on courses and side projects in machine learning (especially deep learning), mathematics (especially statistics) and natural language processing. This website gives a place to write about and showcase that work as well as tinker with JavaScript libraries and web development practices.
+            In addition to studying for the Springboard machine learning program, I also enjoy reading and learning about mathematics and practicing coding. This website gives a place to write about and showcase my work and help keep my JavaScript and web development skills sharp.
           </Typography>
           <Typography variant='body1' className={classes.block} >
             Outside of the worlds of software and analytics my hobbies include reading all categories of books, studying foreign languages, cooking, martial arts and general exercise, playing guitar, and pursuing the everlasting struggle to find a balance between the desire to enjoy delicious foods and drinks with the desire to be fit and healthy.
           </Typography>
           <Typography variant='body1' className={classes.block} >
-          For more information on my work, to get in touch regarding employment opportunities, or to just say hello, feel free to get in touch at curtis.l.mitchell AT gmail.com.
+            For more information on my work, to get in touch regarding employment opportunities, or to just say hello, feel free to get in touch at curtis.l.mitchell AT gmail.com.
           </Typography>
         </div>
       </React.Fragment>
