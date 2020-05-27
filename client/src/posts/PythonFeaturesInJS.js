@@ -4,7 +4,7 @@ import { withRouter } from "react-router-dom";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Typography from "@material-ui/core/Typography";
 
-import Topbar from "./Topbar";
+import Topbar from "../components/Topbar";
 
 const backgroundShape = require("../images/shape.svg");
 
@@ -85,7 +85,7 @@ const styles = theme => ({
   }
 });
 
-class About extends Component {
+class PythonFeaturesInJS extends Component {
   state = {
     learnMoredialog: false,
     getStartedDialog: false
@@ -137,4 +137,4 @@ class About extends Component {
   }
 }
 
-export default withRouter(withStyles(styles)(About));
+export default withRouter(withStyles(styles)(PythonFeaturesInJS));
