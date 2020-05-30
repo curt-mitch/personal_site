@@ -4,6 +4,8 @@ import { withRouter } from "react-router-dom";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Typography from "@material-ui/core/Typography";
 
+import Highlight from 'react-highlight.js';
+
 import Topbar from "../components/Topbar";
 
 const backgroundShape = require("../images/shape.svg");
@@ -131,6 +133,13 @@ class PythonFeaturesInJS extends Component {
           <Typography variant='body1' className={classes.block} >
             This was probably the first part of Python’s syntax that made me react with “Okay, that’s pretty cool.” Python’s slicing syntax gives you the ability to easily get multiple subsections of any list (i.e., “array” in JavaScript). It looks like the following:
           </Typography>
+          <Highlight language='python'>
+            example_list = [1, 2, 3, 4]
+            <br/>
+            example_list[:1]
+            <br/>
+            example_list[1:]
+          </Highlight>
         </div>
       </React.Fragment>
     );
