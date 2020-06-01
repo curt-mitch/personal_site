@@ -55,7 +55,12 @@ const styles = theme => ({
     textAlign: "center"
   },
   block: {
-    padding: theme.spacing(2)
+    padding: theme.spacing(2),
+  },
+  paragraph: {
+    padding: theme.spacing(2),
+    textIndent: '20px',
+    textAlign: 'justify',
   },
   box: {
     marginBottom: 40,
@@ -116,22 +121,19 @@ class About extends Component {
         <CssBaseline />
         <Topbar />
         <div className={classes.root}>
-          <Typography variant='body1' className={classes.block} >
-            I’m a software developer based in the San Francisco Bay Area. I’ve worked at a variety of analytics- and machine learning-startups as a web developer, and now I’m pursing Springboard’s machine learning engineering track as another pivot in my career path of using technology to make complex data more comprehensible.
+          <Typography variant='body1' className={classes.paragraph} >
+            I’m a software developer based in the San Francisco Bay Area. I’ve worked at a variety of analytics- and machine learning-startups as a web developer, and now I’m enrolled in Springboard’s machine learning engineering track in the next stage of my career and pursuit of using technology to make complex data more comprehensible.
           </Typography>
           <Typography variant='h5' className={classes.block} >
-            Background &#38; Side Projects
+            Background
           </Typography>
-          <Typography variant='body1' className={classes.block} >
-            I transitioned to software development after spending several years as a data analyst at an alternative energy and efficiency consultancy. I became a member of one of the first cohorts of the coding boot camp Hack Reactor in 2013 and since then have worked at various startups, primarily as a front-end engineer. Now I’m studying machine learning engineering as part of Springboard’s machine learning engineer track. I obtained a bachelor of science degree in physics and a bachelor of arts degree in math along with minors in German and Japanese from the University of North Texas.
+          <Typography variant='body1' className={classes.paragraph} >
+            I’ve worked at a variety of analytics and machine learning startups and a web developer. Most recently I was at Mode Analytics where I lead a full stack analytics report capturing project and taught JavaScript to other internal teams. Prior to that I worked at Ayasdi where I migrated key parts of our web application from the Backbone framework to React and Redux. I moved into web development after being in one of the first cohorts of the coding bootcamp Hack Reactor, and prior to that I worked as a data analyst and field engineer for the energy consulting firm DNV GL for several years after completing degrees in physics and math from the University of North Texas.
           </Typography>
-          <Typography variant='body1' className={classes.block} >
-            In addition to studying for the Springboard machine learning program, I also enjoy reading and learning about mathematics and practicing coding. This website gives a place to write about and showcase my work and help keep my JavaScript and web development skills sharp.
+          <Typography variant='body1' className={classes.paragraph} >
+            Outside of the worlds of software and analytics my hobbies include reading all categories of books, especially fiction and history, studying foreign languages including Japanese and Urdu, cooking, and martial arts and exercise to help with the everlasting struggle to find a balance between enjoying delicious foods and drinks while also staying fit and healthy.
           </Typography>
-          <Typography variant='body1' className={classes.block} >
-            Outside of the worlds of software and analytics my hobbies include reading all categories of books, studying foreign languages, cooking, martial arts and general exercise, playing guitar, and pursuing the everlasting struggle to find a balance between the desire to enjoy delicious foods and drinks with the desire to be fit and healthy.
-          </Typography>
-          <Typography variant='body1' className={classes.block} >
+          <Typography variant='body1' className={classes.paragraph} >
             For more information on my work, to get in touch regarding employment opportunities, or to just say hello, feel free to get in touch at curtis.l.mitchell AT gmail.com.
           </Typography>
         </div>
