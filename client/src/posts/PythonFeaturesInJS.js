@@ -4,11 +4,15 @@ import { withRouter } from "react-router-dom";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Typography from "@material-ui/core/Typography";
 
+import hljs from 'highlight.js/lib/highlight';
 import Highlight from 'react-highlight.js';
 
 import Topbar from "../components/Topbar";
 
 const backgroundShape = require("../images/shape.svg");
+
+// allow single-line comments in code examples
+hljs.configure({ useBR: true })
 
 const styles = theme => ({
   root: {
@@ -113,6 +117,13 @@ class PythonFeaturesInJS extends Component {
 
   render() {
     const { classes } = this.props;
+
+    const pyContent1 = "example_list = [1, 2, 3, 4]";
+    const pyContent2 = "example_list[:1] # -> [1]";
+    const pyContent3 = "example_list[1:] # -> [2, 3, 4]";
+    const pyContent4 = "example_list[1:3] # -> [2, 3]";
+    const pyContent5 = "example_list[0:4:2] # -> [1, 3]";
+
     return (
       <React.Fragment>
         <CssBaseline />
@@ -134,12 +145,21 @@ class PythonFeaturesInJS extends Component {
             This was probably the first part of Python’s syntax that made me react with “Okay, that’s pretty cool.” Python’s slicing syntax gives you the ability to easily get multiple subsections of any list (i.e., “array” in JavaScript). It looks like the following:
           </Typography>
           <Highlight language='python'>
-            example_list = [1, 2, 3, 4]
+            {pyContent1}
             <br/>
-            example_list[:1]
+            {pyContent2}
             <br/>
-            example_list[1:]
+            {pyContent3}
+            <br/>
+            {pyContent4}
           </Highlight>
+          <Typography variant='body1' className={classes.block} >
+            As you can see, the slice notation syntax can be thought of as consisting of optional "start" and "stop" values like so <code>[start:stop]</code> (I say "optional" because using <code>[:]</code> will return a complete copy of the original list), but you can also use a "step" property to skip values within the sliced subsets like so:
+          </Typography>
+          <Highlight language='python'>
+            {pyContent5}
+          </Highlight>
+
         </div>
       </React.Fragment>
     );
