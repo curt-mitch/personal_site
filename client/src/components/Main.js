@@ -6,6 +6,7 @@ import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
+import { Link } from 'react-router-dom';
 
 import Topbar from "./Topbar";
 
@@ -44,14 +45,14 @@ const styles = theme => ({
     alignItems: "center",
     marginTop: 32
   },
-  outlinedButtom: {
+  outlinedButton: {
     textTransform: "uppercase",
     margin: theme.spacing(1)
   },
-  actionButtom: {
+  actionButton: {
     textTransform: "uppercase",
     margin: theme.spacing(1),
-    width: 152
+    width: 175
   },
   blockCenter: {
     padding: theme.spacing(2),
@@ -62,7 +63,7 @@ const styles = theme => ({
   },
   box: {
     marginBottom: 40,
-    height: 65
+    height: 55
   },
   inlining: {
     display: "inline-block",
@@ -127,109 +128,27 @@ class Main extends Component {
               container
               className={classes.grid}
             >
-              <Grid item xs={12} md={4}>
-                <Paper className={classes.paper}>
-                  <div className={classes.box}>
-                    <Typography
-                      style={{ textTransform: "uppercase" }}
-                      color="secondary"
-                      gutterBottom
-                    >
-                      First title
-                    </Typography>
-                    <Typography variant="body2" gutterBottom>
-                      A first title style <br /> with two lines
-                    </Typography>
-                  </div>
-                  <div style={{ display: "flex", justifyContent: "flex-end" }}>
-                    <Button
-                      color="primary"
-                      variant="contained"
-                      className={classes.actionButtom}
-                    >
-                      Learn more
-                    </Button>
-                  </div>
-                </Paper>
-              </Grid>
-              <Grid item xs={12} md={4}>
-                <Paper className={classes.paper}>
-                  <div className={classes.box}>
-                    <Typography
-                      style={{ textTransform: "uppercase" }}
-                      color="secondary"
-                      gutterBottom
-                    >
-                      Another box
-                    </Typography>
-                    <Typography variant="body1" gutterBottom>
-                      A default box
-                    </Typography>
-                  </div>
-                  <div style={{ display: "flex", justifyContent: "flex-end" }}>
-                    <Button
-                      color="primary"
-                      variant="contained"
-                      className={classes.actionButtom}
-                    >
-                      Learn more
-                    </Button>
-                  </div>
-                </Paper>
-              </Grid>
-              <Grid item xs={12} md={4}>
-                <Paper className={classes.paper}>
-                  <div className={classes.box}>
-                    <Typography
-                      style={{ textTransform: "uppercase" }}
-                      color="secondary"
-                      gutterBottom
-                    >
-                      A box with a carousel
-                    </Typography>
-                    <Typography variant="body1" gutterBottom>
-                      If you click in Getting Started, you will see a nice
-                      carousel
-                    </Typography>
-                  </div>
-                  <div className={classes.alignRight}>
-                    <Button
-                      onClick={this.openDialog}
-                      variant="outlined"
-                      className={classes.actionButtom}
-                    >
-                      Learn more
-                    </Button>
-                    <Button
-                      onClick={this.openGetStartedDialog}
-                      color="primary"
-                      variant="contained"
-                      className={classes.actionButtom}
-                    >
-                      Dashboard
-                    </Button>
-                  </div>
-                </Paper>
-              </Grid>
               <Grid container item xs={12}>
                 <Grid item xs={12}>
                   <Paper className={classes.paper}>
                     <div>
                       <div className={classes.box}>
                         <Typography color="secondary" gutterBottom>
-                          Full box
+                          Features from Python that I Wish JavaScript Could Adopt
                         </Typography>
                         <Typography variant="body1" gutterBottom>
-                          This is an example of a full-width box
+                        As someone who primarily learned to code using JavaScript, reading languages like C and Java wasn’t too much of a struggle once I learned to read the typing-related code (something that became all the more easy after adopting TypeScript). But once I started digging deeper into machine learning and data science it became clear I would not be able to avoid learning Python.
                         </Typography>
                       </div>
                       <div className={classes.alignRight}>
                         <Button
                           color="primary"
                           variant="contained"
-                          className={classes.actionButtom}
+                          className={classes.actionButton}
+                          component={Link}
+                          to={'/posts/python-features-in-js'}
                         >
-                          Learn more
+                          Continue reading
                         </Button>
                       </div>
                     </div>

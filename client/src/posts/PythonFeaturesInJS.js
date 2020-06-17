@@ -136,7 +136,7 @@ class PythonFeaturesInJS extends Component {
             Python Features I Would Love To Have In JavaScript
           </Typography>
           <Typography variant='body1' className={classes.block} >
-            As someone who primarily learned to code using JavaScript reading languages like C and Java wasn’t too much of a struggle once I learned to read the typing-related code (something that became much easier after adopting TypeScript). But once I started digging deeper into machine learning and data science it became clear I would not be able to avoid learning Python. I was reluctant to learn it primarily because its syntax is so different from that of JavaScript (whitespace?!), and I was unmoved by people and <a href="https://xkcd.com/353/">comics seeking the language’s praises</a>.
+            As someone who primarily learned to code using JavaScript, reading languages like C and Java wasn’t too much of a struggle once I learned to read the typing-related code (something that became all the more easy after adopting TypeScript). But once I started digging deeper into machine learning and data science it became clear I would not be able to avoid learning Python. I was reluctant to learn it primarily because its syntax is so different from that of JavaScript (whitespace?!), and I was unmoved by people and <a href="https://xkcd.com/353/">comics seeking the language’s praises</a>.
           </Typography>
           <Typography variant='body1' className={classes.block} >
             But I eventually acquiesced and once I got comfortable reading and writing Python I discovered some things I actually enjoyed about the language. In fact these were things I wish I could adopt into my JavaScript code. Below is a short list of these features:
