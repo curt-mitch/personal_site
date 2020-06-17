@@ -88,6 +88,9 @@ const styles = theme => ({
     position: "absolute",
     top: "40%",
     left: "40%"
+  },
+  highlight: {
+    padding: '0px 48px'
   }
 });
 
@@ -144,7 +147,7 @@ class PythonFeaturesInJS extends Component {
           <Typography variant='body1' className={classes.block} >
             This was probably the first part of Python’s syntax that made me react with “Okay, that’s pretty cool.” Python’s slicing syntax gives you the ability to easily get multiple subsections of any list (i.e., “array” in JavaScript). It looks like the following:
           </Typography>
-          <Highlight language='python'>
+          <Highlight className={classes.highlight} language='python'>
             {pyContent1}
             <br/>
             {pyContent2}
@@ -154,9 +157,9 @@ class PythonFeaturesInJS extends Component {
             {pyContent4}
           </Highlight>
           <Typography variant='body1' className={classes.block} >
-            As you can see, the slice notation syntax can be thought of as consisting of optional "start" and "stop" values like so <code>[start:stop]</code> (I say "optional" because using <code>[:]</code> will return a complete copy of the original list), but you can also use a "step" property to skip values within the sliced subsets like so:
+            As you can see, the slice notation syntax can be thought of as consisting of optional "start" and "stop" values like so <code>[start:stop]</code> (Technically both the "start" and "stop" values can be optional because using <code>[:]</code> will return a complete copy of the original list), but you can also use a "step" property to skip values within the sliced subsets like so:
           </Typography>
-          <Highlight language='python'>
+          <Highlight className={classes.highlight} language='python'>
             {pyContent5}
           </Highlight>
 
