@@ -63,7 +63,12 @@ const styles = theme => ({
   },
   box: {
     marginBottom: 40,
-    height: 55
+    height: 55,
+  },
+  postDescription: {
+    whiteSpace: "nowrap",
+    overflow: "hidden",
+    textOverflow: "ellipsis"
   },
   inlining: {
     display: "inline-block",
@@ -136,7 +141,7 @@ class Main extends Component {
                         <Typography color="secondary" gutterBottom>
                           Features from Python that I Wish JavaScript Could Adopt
                         </Typography>
-                        <Typography variant="body1" gutterBottom>
+                        <Typography variant="body1" className={classes.postDescription}>
                         As someone who primarily learned to code using JavaScript, reading languages like C and Java wasn’t too much of a struggle once I learned to read the typing-related code (something that became all the more easy after adopting TypeScript). But once I started digging deeper into machine learning and data science it became clear I would not be able to avoid learning Python.
                         </Typography>
                       </div>
