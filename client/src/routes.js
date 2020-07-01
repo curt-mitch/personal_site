@@ -1,12 +1,12 @@
 import React from 'react'
-import { Route, HashRouter, Switch } from 'react-router-dom'
+import { Route, Switch, BrowserRouter } from 'react-router-dom'
 import Main from './components/Main'
 import About from './components/About'
 import PythonFeaturesInJS from './posts/PythonFeaturesInJS'
 import ScrollToTop from './components/ScrollTop'
 
 export default props => (
-    <HashRouter>
+    <BrowserRouter>
       <ScrollToTop>
         <Switch>
           <Route exact path='/' component={ Main } />
@@ -14,7 +14,7 @@ export default props => (
           <Route exact path='/posts/python-features-in-js' component={PythonFeaturesInJS} />
         </Switch>
       </ScrollToTop>
-    </HashRouter>
+    </BrowserRouter>
   )
 
 
