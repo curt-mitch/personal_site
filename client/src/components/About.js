@@ -8,14 +8,11 @@ import profilePicture from '../images/curtis-profile-pic-small.png';
 
 import Topbar from "./Topbar";
 
-const backgroundShape = require("../images/shape.svg");
-
 const styles = theme => ({
   root: {
     flexGrow: 1,
     backgroundColor: theme.palette.grey["100"],
     overflow: "hidden",
-    background: `url(${backgroundShape}) no-repeat`,
     backgroundSize: "cover",
     backgroundPosition: "0 400px",
     paddingBottom: 200

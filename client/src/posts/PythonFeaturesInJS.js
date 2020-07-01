@@ -9,8 +9,6 @@ import Highlight from 'react-highlight.js';
 
 import Topbar from "../components/Topbar";
 
-const backgroundShape = require("../images/shape.svg");
-
 // allow single-line comments in code examples
 hljs.configure({ useBR: true })
 
@@ -19,7 +17,6 @@ const styles = theme => ({
     flexGrow: 1,
     backgroundColor: theme.palette.grey["100"],
     overflow: "hidden",
-    background: `url(${backgroundShape}) no-repeat`,
     backgroundSize: "cover",
     backgroundPosition: "0 400px",
     paddingBottom: 200
