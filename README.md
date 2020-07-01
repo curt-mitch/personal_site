@@ -14,12 +14,12 @@ Repo for personal site.
 [PostgreSQL](https://www.postgresql.org/) - Relational Database\
 [Node.js](https://nodejs.org/en/) - JavaScript Runtime\
 [Express](https://expressjs.com/) - Web Application Framework\
-[Helmet](https://helmetjs.github.io/) - HTTP Header Security library
+[Helmet](https://helmetjs.github.io/) - HTTP Header Security library\
 
 ### Infrastructure
-[Yarn](https://yarnpkg.com/) - Package Manager (Frontend)
-[npm](https://www.npmjs.com/) - Package Manager (Backend)
+[Yarn](https://yarnpkg.com/) - Package Manager (Frontend)\
+[npm](https://www.npmjs.com/) - Package Manager (Backend)\
 
 ## Inspirational Projects
-[Fullstack Blog App](https://www.freecodecamp.org/news/fullstack-react-blog-app-with-express-and-psql/) - Fullstack React App With Express and PostGreSQL
-[Material Sense](https://github.com/alexanmtz/material-sense) - React Material UI template
+[Fullstack Blog App](https://www.freecodecamp.org/news/fullstack-react-blog-app-with-express-and-psql/) - Fullstack React App With Express and PostGreSQL\
+[Material Sense](https://github.com/alexanmtz/material-sense) - React Material UI template\
