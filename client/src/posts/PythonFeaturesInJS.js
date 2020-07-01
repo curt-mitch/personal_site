@@ -97,6 +97,10 @@ const styles = theme => ({
     textIndent: '20px',
     textAlign: 'justify',
   },
+  codeSample: {
+    backgroundColor: '#EDEDED',
+    fontFamily: 'Courier, monospace',
+  },
 });
 
 class PythonFeaturesInJS extends Component {
@@ -168,7 +172,7 @@ class PythonFeaturesInJS extends Component {
           <Typography variant='body1' className={classes.paragraph} >
             This was probably the first part of Python’s syntax that made me react with “Okay, that’s a pretty nice feature.” Python’s slicing syntax gives you the ability to easily get multiple subsections of any list (i.e., “array” in JavaScript). It looks like the following:
           </Typography>
-          <Highlight className={classes.highlight} language='python'>
+          <Highlight className={classes.highlight} language={'python'}>
             {pyContent1}
             <br/>
             {pyContent2}
@@ -178,9 +182,9 @@ class PythonFeaturesInJS extends Component {
             {pyContent4}
           </Highlight>
           <Typography variant='body1' className={classes.paragraph} >
-            As you can see, the slice notation syntax can be thought of as consisting of optional "start" and "stop" values like so <code>[start:stop]</code> (Technically both the "start" and "stop" values can be optional because using <code>[:]</code> will return a complete copy of the original list), but you can also use a "step" property to skip values within the sliced subsets like so:
+            As you can see, the slice notation syntax can be thought of as consisting of optional "start" and "stop" values like so <span className={classes.codeSample}>[start:stop]</span> (Technically both the "start" and "stop" values can be optional because using <span className={classes.codeSample}>[:]</span> will return a complete copy of the original list), but you can also use a "step" property to skip values within the sliced subsets like so:
           </Typography>
-          <Highlight className={classes.highlight} language='python'>
+          <Highlight className={classes.highlight} language={'python'}>
             {pyContent5}
           </Highlight>
           <Typography variant='h5' className={classes.block} >
@@ -189,13 +193,13 @@ class PythonFeaturesInJS extends Component {
           <Typography variant='body1' className={classes.paragraph} >
             List comprehensions are a prime example of one of the original goals of Python: to make code read more like a human language (at least if you’re an English speaker!). Comprehensions give you a simple way to create new lists using this basic syntax:
           </Typography>
-          <Highlight className={classes.highlight} language='python'>
+          <Highlight className={classes.highlight} language={'python'}>
             {pyContent6}
           </Highlight>
           <Typography variant='body1' className={classes.paragraph} >
             Here is a simple example:
           </Typography>
-          <Highlight className={classes.highlight} language='python'>
+          <Highlight className={classes.highlight} language={'python'}>
             {pyContent7}
             <br/>
             {pyContent8}
@@ -203,7 +207,7 @@ class PythonFeaturesInJS extends Component {
           <Typography variant='body1' className={classes.paragraph} >
             You can even create nested comprehensions, which are especially useful when dealing with nested data structures such as matrices:
           </Typography>
-          <Highlight className={classes.highlight} language='python'>
+          <Highlight className={classes.highlight} language={'python'}>
             {pyContent9}
             <br/>
             {pyContent10}
@@ -219,7 +223,7 @@ class PythonFeaturesInJS extends Component {
           <Typography variant='body1' className={classes.paragraph} >
             Python gives you the ability to both pass arguments to a method in a set order, just like you would in JavaScript, or create named parameters that are defined with a default value and that can then be passed in any order. Let’s look at an example:
           </Typography>
-          <Highlight className={classes.highlight} language='python'>
+          <Highlight className={classes.highlight} language={'python'}>
             {pyContent12}
             <br/>
             {pyContent13}
@@ -227,7 +231,7 @@ class PythonFeaturesInJS extends Component {
           <Typography variant='body1' className={classes.paragraph} >
             I could call this method in any of the following ways:
           </Typography>
-          <Highlight className={classes.highlight} language='python'>
+          <Highlight className={classes.highlight} language={'python'}>
             {pyContent14}
             <br/>
             {pyContent15}
@@ -237,7 +241,7 @@ class PythonFeaturesInJS extends Component {
           <Typography variant='body1' className={classes.paragraph} >
             You can sort of adopt this pattern in JavaScript methods using objects:
           </Typography>
-          <Highlight className={classes.highlight} language='javascript'>
+          <Highlight className={classes.highlight} language={'javascript'}>
             {jsContent1}
             <br/>
             {jsContent2}
