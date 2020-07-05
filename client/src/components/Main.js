@@ -19,6 +19,11 @@ const styles = theme => ({
     backgroundPosition: "0 400px",
     paddingBottom: 200
   },
+  subTitle: {
+    paddingTop: theme.spacing(2),
+    paddingRight: theme.spacing(3.5),
+    paddingLeft: theme.spacing(3.5),
+  },
   grid: {
     width: 1200,
     marginTop: 40,
@@ -122,6 +127,9 @@ class Main extends Component {
         <CssBaseline />
         <Topbar />
         <div className={classes.root}>
+          <Typography className={classes.subTitle} gutterBottom>
+            A Weblog by Curtis Mitchell, a machine learning engineer and web developer based in San Francisco
+          </Typography>
           <Grid container justify="center">
             <Grid
               spacing={4}
