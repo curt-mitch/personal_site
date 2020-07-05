@@ -12,9 +12,9 @@ class App extends Component {
   };
 
   componentDidMount() {
-    axios.get('/api/hello')
-      .then(res => this.setState({ hello: res.data }))
-      .catch(err => console.error(err));
+    // axios.get('/api/hello')
+    //   .then(res => this.setState({ hello: res.data }))
+    //   .catch(err => console.error(err));
   }
 
   render() {
