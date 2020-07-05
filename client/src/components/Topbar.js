@@ -128,7 +128,7 @@ class Topbar extends Component {
               {!this.props.noTabs && (
                 <React.Fragment>
                   <div className={classes.productLogo}>
-                    <Typography>Writing at the intersection of code, language, and mathematics</Typography>
+                    <Typography>code ∩ language ∩ math</Typography>
                   </div>
                   <div className={classes.iconContainer}>
                     <IconButton
