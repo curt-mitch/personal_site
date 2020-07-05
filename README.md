@@ -7,6 +7,7 @@ Repo for personal site.
 ### Frontend
 [React](https://reactjs.org/) - UI Framework\
 [React Router](https://reacttraining.com/react-router/) - Client-Side Routing\
+[Material-UI](https://material-ui.com/) - React Component Library
 [Redux](https://redux.js.org/) - Frontend State Management Framework\
 [Axios](https://github.com/axios/axios) - HTTP Client
 
@@ -18,7 +19,9 @@ Repo for personal site.
 
 ### Infrastructure
 [Yarn](https://yarnpkg.com/) - Package Manager (Frontend)\
-[npm](https://www.npmjs.com/) - Package Manager (Backend)
+[npm](https://www.npmjs.com/) - Package Manager (Backend)\
+[NGINX](https://www.nginx.com/) - HTTP Server\
+[DigitalOcean](https://www.digitalocean.com/) - Cloud Infrastructure
 
 ## Inspirational Projects
 [Fullstack Blog App](https://www.freecodecamp.org/news/fullstack-react-blog-app-with-express-and-psql/) - Fullstack React App With Express and PostGreSQL\
