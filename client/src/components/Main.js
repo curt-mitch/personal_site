@@ -17,7 +17,7 @@ const styles = theme => ({
     overflow: "hidden",
     backgroundSize: "cover",
     backgroundPosition: "0 400px",
-    paddingBottom: 200
+    paddingBottom: '100%'
   },
   subTitle: {
     paddingTop: theme.spacing(2),
