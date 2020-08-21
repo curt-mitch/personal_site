@@ -16,7 +16,7 @@ import SwipeableDrawer from "@material-ui/core/SwipeableDrawer";
 import { Link as MaterialLink } from "@material-ui/core";
 import Menu from "./Menu";
 
-const logo = require("../images/logo.svg");
+const logo = require("../images/curt-mitch-logo.svg");
 
 const styles = theme => ({
   appBar: {
