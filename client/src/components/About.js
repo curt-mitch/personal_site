@@ -129,6 +129,7 @@ class About extends Component {
               height: "140px",
               width: "132px",
               paddingTop: 0,
+              margin: '12px auto'
             }}
             src={profilePicture}
             aspectRatio={(408/433)}
