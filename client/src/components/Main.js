@@ -5,11 +5,9 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
-import Button from "@material-ui/core/Button";
-import Hidden from '@material-ui/core/Hidden';
-import { Link } from 'react-router-dom';
 
 import Topbar from "./Topbar";
+import PostListing from "./PostListing";
 
 const styles = theme => ({
   root: {
@@ -150,32 +148,7 @@ class Main extends Component {
                 <Grid item xs={12}>
                   <Paper className={classes.paper}>
                     <div>
-                      <div className={classes.box}>
-                        <div className={classes.postHeading}>
-                          <Typography color="secondary" gutterBottom>
-                            Three Python Features I Would Love To Have In JavaScript
-                          </Typography>
-                          <Hidden xsDown={true}>
-                            <Typography color="secondary" className={classes.postDate}>
-                              07/10/20
-                            </Typography>
-                          </Hidden>
-                        </div>
-                        <Typography variant="body1" className={classes.postDescription}>
-                        As someone who primarily learned to code using JavaScript, reading languages like C and Java wasn’t too much of a struggle once I learned to read the typing-related code (something that became all the more easy after adopting TypeScript). But once I started digging deeper into machine learning and data science it became clear I would not be able to avoid learning Python.
-                        </Typography>
-                      </div>
-                      <div className={classes.alignRight}>
-                        <Button
-                          color="primary"
-                          variant="contained"
-                          className={classes.actionButton}
-                          component={Link}
-                          to={'/posts/python-features-in-js'}
-                        >
-                          Continue reading
-                        </Button>
-                      </div>
+                      <PostListing/>
                     </div>
                   </Paper>
                 </Grid>
