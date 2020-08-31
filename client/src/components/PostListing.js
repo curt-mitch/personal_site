@@ -69,16 +69,16 @@ class PostListing extends Component {
         <div className={classes.box}>
           <div className={classes.postHeading}>
             <Typography color="secondary" gutterBottom>
-              Three Python Features I Would Love To Have In JavaScript
+              {this.props.title}
             </Typography>
             <Hidden xsDown={true}>
               <Typography color="secondary" className={classes.postDate}>
-                07/10/20
+                {this.props.publishDate}
               </Typography>
             </Hidden>
           </div>
           <Typography variant="body1" className={classes.postDescription}>
-          As someone who primarily learned to code using JavaScript, reading languages like C and Java wasn’t too much of a struggle once I learned to read the typing-related code (something that became all the more easy after adopting TypeScript). But once I started digging deeper into machine learning and data science it became clear I would not be able to avoid learning Python.
+            {this.props.firstSentence}
           </Typography>
         </div>
         <div className={classes.alignRight}>
@@ -87,7 +87,7 @@ class PostListing extends Component {
             variant="contained"
             className={classes.actionButton}
             component={Link}
-            to={'/posts/python-features-in-js'}
+            to={this.props.postLink}
           >
             Continue reading
           </Button>
