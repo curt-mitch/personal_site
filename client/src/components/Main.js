@@ -6,6 +6,7 @@ import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
+import Hidden from '@material-ui/core/Hidden';
 import { Link } from 'react-router-dom';
 
 import Topbar from "./Topbar";
@@ -66,6 +67,13 @@ const styles = theme => ({
   box: {
     marginBottom: 40,
     height: 55,
+  },
+  postHeading: {
+    display: "flex",
+    justifyContent: "space-between",
+  },
+  postDate: {
+
   },
   postDescription: {
     whiteSpace: "nowrap",
@@ -143,9 +151,16 @@ class Main extends Component {
                   <Paper className={classes.paper}>
                     <div>
                       <div className={classes.box}>
-                        <Typography color="secondary" gutterBottom>
-                          Three Python Features I Would Love To Have In JavaScript
-                        </Typography>
+                        <div className={classes.postHeading}>
+                          <Typography color="secondary" gutterBottom>
+                            Three Python Features I Would Love To Have In JavaScript
+                          </Typography>
+                          <Hidden xsDown={true}>
+                            <Typography color="secondary" className={classes.postDate}>
+                              07/10/20
+                            </Typography>
+                          </Hidden>
+                        </div>
                         <Typography variant="body1" className={classes.postDescription}>
                         As someone who primarily learned to code using JavaScript, reading languages like C and Java wasn’t too much of a struggle once I learned to read the typing-related code (something that became all the more easy after adopting TypeScript). But once I started digging deeper into machine learning and data science it became clear I would not be able to avoid learning Python.
                         </Typography>
