@@ -25,7 +25,6 @@ const styles = theme => ({
   },
   grid: {
     width: 1200,
-    marginTop: 40,
     [theme.breakpoints.down("sm")]: {
       width: "calc(100% - 20px)"
     }
@@ -33,7 +32,8 @@ const styles = theme => ({
   paper: {
     padding: theme.spacing(3),
     textAlign: "left",
-    color: theme.palette.text.secondary
+    color: theme.palette.text.secondary,
+    margin: theme.spacing(2)
   },
   rangeLabel: {
     display: "flex",
@@ -150,11 +150,21 @@ class Main extends Component {
                     <div>
                       <PostListing
                         title="Three Python Features I Would Love To Have In JavaScript"
-                        publishDate="7/10/20"
+                        publishDate="July 10, 2020"
                         firstSentence="As someone who primarily learned to code using JavaScript, reading languages like C and Java wasn’t too much of a struggle once I learned to read the typing-related code (something that became all the more easy after adopting TypeScript). But once I started digging deeper into machine learning and data science it became clear I would not be able to avoid learning Python."
                         postLink="/posts/python-features-in-js"
                       />
                     </div>
+                  </Paper>
+                  <Paper className={classes.paper}>
+                    <div>
+                        <PostListing
+                          title="How to Evaluate A Machine Translation Model"
+                          publishDate="August 30, 2020"
+                          firstSentence="Evaluating how accurately a machine learning model performs is one of the key questions any ML practioner needs to answer during model development. For many types of tasks such as image recognition, "
+                          postLink="/posts/evaluating-machine-translation-models"
+                        />
+                      </div>
                   </Paper>
                 </Grid>
               </Grid>
