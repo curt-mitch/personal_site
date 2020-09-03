@@ -167,47 +167,46 @@ class EvaluatingMTModels extends Component {
             Gauging how accurately a machine learning model performs is one of the key questions any ML practioner needs to answer during model development. For many types of tasks such as image recognition, evaluating how accurate a model’s results are is relatively straightfoward: the image label is either correct or it isn’t. But how do you measure how accurate a machine translation result is? After all, for any but the simplest ideas, it’s usually possible to convey that idea in multiple ways in any language. In this post we’ll examine a few of the most common NLP metrics and how they are computed when assessing the performance of machine translation models.
           </Typography>
           <Typography variant='body1' className={classes.paragraph} >
-            As I mentioned above, beyond the simplest of sentences multiple translations of one language to another are possible. For instance, the English sentence “Yesterday I went to the store” could be translated into Spanish as “Ayer yo fui a la tienda.” But since Spanish allows the dropping of subjects (because listeners can infer the subject from the form of the verb’s conjugation), this could also be “Ayer fui a la tienda.” Here is where confusion about the best translation can start to arise. For instance, for a native Spanish-speaker which sentence is closer to the original English sentence? And this is still a fairly simple example where the two languages are relatively closely related and the word order in each sentence is the same!
+            As I mentioned above, beyond the simplest of sentences multiple translations of one language to another are possible. For instance, the English sentence “Yesterday I went to the store” could be translated into Spanish as “Ayer yo me fui a la tienda.” But since Spanish allows the dropping of subjects, in this case “yo” (because listeners can infer the subject from the form of the verb’s conjugation), this sentence could also be “Ayer me fui a la tienda.” Here is where confusion about the best translation can start to arise. For instance, for a native Spanish-speaker which sentence is closer to the original English sentence? And this is still a fairly simple example where the two languages are relatively closely related and the word order in each sentence is the same!
           </Typography>
           <Typography variant='h5' className={classes.block} >
             Building Blocks
           </Typography>
           <Typography variant='body1' className={classes.paragraph} >
-            With the advent of statistical machine translation in the last 20 years and the more recent rise of deep learning applications in NLP, researchers have created many metrics to “score” the accuracy of machine translation models. These metrics work by examining a variety of measures and linguistic features in sentences and entire documents (usually called a “corpus”, plural “corpuses”). Probably the most commonly used feature across most translation scoring methods is n-grams.
+            With the advent of statistical machine translation in the last 20 years and the more recent rise of deep learning applications in NLP, researchers have created many metrics to “score” the accuracy of machine translation models. In order to calculate a numerical value these various metrics use a variety of measures and linguistic features in sentences and entire documents (in NLP, a document is usually referred to as a “corpus”, plural “corpuses”), primarily n-grams and precision/recall, which we’ll look at here.
           </Typography>
           <Typography variant='body1' className={classes.sectionTitle} >
             n-grams:
           </Typography>
           <Typography variant='body1' className={classes.paragraph} >
-            In NLP n-grams, where “n” stands for any whole number, are the sets of “n” neighboring words in a text. A “unigram” or 1-gram would be any single word, “bigrams” or 2-grams any two neighboring words, and so forth. Below is a table of n-grams for the sentence “The dog ate the treat”:
+            In NLP n-grams, where “n” stands for any whole number, are the sets of “n” neighboring words in a text. A “unigram” or 1-gram would be any single word, “bigrams” or 2-grams any two neighboring words, and so forth. Below is a table of n-grams for the opening sentence of Nobel Prize-winning author Yasunari Kawabata’s famous 1948 novel, <u>Snow Country</u>: “The train came out of the long tunnel into the snow country.”:
           </Typography>
           <Typography variant='body1' className={classes.exampleList} >
-            unigrams: [“The”, “dog”, “ate”, “the”, ”treat”]
+            <strong>unigrams</strong>: [“The”, “train”, “came”, “out”, “of, “the”, “long”, “tunnel”, “into”, “the”, ”snow”, “country”]
           </Typography>
           <Typography variant='body1' className={classes.exampleList} >
-            bigrams: [“The dog”, “dog ate”, “ate the”, “the treat”]
+            <strong>bigrams</strong>: [“The train”, “train came”, “came out”, “out of”, “of the”, “the long”, “long tunnel”, “tunnel into”, “into the”, “the snow”, ”snow country”]
           </Typography>
           <Typography variant='body1' className={classes.exampleList} >
-            trigrams: [“the dog ate”, “dog ate the”, “ate the treat”]
+            <strong>trigrams</strong>: [“The train came”, “train came out”, “came out of”, “out of the”, “of the long”, “the long tunnel”, “long tunnel into”, “tunnel into the”, “into the snow”, “the snow country”]
           </Typography>
           <Typography variant='body1' className={classes.exampleList} >
-            4-grams: [“The dog ate the”, “dog ate the treat”]
+            <strong>4-grams</strong>: [“The train came out”, “train came out of”, “came out of the”, “out of the long”, “of the long tunnel”, “the long tunnel into”, “long tunnel into the”, “tunnel into the snow”, “into the snow country”]
           </Typography>
-          <Typography variant='body1' className={classes.exampleList} >
+          <Typography variant='body1' className={classes.paragraph} >
             <strong>note</strong>: N-grams over 3 are typically written with the number, but the bigger the n-gram the less frequently it is used for most NLP tasks.
           </Typography>
-          <Typography variant='body1' className={classes.paragraph} ></Typography>
           <Typography variant='body1' className={classes.sectionTitle} >
             precision and recall:
           </Typography>
           <Typography variant='body1' className={classes.paragraph} >
-            Precision is a measure of how well your model performs at detecting members of the class you’re looking for. The formula for precision can re represented as:
+            Precision is a measure of how well your model performs at detecting members of the class you’re looking for. We use the total number of correctly and incorrectly labeled positives in the denominator to represent precision as:
           </Typography>
           <Typography variant='body1' className={classes.exampleList} >
             true_positives / (true_positives + false_positives).
           </Typography>
           <Typography variant='body1' className={classes.paragraph} >
-            Recall (also called “sensitivity”) is similar to precision, wherein the percentage of correct labels that were detected by your model is calculated. Recall can be represented as:
+            Recall (also called “sensitivity”) is similar to precision, wherein the percentage of correct labels that were detected by your model is calculated. Because the total number of true positives and false negatives is the total number of examples, we use that as the denominator and thus recall can be represented as:
           </Typography>
           <Typography variant='body1' className={classes.exampleList} >
             true_positives / (true_positives + false_negatives).
@@ -219,7 +218,7 @@ class EvaluatingMTModels extends Component {
             BLEU
           </Typography>
           <Typography variant='body1' className={classes.paragraph}>
-            Probably the most well-known NLP metric, and usually the one other NLP metrics are compared to, is the BLEU score. It was proposed by Kishore Papineni and his coauthors in a 2002 paper at the Annual Meeting of the Association for Computational Linguistics (ACL). BLEU stands for “BiLingual Evaluation Understudy” and compares a candidate  sentence (i.e., the machine-generated sentence in the case of NLP models) to reference sentences that are usually created by human translators. The general idea behind the BLEU score is that it compares the n-grams in both the candidate sentence and reference sentences and counts the number of matches. The positions of the n-grams within each sentence do not matter, and the more matches there are the higher the BLEU score is.
+            The BLEU score has a strong claim to be the most-well known translation metric, as it’s usually the one all other metrics are compared to. It was proposed by Kishore Papineni and his coauthors in a 2002 paper at the Annual Meeting of the Association for Computational Linguistics (ACL). BLEU stands for “BiLingual Evaluation Understudy” and compares a candidate  sentence (i.e., the machine-generated sentence in the case of NLP models) to reference sentences that are usually created by human translators. The general idea behind the BLEU score is that it compares the n-grams in both the candidate sentence and reference sentences and counts the number of matches. The positions of the n-grams within each sentence do not matter, and the more matches there are the higher the BLEU score is.
           </Typography>
           <Typography variant='body1' className={classes.paragraph}>
             Let’s look at some examples to build our intuition. We’ll compare a known reference sentence and a hypothesis sentence that’s hypothetically the output of a machine translation program, and both sentences will be stored as arrays of tokens representing individual words. We can use the sentence-level BLEU score that comes as part of the NLTK API:
@@ -267,6 +266,9 @@ class EvaluatingMTModels extends Component {
           <Typography variant='body1' className={classes.paragraph} >
             When computing the BLEU score for an entire corpus, the precision scores of individual sentences are combined using the geometric mean, along with a penalty applied when the length of the reference corpus is shorter is less than or equal the length of the hypothesis sentence.
           </Typography>
+          <Typography variant='body1' className={classes.paragraph} >
+            Although the BLEU score was innovative when introduced and creates scores between 0 and 1 that can be easy to reason about, compared to more recently-introduced methods it can seem somewhat simplistic to use a method that only compares the number of overlapping n-grams.
+          </Typography>
           <Typography variant='h5' className={classes.block} >
             NIST
           </Typography>
@@ -292,6 +294,9 @@ class EvaluatingMTModels extends Component {
           </Highlight>
           <Typography variant='body1' className={classes.paragraph} >
             Notice that the NIST scores will tend to be greater than one. This is due to the differences between the NIST and BLEU methods given above, plus the fact that the NIST method uses the arithmetic mean of the n-gram overlaps while BLEU uses the geometric mean. See the final section below for details on the differences.
+          </Typography>
+          <Typography variant='body1' className={classes.paragraph} >
+            Although the NIST does have slight improvements over BLEU due to the higher weighting of uncommon n-grams and the different calculation of the brevity penalty, those same features make the potential range of score values more difficult to reason about.
           </Typography>
           <Typography variant='h5' className={classes.block} >
             METEOR
@@ -319,6 +324,9 @@ class EvaluatingMTModels extends Component {
           </Typography>
           <Typography variant='body1' className={classes.paragraph} >
             We can see that the METEOR score is significantly higher here versus that of the BLEU score (it was about 0.5946) on the same pair of sentences. This reflects one of the goals of the METEOR metric to more closely mimic human judgement versus the BLEU score, as most people would agree that the sentences are overall very similiar, i.e. that changing “the” to “a” in the translation would be a minor error.
+          </Typography>
+          <Typography variant='body1' className={classes.paragraph} >
+            Because of the increased weighting for recall, and the use of the harmonic mean which works better than the arithmetic or geometric means for situations where an average of weights is desired, METEOR is a great choice for machine translation models that is relatively simple to calculate (versus more modern methods) and remains easy to reason about. This is especially true for sentence level translations and these are the reasons I chose to use the METEOR score when evaluating my own translation model that I’ll discuss in a future post.
           </Typography>
           <Typography variant='h5' className={classes.block} >
             Conclusion
