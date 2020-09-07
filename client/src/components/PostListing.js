@@ -6,6 +6,7 @@ import Hidden from '@material-ui/core/Hidden';
 import CssBaseline from "@material-ui/core/CssBaseline";
 import { withRouter } from "react-router-dom";
 import { Link } from 'react-router-dom';
+import moment from 'moment';
 
 const styles = theme => ({
   actionButton: {
@@ -28,8 +29,7 @@ const styles = theme => ({
     display: "flex",
     justifyContent: "space-between",
   },
-  postDate: {
-
+  postDateLong: {
   },
   postDescription: {
     whiteSpace: "nowrap",
@@ -63,6 +63,8 @@ const styles = theme => ({
 class PostListing extends Component {
   render() {
     const { classes } = this.props;
+    const longDate = moment(this.props.publishDate).format("MMMM DD, YYYY");
+
     return (
       <React.Fragment>
         <CssBaseline />
@@ -72,8 +74,8 @@ class PostListing extends Component {
               {this.props.title}
             </Typography>
             <Hidden xsDown={true}>
-              <Typography color="secondary" className={classes.postDate}>
-                {this.props.publishDate}
+              <Typography color="secondary" className={classes.postDateLong}>
+                {longDate}
               </Typography>
             </Hidden>
           </div>

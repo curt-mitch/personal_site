@@ -134,7 +134,7 @@ class Main extends Component {
         <Topbar />
         <div className={classes.root}>
           <Typography className={classes.subTitle} gutterBottom>
-            A Weblog by Curtis Mitchell, a machine learning engineer and web developer based in San Francisco
+            Writings by Curtis Mitchell at the intersection of machine learning, natural language, web development, and mathematics
           </Typography>
           <Grid container justify="center">
             <Grid
@@ -150,7 +150,7 @@ class Main extends Component {
                     <div>
                         <PostListing
                           title="How to Evaluate A Machine Translation Model"
-                          publishDate="August 30, 2020"
+                          publishDate="2020-08-30"
                           firstSentence="Evaluating how accurately a machine learning model performs is one of the key questions any ML practioner needs to answer during model development. For many types of tasks such as image recognition, "
                           postLink="/posts/evaluating-machine-translation-models"
                         />
@@ -160,7 +160,7 @@ class Main extends Component {
                     <div>
                       <PostListing
                         title="Three Python Features I Would Love To Have In JavaScript"
-                        publishDate="July 10, 2020"
+                        publishDate="2020-07-10"
                         firstSentence="As someone who primarily learned to code using JavaScript, reading languages like C and Java wasn’t too much of a struggle once I learned to read the typing-related code (something that became all the more easy after adopting TypeScript). But once I started digging deeper into machine learning and data science it became clear I would not be able to avoid learning Python."
                         postLink="/posts/python-features-in-js"
                       />
