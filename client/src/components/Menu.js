@@ -12,6 +12,11 @@ const Menu = [
     label: "Github",
     pathname: "https://github.com/curt-mitch",
     external: true
+  },
+  {
+    label: '',
+    pathname: "/posts",
+    display: "none"
   }
 
 ];

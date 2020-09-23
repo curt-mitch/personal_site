@@ -107,6 +107,12 @@ class Topbar extends Component {
     if (this.props.location.pathname === "/about") {
       return 1;
     }
+    if (this.props.location.pathname.includes("github")) {
+      return 2;
+    }
+    if (this.props.location.pathname.includes("/posts")) {
+      return 3;
+    }
   };
 
   render() {
@@ -190,6 +196,7 @@ class Topbar extends Component {
                           }
                           classes={{ root: classes.tabItem }}
                           label={item.label}
+                          style={{ display: item.display }}
                         />
                       ))}
                     </Tabs>
