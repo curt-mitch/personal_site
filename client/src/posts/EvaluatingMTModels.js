@@ -6,6 +6,7 @@ import Typography from "@material-ui/core/Typography";
 
 import hljs from 'highlight.js/lib/highlight';
 import Highlight from 'react-highlight.js';
+import { MathComponent } from 'mathjax-react'
 
 import Topbar from "../components/Topbar";
 
@@ -93,6 +94,9 @@ const styles = theme => ({
     padding: theme.spacing(2),
     textIndent: '20px',
     textAlign: 'justify',
+  },
+  equation: {
+    padding: 0,
   },
   sectionTitle: {
     paddingLeft: theme.spacing(2),
@@ -338,19 +342,37 @@ class EvaluatingMTModels extends Component {
             Translation metrics is still a field of active development, but it’s not uncommon for newer methods to be compared to the three metrics described here. In fact Google recently announced a newly developed metric they call “BLEURT” (<a href="https://ai.googleblog.com/2020/05/evaluating-natural-language-generation.html">Google AI Blog: Evaluating Natural Language Generation with BLEURT</a>), so it’s clear that BLEU is still often considered the metric to beat!
           </Typography>
           <Typography variant='h6' className={classes.block} >
-            Mathematical Details
+            Supplement: Mathematical Details
           </Typography>
           <Typography variant='body1' className={classes.paragraph} >
-            Arithmetic mean: The NIST metric utilizes the arithmetic mean, which is the most common version of an average and is usually what is implied when someone uses the word “mean” on its own. The arithmetic mean is the sum of n numbers divided by n, i.e. (x1 + x2 + … + xn) / n. For instance, the arithmetic mean of 2, 4, and 3 would be (2 + 4 + 3) / 3 = 9/3 = 3
+            <strong>Arithmetic mean</strong>: The NIST metric utilizes the arithmetic mean, which is the most common version of an average and is usually what is implied when someone uses the word “mean” on its own. The arithmetic mean is the sum of n numbers divided by n:
+          </Typography>
+          <Typography component={'span'} className={classes.equation}>
+            <MathComponent tex={String.raw`A = \frac{1}{n} \sum_{i-1}^n x_i = \frac{x_1 + x_2 + ... + x_n}{n}`}/>
           </Typography>
           <Typography variant='body1' className={classes.paragraph} >
-            Geometric mean: The BLEU metric utilizes the geometric mean of the number of overlapping n-grams. The geometric mean is defined as the nth root of the product of n numbers, i.e. (x1 * x2 * … * xn) ^ (1/n). For instance, the geometric mean of the numbers 1, 4, and 2 would be (1 * 4 * 2) ^ (1/3) = 8^(1/3) = 2
+          For instance, the arithmetic mean of 2, 4, and 3 would be (2 + 4 + 3) / 3 = 9/3 = 3
           </Typography>
           <Typography variant='body1' className={classes.paragraph} >
-            Harmonic mean: The METEOR metric utilizes the harmonic mean of the number of overlapping n-grams. The harmonic mean is defined as the reciprocal of the arithmetic mean of the reciprocals of n numbers, i.e. ((1/x1 + 1/x2 + … + 1/xn) / n) ^ (-1). For instance, the harmonic mean of 1, 4, and 4 would be ((1/1 + 1/4 + 1/4) / 3) ^ (-1) = 3/(1 + 0.25 + 0.25) = 3/1.5 = 2
+            <strong>Geometric mean</strong>: The BLEU metric utilizes the geometric mean of the number of overlapping n-grams. The geometric mean is defined as the nth root of the product of n numbers:
+          </Typography>
+          <Typography component={'span'} className={classes.equation}>
+            <MathComponent tex={String.raw`G = \Bigl(\prod_{i=1}^n x_i\Bigl)^\frac{1}{n} = \sqrt[n]{x_1 x_2 ... x_n}`} />
+          </Typography>
+          <Typography variant='body1' className={classes.paragraph} >
+            For instance, the geometric mean of the numbers 1, 4, and 2 would be (1 * 4 * 2) ^ (1/3) = 8^(1/3) = 2
+          </Typography>
+          <Typography variant='body1' className={classes.paragraph} >
+            <strong>Harmonic mean</strong>: The METEOR metric utilizes the harmonic mean of the number of overlapping n-grams. The harmonic mean is defined as the reciprocal of the arithmetic mean of the reciprocals of n numbers:
+          </Typography>
+          <Typography component={'span'} className={classes.equation} >
+            <MathComponent tex={String.raw`H = \Biggl(\frac{\sum\limits_{i=1}^{n} x_i^{-1}}{n}\Biggl)^{-1} = \frac{n}{\sum\limits_{i=1}^{n} \frac{1}{x_i}} = \frac{n}{\frac{1}{x_1} + \frac{1}{x_2} + ... + \frac{1}{x_n}}`} />
+          </Typography>
+          <Typography variant='body1' className={classes.paragraph} >
+            For instance, the harmonic mean of 1, 4, and 4 would be ((1/1 + 1/4 + 1/4) / 3) ^ (-1) = 3/(1 + 0.25 + 0.25) = 3/1.5 = 2
           </Typography>
           <Typography variant='h6' className={classes.block} >
-            Original Papers for Machine Translation Metrics
+            Supplement: Original Papers for Machine Translation Metrics
           </Typography>
           <Typography variant='body1' className={classes.paragraph} >
             BLEU: <a href="https://www.aclweb.org/anthology/P02-1040.pdf">BLEU: a Method for Automatic Evaluation of Machine Translation</a>
