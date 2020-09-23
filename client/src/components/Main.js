@@ -16,7 +16,15 @@ const styles = theme => ({
     overflow: "hidden",
     backgroundSize: "cover",
     backgroundPosition: "0 400px",
-    paddingBottom: '100%'
+    paddingBottom: '100%',
+    // display: "flex",
+    height: "100%",
+    width: "100%",
+  },
+  backgroundGraph: {
+    color: "green",
+    height: "100%",
+    width: "100%",
   },
   subTitle: {
     paddingTop: theme.spacing(2),
@@ -133,6 +141,7 @@ class Main extends Component {
         <CssBaseline />
         <Topbar />
         <div className={classes.root}>
+          <div className={classes.backgroundGraph}></div>
           <Typography className={classes.subTitle} gutterBottom>
             Writings by Curtis Mitchell at the intersection of machine learning, natural language, web development, and mathematics
           </Typography>
