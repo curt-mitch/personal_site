@@ -14,6 +14,11 @@ const Menu = [
     external: true
   },
   {
+    label: "LinkedIn",
+    pathname: "https://www.linkedin.com/in/curtislmitchell/",
+    external: true
+  },
+  {
     label: '',
     pathname: "/posts",
     display: "none"
