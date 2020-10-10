@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import axios from "axios";
 import withStyles from "@material-ui/styles/withStyles";
 import { withRouter } from "react-router-dom";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -113,10 +114,13 @@ const styles = theme => ({
 class Main extends Component {
   state = {
     learnMoredialog: false,
-    getStartedDialog: false
+    getStartedDialog: false,
+    postList: [],
   };
 
-  componentDidMount() {}
+  componentDidMount() {
+    this.getPostsLists();
+  }
 
   openDialog = event => {
     this.setState({ learnMoredialog: true });
@@ -134,8 +138,49 @@ class Main extends Component {
     this.setState({ getStartedDialog: false });
   };
 
+  getPostsLists = () => {
+    const compareDate = (postA, postB) => {
+      if (postA.publish_date > postB.publish_date) return 1;
+      if (postB.publish_date > postA.publish_date) return -1;
+
+      return 0;
+    }
+
+    axios
+      .get("http://localhost:8000/api/posts/")
+      .then(res => {
+        const posts = res.data.sort(compareDate)
+        this.setState({ postList: posts })
+      })
+      .catch(err => console.log(err));
+  }
+
+  renderPostList = (posts, classes) => {
+    return (
+      posts
+
+        .map(post => {
+          return (
+            <Paper
+              className={classes.paper}
+              key={post.id}>
+              <div>
+                  <PostListing
+                    title={post.title}
+                    publishDate={post.publish_date}
+                    firstSentence={post.first_sentence}
+                    postLink={post.post_link}
+                  />
+                </div>
+            </Paper>
+          );
+      })
+   );
+  };
+
   render() {
     const { classes } = this.props;
+    const { postList } = this.state;
     return (
       <React.Fragment>
         <CssBaseline />
@@ -155,26 +200,7 @@ class Main extends Component {
             >
               <Grid container item xs={12}>
                 <Grid item xs={12}>
-                  <Paper className={classes.paper}>
-                    <div>
-                        <PostListing
-                          title="How to Evaluate A Machine Translation Model"
-                          publishDate="2020-08-30"
-                          firstSentence="Evaluating how accurately a machine learning model performs is one of the key questions any ML practioner needs to answer during model development. For many types of tasks such as image recognition, "
-                          postLink="/posts/evaluating-machine-translation-models"
-                        />
-                      </div>
-                  </Paper>
-                  <Paper className={classes.paper}>
-                    <div>
-                      <PostListing
-                        title="Three Python Features I Would Love To Have In JavaScript"
-                        publishDate="2020-07-10"
-                        firstSentence="As someone who primarily learned to code using JavaScript, reading languages like C and Java wasn’t too much of a struggle once I learned to read the typing-related code (something that became all the more easy after adopting TypeScript). But once I started digging deeper into machine learning and data science it became clear I would not be able to avoid learning Python."
-                        postLink="/posts/python-features-in-js"
-                      />
-                    </div>
-                  </Paper>
+                  {this.renderPostList(postList, classes)}
                 </Grid>
               </Grid>
             </Grid>
