@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'rest_framework',
     'posts',
+    'apps.jp_en_endpoints',
 ]
 
 MIDDLEWARE = [
