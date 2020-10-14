@@ -18,10 +18,14 @@ from django.urls import path, include
 from rest_framework import routers
 from posts import views
 
-router = routers.DefaultRouter()
+from apps.jp_en_endpoints.urls import urlpatterns as endpoints_urlpatterns
+
+router = routers.DefaultRouter(trailing_slash=False)
 router.register(r'posts', views.PostsView, 'posts')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls))
 ]
+
+urlpatterns += endpoints_urlpatterns
