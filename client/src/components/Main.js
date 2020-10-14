@@ -139,18 +139,10 @@ class Main extends Component {
   };
 
   getPostsLists = () => {
-    const compareDate = (postA, postB) => {
-      if (postA.publish_date > postB.publish_date) return 1;
-      if (postB.publish_date > postA.publish_date) return -1;
-
-      return 0;
-    }
-
     axios
       .get("http://localhost:8000/api/posts/")
       .then(res => {
-        const posts = res.data.sort(compareDate)
-        this.setState({ postList: posts })
+        this.setState({ postList: res.data })
       })
       .catch(err => console.log(err));
   }

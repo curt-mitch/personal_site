@@ -5,4 +5,5 @@ from apps.posts.models import Posts
 
 class PostsView(viewsets.ModelViewSet):
   serializer_class = PostsSerializer
-  queryset = Posts.objects.all()
+  # return posts in reverse chronological order (newest first)
+  queryset = Posts.objects.all().order_by("-publish_date")
