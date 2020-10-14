@@ -4,17 +4,17 @@ from rest_framework import viewsets
 from rest_framework import mixins
 from rest_framework.exceptions import APIException
 
-from app.jp_en_endpoints.models import Endpoint
-from app.jp_en_endpoints.serializers import EndpointSerializer
+from apps.jp_en_endpoints.models import Endpoint
+from apps.jp_en_endpoints.serializers import EndpointSerializer
 
-from app.jp_en_endpoints.models import MLAlgorithm
-from app.jp_en_endpoints.serializers import MLAlgorithmSerializer
+from apps.jp_en_endpoints.models import MLAlgorithm
+from apps.jp_en_endpoints.serializers import MLAlgorithmSerializer
 
-from app.jp_en_endpoints.models import MLAlgorithmStatus
-from app.jp_en_endpoints.serializers import MLAlgorithmStatusSerializer
+from apps.jp_en_endpoints.models import MLAlgorithmStatus
+from apps.jp_en_endpoints.serializers import MLAlgorithmStatusSerializer
 
-from app.jp_en_endpoints.models import MLRequest
-from app.jp_en_endpoints.serializers import MLRequestSerializer
+from apps.jp_en_endpoints.models import MLRequest
+from apps.jp_en_endpoints.serializers import MLRequestSerializer
 
 class EndpointViewSet(
     mixins.RetrieveModelMixin, mixins.ListModelMixin, viewsets.GenericViewSet

@@ -1,8 +1,8 @@
 from rest_framework import serializers
-from app.jp_en_endpoints.models import Endpoint
-from app.jp_en_endpoints.models import MLAlgorithm
-from app.jp_en_endpoints.models import MLAlgorithmStatus
-from app.jp_en_endpoints.models import MLRequest
+from apps.jp_en_endpoints.models import Endpoint
+from apps.jp_en_endpoints.models import MLAlgorithm
+from apps.jp_en_endpoints.models import MLAlgorithmStatus
+from apps.jp_en_endpoints.models import MLRequest
 
 class EndpointSerializer(serializers.ModelSerializer):
   class Meta:
