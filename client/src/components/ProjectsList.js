@@ -8,7 +8,7 @@ import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 
 import Topbar from "./Topbar";
-import PostListing from "./PostListing";
+import ProjectListing from "./ProjectListing";
 
 const styles = theme => ({
   root: {
@@ -140,7 +140,7 @@ class ProjectsList extends Component {
 
   getPostsLists = () => {
     axios
-      .get("http://localhost:8000/api/posts/")
+      .get("http://localhost:8000/api/projects/")
       .then(res => {
         this.setState({ postList: res.data })
       })
@@ -157,11 +157,11 @@ class ProjectsList extends Component {
               className={classes.paper}
               key={post.id}>
               <div>
-                  <PostListing
+                  <ProjectListing
                     title={post.title}
                     publishDate={post.publish_date}
-                    firstSentence={post.first_sentence}
-                    postLink={post.post_link}
+                    description={post.description}
+                    postLink={post.project_link}
                   />
                 </div>
             </Paper>
@@ -180,7 +180,7 @@ class ProjectsList extends Component {
         <div className={classes.root}>
           <div className={classes.backgroundGraph}></div>
           <Typography className={classes.subTitle} gutterBottom>
-            This is a sample of projects I've worked on as a machine learning engineer and web developer
+            A sample of personal projects I've worked on as a machine learning engineer and web developer
           </Typography>
           <Grid container justify="center">
             <Grid
