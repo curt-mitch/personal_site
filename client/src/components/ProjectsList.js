@@ -18,6 +18,7 @@ const styles = theme => ({
     backgroundSize: "cover",
     backgroundPosition: "0 400px",
     paddingBottom: '100%',
+    // display: "flex",
     height: "100%",
     width: "100%",
   },
@@ -110,7 +111,7 @@ const styles = theme => ({
   }
 });
 
-class Main extends Component {
+class ProjectsList extends Component {
   state = {
     learnMoredialog: false,
     getStartedDialog: false,
@@ -179,7 +180,7 @@ class Main extends Component {
         <div className={classes.root}>
           <div className={classes.backgroundGraph}></div>
           <Typography className={classes.subTitle} gutterBottom>
-            Writings by Curtis Mitchell at the intersection of machine learning, natural language, web development, and mathematics
+            This is a sample of projects I've worked on as a web developer and machine learning engineer
           </Typography>
           <Grid container justify="center">
             <Grid
@@ -202,4 +203,4 @@ class Main extends Component {
   }
 }
 
-export default withRouter(withStyles(styles)(Main));
+export default withRouter(withStyles(styles)(ProjectsList));
