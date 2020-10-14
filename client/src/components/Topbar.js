@@ -110,8 +110,11 @@ class Topbar extends Component {
     if (this.props.location.pathname === "/about") {
       return 2;
     }
-    if (this.props.location.pathname.includes("/posts")) {
+    if (this.props.location.pathname.includes("/posts/")) {
       return 3;
+    }
+    if (this.props.location.pathname.includes("/project/")) {
+      return 4;
     }
   };
 
