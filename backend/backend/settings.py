@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'rest_framework',
     'apps.posts',
+    'apps.projects',
     'apps.jp_en_endpoints',
 ]
 

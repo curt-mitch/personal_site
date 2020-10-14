@@ -17,11 +17,13 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
 from apps.posts.views import PostsView
+from apps.projects.views import ProjectsView
 
 from apps.jp_en_endpoints.urls import urlpatterns as endpoints_urlpatterns
 
 router = routers.DefaultRouter()
 router.register(r'posts', PostsView, 'posts')
+router.register(r'projects', ProjectsView, 'projects')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
