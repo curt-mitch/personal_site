@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Posts
+from apps.posts.models import Posts
 
 class PostsAdmin(admin.ModelAdmin):
   list_display = ('title', 'first_sentence', 'publish_date', 'post_link')

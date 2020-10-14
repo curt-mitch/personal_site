@@ -5,7 +5,7 @@ from apps.jp_en_endpoints.views import MLAlgorithmViewSet
 from apps.jp_en_endpoints.views import MLAlgorithmStatusViewSet
 from apps.jp_en_endpoints.views import MLRequestViewSet
 
-router = routers.DefaultRouter(trailing_slash=False)
+router = routers.DefaultRouter()
 router.register(r'endpoints', EndpointViewSet, 'endpoints')
 router.register(r'mlalgorithms', MLAlgorithmViewSet, 'mlalgorithms')
 router.register(r'mlalgorithmsstatuses', MLAlgorithmStatusViewSet, 'mlalgorithmsstatuses')

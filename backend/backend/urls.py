@@ -16,12 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
-from apps.posts import views
+from apps.posts.views import PostsView
 
 from apps.jp_en_endpoints.urls import urlpatterns as endpoints_urlpatterns
 
-router = routers.DefaultRouter(trailing_slash=False)
-router.register(r'posts', views.PostsView, 'posts')
+router = routers.DefaultRouter()
+router.register(r'posts', PostsView, 'posts')
 
 urlpatterns = [
     path('admin/', admin.site.urls),

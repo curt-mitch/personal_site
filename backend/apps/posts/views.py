@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from rest_framework import viewsets
-from .serializers import PostsSerializer
-from .models import Posts
+from apps.posts.serializers import PostsSerializer
+from apps.posts.models import Posts
 
 class PostsView(viewsets.ModelViewSet):
   serializer_class = PostsSerializer
