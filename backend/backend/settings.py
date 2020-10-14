@@ -55,7 +55,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'corsheaders',
     'rest_framework',
-    'posts',
+    'apps.posts',
     'apps.jp_en_endpoints',
 ]
 

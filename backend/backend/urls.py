@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
-from posts import views
+from apps.posts import views
 
 from apps.jp_en_endpoints.urls import urlpatterns as endpoints_urlpatterns
 
