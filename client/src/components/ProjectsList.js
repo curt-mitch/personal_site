@@ -180,7 +180,7 @@ class ProjectsList extends Component {
         <div className={classes.root}>
           <div className={classes.backgroundGraph}></div>
           <Typography className={classes.subTitle} gutterBottom>
-            This is a sample of projects I've worked on as a web developer and machine learning engineer
+            This is a sample of projects I've worked on as a machine learning engineer and web developer
           </Typography>
           <Grid container justify="center">
             <Grid
