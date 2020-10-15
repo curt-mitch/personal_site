@@ -18,7 +18,6 @@ const styles = theme => ({
     backgroundSize: "cover",
     backgroundPosition: "0 400px",
     paddingBottom: '100%',
-    // display: "flex",
     height: "100%",
     width: "100%",
   },
@@ -180,7 +179,7 @@ class ProjectsList extends Component {
         <div className={classes.root}>
           <div className={classes.backgroundGraph}></div>
           <Typography className={classes.subTitle} gutterBottom>
-            A sample of personal projects I've worked on as a machine learning engineer and web developer (besides this website itself 😅)
+            A sample of personal projects I've worked on as a machine learning engineer and web developer
           </Typography>
           <Grid container justify="center">
             <Grid

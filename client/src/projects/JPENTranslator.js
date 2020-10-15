@@ -8,6 +8,8 @@ import TextField from '@material-ui/core/TextField';
 
 import Topbar from "../components/Topbar";
 
+// TODO: use https://github.com/wooorm/franc to detect Japanese in input before sending to backend
+
 const styles = theme => ({
   root: {
     flexGrow: 1,
@@ -15,7 +17,9 @@ const styles = theme => ({
     overflow: "hidden",
     backgroundSize: "cover",
     backgroundPosition: "0 400px",
-    paddingBottom: 200
+    paddingBottom: '100%',
+    height: "100%",
+    width: "100%",
   },
   grid: {
     width: 1200,
