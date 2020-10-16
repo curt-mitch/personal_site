@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import axios from "axios";
 import withStyles from "@material-ui/styles/withStyles";
 import { withRouter } from "react-router-dom";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -103,7 +104,20 @@ class JPENTranslator extends Component {
     getStartedDialog: false
   };
 
-  componentDidMount() {}
+  componentDidMount() {
+    this.putTranslationRequest();
+  }
+
+  putTranslationRequest() {
+    axios
+      .post("http://localhost:8000/api/jp_en_translator/predict", {
+        input_text: "こんにちは",
+      })
+      .then(res => {
+        console.log('put response', res);
+      })
+      .catch(err => console.log(err));
+  }
 
   openDialog = event => {
     this.setState({ learnMoredialog: true });
