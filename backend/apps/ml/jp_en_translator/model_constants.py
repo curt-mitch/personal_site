@@ -1,0 +1,12 @@
+import tensorflow as tf
+
+# model parameters
+BUFFER_SIZE = 15000
+BATCH_SIZE = 16
+EMBEDDING_DIM = 32
+UNITS = 128
+VOCAB_INPUT_SIZE = 154222
+VOCAB_TARGET_SIZE = 131612
+MAX_LENGTH_INPUT = 80
+MAX_LENGTH_TARGET = 83
+OPTIMIZER = tf.keras.optimizers.Adam()
