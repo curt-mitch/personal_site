@@ -6,6 +6,7 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import Typography from "@material-ui/core/Typography";
 import Link from '@material-ui/core/Link';
 import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
 
 import Topbar from "../components/Topbar";
 
@@ -87,7 +88,7 @@ const styles = theme => ({
     top: "40%",
     left: "40%"
   },
-  jpInput: {
+  jpInputContainer: {
     padding: '0px 48px',
     margin: '8px'
   },
@@ -100,38 +101,37 @@ const styles = theme => ({
 
 class JPENTranslator extends Component {
   state = {
-    learnMoredialog: false,
-    getStartedDialog: false
-  };
+    predictionAbsent: true,
+    jpTextAbsent: true,
+    translationText: '',
+};
 
   componentDidMount() {
-    this.putTranslationRequest();
   }
 
   putTranslationRequest() {
+    const textValue = this.state.translationText;
     axios
-      .get("http://localhost:8000/api/jp_en_translator/predict?input_text=こんにちは")
+      .get(`http://localhost:8000/api/jp_en_translator/predict?input_text=${textValue}`)
       .then(res => {
         console.log('put response', res);
       })
       .catch(err => console.log(err));
   }
 
-  openDialog = event => {
-    this.setState({ learnMoredialog: true });
-  };
-
-  dialogClose = event => {
-    this.setState({ learnMoredialog: false });
-  };
-
-  openGetStartedDialog = event => {
-    this.setState({ getStartedDialog: true });
-  };
-
-  closeGetStartedDialog = event => {
-    this.setState({ getStartedDialog: false });
-  };
+  onTextFieldChange(textValue) {
+    if (textValue.length > 0) {
+      this.setState({
+        jpTextAbsent: false,
+        translationText: textValue,
+      })
+    } else {
+      this.setState({
+        jpTextAbsent: true,
+        translationText: '',
+      })
+    }
+  }
 
   render() {
     const { classes } = this.props;
@@ -147,17 +147,26 @@ class JPENTranslator extends Component {
           <Typography variant='body1' className={classes.paragraph} >
             This application takes in a Japanese sentence and returns a predicted English translation of that sentence. It was trained on the <Link color="secondary" underline="hover" href="https://nlp.stanford.edu/projects/jesc/">JESC Japanese-English Subtitle Corpus</Link> using an encoder-decoder neural network. To read more about the design and training of the model please read my post here.
           </Typography>
-          <TextField
-            className={classes.jpInput}
-            placeholder="こんにちは"
-            helperText="Add Japanese text here"
-            fullWidth
-            margin="normal"
-            InputLabelProps={{
-              shrink: true,
-            }}
-            variant="outlined"
-          />
+          <div className={classes.jpInputContainer}>
+            <TextField
+              placeholder="こんにちは"
+              helperText="Add Japanese text here"
+              fullWidth
+              margin="normal"
+              InputLabelProps={{
+                shrink: true,
+              }}
+              variant="outlined"
+              onChange={e => this.onTextFieldChange(e.target.value)}
+            />
+            <Button
+              variant="contained"
+              color="primary"
+              disabled={this.state.jpTextAbsent}
+              onClick={() => this.putTranslationRequest()}>
+              Get Translation
+            </Button>
+          </div>
         </div>
       </React.Fragment>
     );
