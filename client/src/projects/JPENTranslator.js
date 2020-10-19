@@ -9,6 +9,7 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 
 import Topbar from "../components/Topbar";
+import isJapaneseText from "../utils/jpTextDetector";
 
 // TODO: use https://github.com/wooorm/franc to detect Japanese in input before sending to backend
 
@@ -113,13 +114,18 @@ class JPENTranslator extends Component {
 
   makeTranslationRequest() {
     const textValue = this.state.japaneseText;
-
-    axios
+    if (isJapaneseText(textValue)) {
+      axios
       .get(`http://localhost:8000/api/jp_en_translator/predict?input_text=${textValue}`)
       .then(res => {
         this.showTranslationResult(res.data.prediction);
       })
       .catch(err => console.error(err));
+    } else {
+      const message = `The input text does not appear to be Japanese. Please try a different sentence.
+      入力テキストが日本語ではないようです。別の文を試してください。`
+      this.setErrorState(message)
+    }
   }
 
   onTextFieldChange(textValue) {
@@ -143,11 +149,15 @@ class JPENTranslator extends Component {
       if (englishTranslation.error === 'KeyError') {
         const message = `It appears one or more words are not included in the model's lexicon. Please try a different phrase.
         1つ以上の単語がモデルのレキシコンに含まれていないようです。別のフレーズを試してください。`;
-        this.setState({ errorState: message })
+        this.setErrorState(message)
       }
     } else {
       this.setState({ englishTranslation });
     }
+  }
+
+  setErrorState(message) {
+    this.setState({ errorState: message })
   }
 
   render() {
