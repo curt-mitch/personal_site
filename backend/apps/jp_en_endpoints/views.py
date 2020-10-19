@@ -1,3 +1,4 @@
+import sys
 import re
 
 from rest_framework import generics
@@ -28,7 +29,11 @@ class Translation(generics.RetrieveAPIView):
     def get(self, request, *args, **kwargs):
         print('Translation get request')
         input_text = request.GET.get('input_text')
-        prediction = self.create_prediction_response(input_text)
+        prediction = ''
+        try:
+          prediction = self.create_prediction_response(input_text)
+        except Exception as exception:
+          prediction = { 'error': exception.__class__.__name__}
 
         serializer = TranslationTextGetSerializer(data=input_text)
         response = {'prediction': prediction}

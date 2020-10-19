@@ -97,6 +97,9 @@ const styles = theme => ({
     textIndent: '20px',
     textAlign: 'justify',
   },
+  errorMessage: {
+    color: 'red',
+  }
 });
 
 class JPENTranslator extends Component {
@@ -105,6 +108,7 @@ class JPENTranslator extends Component {
     jpTextAbsent: true,
     japaneseText: '',
     englishTranslation: '',
+    errorState: null,
 };
 
   makeTranslationRequest() {
@@ -123,17 +127,27 @@ class JPENTranslator extends Component {
       this.setState({
         jpTextAbsent: false,
         japaneseText: textValue,
+        errorState: null,
       })
     } else {
       this.setState({
         jpTextAbsent: true,
         japaneseText: '',
+        errorState: null,
       })
     }
   }
 
   showTranslationResult(englishTranslation) {
-    this.setState({ englishTranslation });
+    if (englishTranslation.error) {
+      if (englishTranslation.error === 'KeyError') {
+        const message = `It appears one or more words are not included in the model's lexicon. Please try a different phrase.
+        1つ以上の単語がモデルのレキシコンに含まれていないようです。別のフレーズを試してください。`;
+        this.setState({ errorState: message })
+      }
+    } else {
+      this.setState({ englishTranslation });
+    }
   }
 
   render() {
@@ -171,7 +185,7 @@ class JPENTranslator extends Component {
             </Button>
             <TextField
               placeholder=""
-              helperText="The English translation will appear here - 英訳がここにがここに表示させます"
+              helperText="The English translation will appear here - 英訳がここに表示させます"
               fullWidth
               margin="normal"
               InputLabelProps={{
@@ -180,6 +194,9 @@ class JPENTranslator extends Component {
               variant="outlined"
               value={this.state.englishTranslation}
             />
+            <Typography className={classes.errorMessage}>
+              {this.state.errorState}
+            </Typography>
           </div>
         </div>
       </React.Fragment>
