@@ -103,34 +103,37 @@ class JPENTranslator extends Component {
   state = {
     predictionAbsent: true,
     jpTextAbsent: true,
-    translationText: '',
+    japaneseText: '',
+    englishTranslation: '',
 };
 
-  componentDidMount() {
-  }
+  makeTranslationRequest() {
+    const textValue = this.state.japaneseText;
 
-  putTranslationRequest() {
-    const textValue = this.state.translationText;
     axios
       .get(`http://localhost:8000/api/jp_en_translator/predict?input_text=${textValue}`)
       .then(res => {
-        console.log('put response', res);
+        this.showTranslationResult(res.data.prediction);
       })
-      .catch(err => console.log(err));
+      .catch(err => console.error(err));
   }
 
   onTextFieldChange(textValue) {
     if (textValue.length > 0) {
       this.setState({
         jpTextAbsent: false,
-        translationText: textValue,
+        japaneseText: textValue,
       })
     } else {
       this.setState({
         jpTextAbsent: true,
-        translationText: '',
+        japaneseText: '',
       })
     }
+  }
+
+  showTranslationResult(englishTranslation) {
+    this.setState({ englishTranslation });
   }
 
   render() {
@@ -150,7 +153,7 @@ class JPENTranslator extends Component {
           <div className={classes.jpInputContainer}>
             <TextField
               placeholder="こんにちは"
-              helperText="Add Japanese text here"
+              helperText="Add Japanese text here - ここに日本語のテキストを入力してください"
               fullWidth
               margin="normal"
               InputLabelProps={{
@@ -163,9 +166,20 @@ class JPENTranslator extends Component {
               variant="contained"
               color="primary"
               disabled={this.state.jpTextAbsent}
-              onClick={() => this.putTranslationRequest()}>
+              onClick={() => this.makeTranslationRequest()}>
               Get Translation
             </Button>
+            <TextField
+              placeholder=""
+              helperText="The English translation will appear here - 英訳がここにがここに表示させます"
+              fullWidth
+              margin="normal"
+              InputLabelProps={{
+                shrink: true,
+              }}
+              variant="outlined"
+              value={this.state.englishTranslation}
+            />
           </div>
         </div>
       </React.Fragment>
