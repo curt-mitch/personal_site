@@ -110,9 +110,7 @@ class JPENTranslator extends Component {
 
   putTranslationRequest() {
     axios
-      .post("http://localhost:8000/api/jp_en_translator/predict", {
-        input_text: "こんにちは",
-      })
+      .get("http://localhost:8000/api/jp_en_translator/predict?input_text=こんにちは")
       .then(res => {
         console.log('put response', res);
       })
