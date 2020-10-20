@@ -41,7 +41,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env("DEBUG")
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [host for host in env("DJANGO_ALLOWED_HOSTS").split(" ")]
 
 
 # Application definition
@@ -143,8 +143,4 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 # we whitelist localhost:3000 because that's where frontend will be served
-CORS_ORIGIN_WHITELIST = (
-     'http://localhost:3000',
-     'http://localhost:8000',
-     'http://localhost:8080'
- )
+CORS_ORIGIN_WHITELIST = [ipAdd for ipAdd in env("CORS_ORIGIN_WHITELIST").split(" ")]
