@@ -107,15 +107,9 @@ const styles = theme => ({
 });
 
 class Main extends Component {
-  state = {
-    learnMoredialog: false,
-    getStartedDialog: false,
-    postList: [],
-  };
-
   render() {
     const { classes } = this.props;
-    const { postList } = this.state;
+
     return (
       <React.Fragment>
         <CssBaseline />
@@ -123,7 +117,7 @@ class Main extends Component {
         <div className={classes.root}>
           <div className={classes.backgroundGraph}></div>
           <Typography className={classes.subTitle} gutterBottom>
-            Howdy! I'm Curtis Mitchell, a software engineer based in San Francisco. Welcome to my website where I host my writings and projects at the intersection of machine learning, natural language processing, web development, and mathematics.
+            Howdy! I'm Curtis Mitchell, a software engineer based in San Francisco. Welcome to my website where I host my articles and projects at the intersection of machine learning, natural language processing, web development, and mathematics.
           </Typography>
           <div className={classes.btnContainer}>
             <Button
