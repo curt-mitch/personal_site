@@ -1,12 +1,14 @@
 import React, { Component } from "react";
-import { Link } from 'react-router-dom';
+import axios from "axios";
 import withStyles from "@material-ui/styles/withStyles";
 import { withRouter } from "react-router-dom";
 import CssBaseline from "@material-ui/core/CssBaseline";
+import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
-import Button from "@material-ui/core/Button";
+import Grid from "@material-ui/core/Grid";
 
 import Topbar from "./Topbar";
+import PostListing from "./PostListing";
 
 const styles = theme => ({
   root: {
@@ -68,14 +70,16 @@ const styles = theme => ({
   block: {
     padding: theme.spacing(2)
   },
-  btnContainer: {
+  box: {
     marginBottom: 40,
-    marginLeft: 20,
     height: 55,
   },
   postHeading: {
     display: "flex",
     justifyContent: "space-between",
+  },
+  postDate: {
+
   },
   postDescription: {
     whiteSpace: "nowrap",
@@ -113,6 +117,58 @@ class Main extends Component {
     postList: [],
   };
 
+  componentDidMount() {
+    this.getPostsLists();
+  }
+
+  openDialog = event => {
+    this.setState({ learnMoredialog: true });
+  };
+
+  dialogClose = event => {
+    this.setState({ learnMoredialog: false });
+  };
+
+  openGetStartedDialog = event => {
+    this.setState({ getStartedDialog: true });
+  };
+
+  closeGetStartedDialog = event => {
+    this.setState({ getStartedDialog: false });
+  };
+
+  getPostsLists = () => {
+    axios
+      .get("http://localhost:8000/api/posts/")
+      .then(res => {
+        this.setState({ postList: res.data })
+      })
+      .catch(err => console.log(err));
+  }
+
+  renderPostList = (posts, classes) => {
+    return (
+      posts
+
+        .map(post => {
+          return (
+            <Paper
+              className={classes.paper}
+              key={post.id}>
+              <div>
+                  <PostListing
+                    title={post.title}
+                    publishDate={post.publish_date}
+                    firstSentence={post.first_sentence}
+                    postLink={post.post_link}
+                  />
+                </div>
+            </Paper>
+          );
+      })
+   );
+  };
+
   render() {
     const { classes } = this.props;
     const { postList } = this.state;
@@ -123,28 +179,23 @@ class Main extends Component {
         <div className={classes.root}>
           <div className={classes.backgroundGraph}></div>
           <Typography className={classes.subTitle} gutterBottom>
-            Howdy! I'm Curtis Mitchell, a software engineer based in San Francisco. Welcome to my website where I host my writings and projects at the intersection of machine learning, natural language processing, web development, and mathematics.
+            Articles on various technical topics in machine learning, web development, and related fields.
           </Typography>
-          <div className={classes.btnContainer}>
-            <Button
-              color="primary"
-              variant="contained"
-              className={classes.actionButton}
-              component={Link}
-              to="/posts"
+          <Grid container justify="center">
+            <Grid
+              spacing={4}
+              alignItems="center"
+              justify="center"
+              container
+              className={classes.grid}
             >
-              Go to Articles
-            </Button>
-            <Button
-              color="primary"
-              variant="contained"
-              className={classes.actionButton}
-              component={Link}
-              to="/projects"
-            >
-              Go to Projects
-            </Button>
-          </div>
+              <Grid container item xs={12}>
+                <Grid item xs={12}>
+                  {this.renderPostList(postList, classes)}
+                </Grid>
+              </Grid>
+            </Grid>
+          </Grid>
         </div>
       </React.Fragment>
     );

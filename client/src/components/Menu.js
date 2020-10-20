@@ -4,6 +4,10 @@ const Menu = [
     pathname: "/"
   },
   {
+    label: "Posts",
+    pathname: "/posts"
+  },
+  {
     label: "Projects",
     pathname: "/projects"
   },
@@ -13,7 +17,7 @@ const Menu = [
   },
   {
     label: '',
-    pathname: "/posts",
+    pathname: "/post",
     display: "none"
   },
   {

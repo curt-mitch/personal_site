@@ -1,6 +1,7 @@
 import React from 'react'
 import { Route, Switch, BrowserRouter } from 'react-router-dom'
 import Main from './components/Main'
+import PostsList from './components/PostsList';
 import ProjectsList from './components/ProjectsList';
 import About from './components/About'
 import PythonFeaturesInJS from './posts/PythonFeaturesInJS'
@@ -14,10 +15,11 @@ export default props => (
       <ScrollToTop>
         <Switch>
           <Route exact path='/' component={ Main } />
+          <Route exact path='/posts' component={ PostsList } />
           <Route exact path='/projects' component={ ProjectsList } />
           <Route exact path='/about' component={ About } />
-          <Route exact path='/posts/python-features-in-js' component={PythonFeaturesInJS} />
-          <Route exact path='/posts/evaluating-machine-translation-models' component={EvaluatingMTPerformance} />
+          <Route exact path='/post/python-features-in-js' component={PythonFeaturesInJS} />
+          <Route exact path='/post/evaluating-machine-translation-models' component={EvaluatingMTPerformance} />
           <Route exact path='/project/jp-en-translator' component={JPENTranslator} />
           <Route exact path='/project/website-walkthrough' component={CurtMitchSiteWalkthrough} />
         </Switch>
