@@ -114,7 +114,7 @@ class JPENTranslator extends Component {
     const textValue = this.state.japaneseText;
     if (isJapaneseText(textValue)) {
       axios
-      .get(`http://localhost:8000/api/jp_en_translator/predict?input_text=${textValue}`)
+      .get(`${process.env.REACT_APP_HOST_IP_ADDRESS}/api/jp_en_translator/predict?input_text=${textValue}`)
       .then(res => {
         this.showTranslationResult(res.data.prediction);
       })

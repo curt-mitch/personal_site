@@ -139,7 +139,7 @@ class Main extends Component {
 
   getPostsLists = () => {
     axios
-      .get("http://localhost:8000/api/posts/")
+      .get(`${process.env.REACT_APP_HOST_IP_ADDRESS}/api/posts/`)
       .then(res => {
         this.setState({ postList: res.data })
       })
