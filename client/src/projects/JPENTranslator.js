@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
-import withStyles from "@material-ui/styles/withStyles";
 import { withRouter } from "react-router-dom";
+import withStyles from "@material-ui/styles/withStyles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Typography from "@material-ui/core/Typography";
 import Link from '@material-ui/core/Link';
@@ -10,8 +10,6 @@ import Button from '@material-ui/core/Button';
 
 import Topbar from "../components/Topbar";
 import isJapaneseText from "../utils/jpTextDetector";
-
-// TODO: use https://github.com/wooorm/franc to detect Japanese in input before sending to backend
 
 const styles = theme => ({
   root: {
