@@ -32,3 +32,5 @@ node_modules
 
 # Env file
 .env
+
+backend/env/*
