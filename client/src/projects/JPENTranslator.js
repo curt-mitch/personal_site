@@ -192,7 +192,10 @@ class JPENTranslator extends Component {
             Japanese-To-English Translation Application
           </Typography>
           <Typography variant='body1' className={classes.paragraph} >
-            This application takes in a Japanese sentence and returns a predicted English translation of that sentence. It was trained on the <Link color="secondary" underline="hover" href="https://nlp.stanford.edu/projects/jesc/">JESC Japanese-English Subtitle Corpus</Link> using an encoder-decoder neural network. To read more about the design and training of the model please read my post here.
+            This application takes in a Japanese sentence and returns a predicted English translation of that sentence. It was trained on the <Link color="secondary" underline="hover" href="https://nlp.stanford.edu/projects/jesc/">JESC Japanese-English Subtitle Corpus</Link> using an encoder-decoder neural network.
+          </Typography>
+          <Typography variant='body1' className={classes.paragraph} >
+            Not a Japanese-speaker? Just click this link to use Google Translate to create and copy some Japanese text to paste back here: <Link color="secondary" underline="hover" href="https://translate.google.com/#view=home&op=translate&sl=en&tl=ja">EN-JP Google Translate</Link>
           </Typography>
           <div className={classes.jpInputContainer}>
             <TextField
