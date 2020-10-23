@@ -7,6 +7,7 @@ import Typography from "@material-ui/core/Typography";
 import Link from '@material-ui/core/Link';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 import Topbar from "../components/Topbar";
 import isJapaneseText from "../utils/jpTextDetector";
@@ -98,6 +99,12 @@ const styles = theme => ({
   },
   errorMessage: {
     color: 'red',
+  },
+  buttonSpinnerContainer: {
+    display: 'flex'
+  },
+  translationBtn: {
+    marginRight: '18px',
   }
 });
 
@@ -107,22 +114,37 @@ class JPENTranslator extends Component {
     jpTextAbsent: true,
     japaneseText: '',
     englishTranslation: '',
+    fetchingTranslation: false,
     errorState: null,
 };
 
   makeTranslationRequest() {
     const textValue = this.state.japaneseText;
     if (isJapaneseText(textValue)) {
+      this.setState({
+        fetchingTranslation: true,
+      });
       axios
       .get(`${process.env.REACT_APP_HOST_IP_ADDRESS}/api/jp_en_translator/predict?input_text=${textValue}`)
       .then(res => {
         this.showTranslationResult(res.data.prediction);
+        this.setState({
+          fetchingTranslation: false,
+        });
       })
-      .catch(err => console.error(err));
+      .catch(err => {
+        console.error(err);
+        const message = `The server does not appear to be connected. Please try again later.
+        サーバーが接続されていないようです。 後でもう一度やり直してください。`
+        this.setErrorState(message);
+        this.setState({
+          fetchingTranslation: false,
+        });
+      });
     } else {
       const message = `The input text does not appear to be Japanese. Please try a different sentence.
       入力テキストが日本語ではないようです。別の文を試してください。`
-      this.setErrorState(message)
+      this.setErrorState(message);
     }
   }
 
@@ -184,13 +206,17 @@ class JPENTranslator extends Component {
               variant="outlined"
               onChange={e => this.onTextFieldChange(e.target.value)}
             />
-            <Button
-              variant="contained"
-              color="primary"
-              disabled={this.state.jpTextAbsent}
-              onClick={() => this.makeTranslationRequest()}>
-              Get Translation
-            </Button>
+            <div className={classes.buttonSpinnerContainer}>
+              <Button
+                variant="contained"
+                color="primary"
+                disabled={this.state.jpTextAbsent}
+                className={classes.translationBtn}
+                onClick={() => this.makeTranslationRequest()}>
+                Get Translation
+              </Button>
+              { this.state.fetchingTranslation ? <CircularProgress /> : null }
+            </div>
             <TextField
               placeholder=""
               helperText="The English translation will appear here - 英訳がここに表示させます"
