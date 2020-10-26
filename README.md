@@ -14,7 +14,7 @@ Repo for personal site.
 ### Backend
 [Django](https://www.djangoproject.com/) - Python Server Framework\
 [SQLite](https://www.sqlite.org/index.html) - SQL Database\
-[Django REST framework](https://www.django-rest-framework.org/) - REST Framework\
+[Django REST framework](https://www.django-rest-framework.org/) - REST Framework
 
 ### Infrastructure
 [Yarn](https://yarnpkg.com/) - Package Manager (Frontend)\
