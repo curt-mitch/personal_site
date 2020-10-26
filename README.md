@@ -12,16 +12,16 @@ Repo for personal site.
 [Axios](https://github.com/axios/axios) - HTTP Client
 
 ### Backend
-[PostgreSQL](https://www.postgresql.org/) - Relational Database\
-[Node.js](https://nodejs.org/en/) - JavaScript Runtime\
-[Express](https://expressjs.com/) - Web Application Framework\
-[Helmet](https://helmetjs.github.io/) - HTTP Header Security library
+[Django](https://www.djangoproject.com/) - Python Server Framework\
+[SQLite](https://www.sqlite.org/index.html) - SQL Database\
+[Django REST framework](https://www.django-rest-framework.org/) - REST Framework\
 
 ### Infrastructure
 [Yarn](https://yarnpkg.com/) - Package Manager (Frontend)\
-[npm](https://www.npmjs.com/) - Package Manager (Backend)\
 [NGINX](https://www.nginx.com/) - HTTP Server\
-[DigitalOcean](https://www.digitalocean.com/) - Cloud Infrastructure
+[DigitalOcean](https://www.digitalocean.com/) - Cloud Infrastructure\
+[Docker](https://www.docker.com/) - Container Framework
+[Let's Encrypt](https://letsencrypt.org/) - TLS Certificate Authority
 
 ## Inspirational Projects
 [Fullstack Blog App](https://www.freecodecamp.org/news/fullstack-react-blog-app-with-express-and-psql/) - Fullstack React App With Express and PostGreSQL\
