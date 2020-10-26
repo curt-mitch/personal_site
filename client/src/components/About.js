@@ -63,11 +63,6 @@ const styles = theme => ({
     textIndent: '20px',
     textAlign: 'justify',
   },
-  externalLink: {
-    padding: theme.spacing(1),
-    textIndent: '20px',
-    textAlign: 'justify',
-  },
   box: {
     marginBottom: 40,
     height: 65
