@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import withStyles from "@material-ui/styles/withStyles";
 import { withRouter } from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import withStyles from "@material-ui/styles/withStyles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Typography from "@material-ui/core/Typography";
 import Link from '@material-ui/core/Link';
@@ -92,6 +93,14 @@ const styles = theme => ({
     position: "absolute",
     top: "40%",
     left: "40%"
+  },
+  externalLink: {
+    fontSize: "20px",
+    marginLeft: "20px",
+    marginTop: "8px",
+  },
+  linkText: {
+    paddingLeft: "8px",
   }
 });
 
@@ -162,10 +171,10 @@ class About extends Component {
             External Links
           </Typography>
           <Typography variant='body1' className={classes.externalLink} >
-            <Link color="secondary" underline="hover" href="https://www.github.com/curt-mitch">Github</Link>
+            <FontAwesomeIcon className={classes.faIcon} icon={['fab', 'github']} /><Link className={classes.linkText} color="secondary" underline="hover" href="https://www.github.com/curt-mitch">Github</Link>
           </Typography>
           <Typography variant='body1' className={classes.externalLink} >
-            <Link color="secondary" underline="hover" href="https://www.linkedin.com/in/curtislmitchell/">LinkedIn</Link>
+            <FontAwesomeIcon className={classes.faIcon} icon={['fab', 'linkedin']} /><Link className={classes.linkText} color="secondary" underline="hover" href="https://www.linkedin.com/in/curtislmitchell/">LinkedIn</Link>
           </Typography>
         </div>
       </React.Fragment>
