@@ -20,7 +20,7 @@ Repo for personal site.
 [Yarn](https://yarnpkg.com/) - Package Manager (Frontend)\
 [NGINX](https://www.nginx.com/) - HTTP Server\
 [DigitalOcean](https://www.digitalocean.com/) - Cloud Infrastructure\
-[Docker](https://www.docker.com/) - Container Framework
+[Docker](https://www.docker.com/) - Container Framework\
 [Let's Encrypt](https://letsencrypt.org/) - TLS Certificate Authority
 
 ## Inspirational Projects
