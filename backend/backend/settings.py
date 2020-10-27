@@ -144,3 +144,23 @@ STATIC_URL = '/static/'
 
 # we whitelist where frontend will be served from
 CORS_ORIGIN_WHITELIST = [ipAdd for ipAdd in env("CORS_ORIGIN_WHITELIST").split(" ")]
+
+# create logging for file debug.log
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'file': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': 'debug.log',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['file'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+    },
+}
