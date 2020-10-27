@@ -143,7 +143,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 # we whitelist where frontend will be served from
-CORS_ORIGIN_WHITELIST = [ipAdd for ipAdd in env("CORS_ORIGIN_WHITELIST").split(" ")]
+CORS_ALLOWED_ORIGINS = [ipAdd for ipAdd in env("CORS_ALLOWED_ORIGINS").split(" ")]
 
 # create logging for file debug.log
 LOGGING = {
