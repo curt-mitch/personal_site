@@ -7,5 +7,5 @@ class Posts(models.Model):
   publish_date = models.DateField()
   post_link = models.CharField(max_length=200)
 
-def _str_(self):
-  return self.title
+  def _str_(self):
+    return self.title
