@@ -340,7 +340,7 @@ class EvaluatingMTModels extends Component {
             As we’ve seen from the variety of machine translation evaluation metrics, there’s no single method for determining translation accuracy. Depending on which properties of a sentence or corpus are measured, such as unigram recall rate or the weighting of the rareness of particular n-grams, there are a variety of metrics to choose from. On the other hand each metric provides some calculation of common components of a translation, usually the overlap of n-grams using some type of average.
           </Typography>
           <Typography variant='body1' className={classes.paragraph} >
-            Translation metrics is still a field of active development, but it’s not uncommon for newer methods to be compared to the three metrics described here. In fact Google recently announced a newly developed metric they call “BLEURT” (<Link color="secondary" underline="hover" href="https://ai.googleblog.com/2020/05/evaluating-natural-language-generation.html">Google AI Blog: Evaluating Natural Language Generation with BLEURT</Link>), so it’s clear that BLEU is still often considered the metric to beat!
+            Translation metrics is still a field of active development, but it’s not uncommon for newer methods to be compared to the three metrics described here. In fact Google recently announced a newly developed metric they call “BLEURT” (<Link color="secondary" underline="hover" target="_blank" rel="noopener noreferrer" href="https://ai.googleblog.com/2020/05/evaluating-natural-language-generation.html">Google AI Blog: Evaluating Natural Language Generation with BLEURT</Link>), so it’s clear that BLEU is still often considered the metric to beat!
           </Typography>
           <Typography variant='h6' className={classes.block} >
             Supplement: Mathematical Details
@@ -376,13 +376,13 @@ class EvaluatingMTModels extends Component {
             Supplement: Original Papers for Machine Translation Metrics
           </Typography>
           <Typography variant='body1' className={classes.paragraph} >
-            BLEU: <Link color="secondary" underline="hover" href="https://www.aclweb.org/anthology/P02-1040.pdf">BLEU: a Method for Automatic Evaluation of Machine Translation</Link>
+            BLEU: <Link color="secondary" underline="hover" target="_blank" rel="noopener noreferrer" href="https://www.aclweb.org/anthology/P02-1040.pdf">BLEU: a Method for Automatic Evaluation of Machine Translation</Link>
           </Typography>
           <Typography variant='body1' className={classes.paragraph} >
-            NIST: <Link color="secondary" underline="hover" href="https://dl.acm.org/doi/pdf/10.5555/1289189.1289273">Automatic Evaluation of Machine Translation Quality Using N-gram Co-Occurrence Statistics</Link>
+            NIST: <Link color="secondary" underline="hover" target="_blank" rel="noopener noreferrer" href="https://dl.acm.org/doi/pdf/10.5555/1289189.1289273">Automatic Evaluation of Machine Translation Quality Using N-gram Co-Occurrence Statistics</Link>
           </Typography>
           <Typography variant='body1' className={classes.paragraph} >
-            METEOR: <Link color="secondary" underline="hover" href="https://www.cs.cmu.edu/~alavie/METEOR/pdf/Lavie-Agarwal-2007-METEOR.pdf">Meteor: An Automatic Metric for MT Evaluation with High Levels of Correlation with Human Judgments</Link>
+            METEOR: <Link color="secondary" underline="hover" target="_blank" rel="noopener noreferrer" href="https://www.cs.cmu.edu/~alavie/METEOR/pdf/Lavie-Agarwal-2007-METEOR.pdf">Meteor: An Automatic Metric for MT Evaluation with High Levels of Correlation with Human Judgments</Link>
           </Typography>
         </div>
       </React.Fragment>
