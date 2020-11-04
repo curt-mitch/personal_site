@@ -22,8 +22,8 @@ const styles = theme => ({
   appBar: {
     position: "relative",
     boxShadow: "none",
-    borderBottom: `1px solid ${theme.palette.grey["100"]}`,
-    backgroundColor: "white"
+    backgroundColor: theme.palette.grey["100"],
+    display: "flex"
   },
   inline: {
     display: "inline"
@@ -63,7 +63,7 @@ const styles = theme => ({
     }
   },
   iconButton: {
-    float: "right"
+    // float: "right"
   },
   tabContainer: {
     marginLeft: 32,
@@ -133,15 +133,12 @@ class Topbar extends Component {
                 <Typography variant="h6" color="inherit" noWrap>
                   <Link to="/" className={classes.link}>
                     <img width={20} src={logo} alt="" />
-                    <span className={classes.tagline}>Curtis' Blog</span>
+                    <span className={classes.tagline}>Curtis Mitchell</span>
                   </Link>
                 </Typography>
               </div>
               {!this.props.noTabs && (
                 <React.Fragment>
-                  <div className={classes.productLogo}>
-                    <Typography>code ∩ language ∩ math</Typography>
-                  </div>
                   <div className={classes.iconContainer}>
                     <IconButton
                       onClick={this.mobileMenuOpen}

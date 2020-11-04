@@ -115,7 +115,7 @@ class Main extends Component {
         <CssBaseline />
         <Topbar />
         <div className={classes.root}>
-          <div className={classes.backgroundGraph}></div>
+          <div className={classes.backgroundGraph} />
           <Typography className={classes.subTitle} gutterBottom>
             Howdy! I'm Curtis Mitchell, a software engineer based in San Francisco. Welcome to my website where I host my articles and projects at the intersection of machine learning, natural language processing, web development, and mathematics.
           </Typography>
@@ -127,7 +127,7 @@ class Main extends Component {
               component={Link}
               to="/posts"
             >
-              Go to Articles
+              Go to Posts
             </Button>
             <Button
               color="primary"
