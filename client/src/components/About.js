@@ -5,9 +5,9 @@ import withStyles from "@material-ui/styles/withStyles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Typography from "@material-ui/core/Typography";
 import Link from '@material-ui/core/Link';
-import Image from 'material-ui-image'
-import profilePicture from '../images/curtis-profile-pic-small.png';
+import Image from 'material-ui-image';
 
+import profilePicture from '../images/curtis-profile-pic-small.png';
 import Topbar from "./Topbar";
 
 const styles = theme => ({
