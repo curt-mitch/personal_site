@@ -31,7 +31,7 @@ const styles = theme => ({
     bottom: "0px",
     maxWidth: "790px",
     // lower on mobile
-    ['@media (min-width:780px)']: {
+    ['@media (min-width:780px)']: { // eslint-disable-line no-useless-computed-key
       bottom: "70px",
     }
   },
