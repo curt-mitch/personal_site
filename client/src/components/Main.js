@@ -4,13 +4,15 @@ import withStyles from "@material-ui/styles/withStyles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Typography from "@material-ui/core/Typography";
 import Container from '@material-ui/core/Container';
+import Image from 'material-ui-image';
 
+import radialGradient from '../images/radial_gradient1.png';
 import Topbar from "./Topbar";
 
 const styles = theme => ({
   root: {
     flexGrow: 1,
-    backgroundColor: theme.palette.grey["100"],
+    backgroundColor: 'transparent',
     overflow: "hidden",
     backgroundSize: "cover",
     backgroundPosition: "0 400px",
@@ -19,7 +21,8 @@ const styles = theme => ({
     width: "100%",
   },
   backgroundGraph: {
-    color: "green",
+    position: "absolute",
+    backgroundColor: theme.palette.grey["100"],
     height: "100%",
     width: "100%",
   },
@@ -119,7 +122,15 @@ class Main extends Component {
         <CssBaseline />
         <Topbar />
         <div className={classes.root}>
-          <div className={classes.backgroundGraph} />
+          <div className={classes.backgroundGraph}>
+          <Image
+            imageStyle={{
+              height: "576px",
+              width: "100%",
+            }}
+            src={radialGradient}
+          />
+          </div>
           <Container className={classes.siteTitleContainer} >
             <Typography className={classes.title} gutterBottom>
               Howdy! I'm Curtis Mitchell, a software engineer based in San Francisco.
