@@ -110,7 +110,7 @@ const styles = theme => ({
   }
 });
 
-class Main extends Component {
+class PostsList extends Component {
   state = {
     learnMoredialog: false,
     getStartedDialog: false,
@@ -202,4 +202,4 @@ class Main extends Component {
   }
 }
 
-export default withRouter(withStyles(styles)(Main));
+export default withRouter(withStyles(styles)(PostsList));
