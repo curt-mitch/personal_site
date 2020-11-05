@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import withStyles from "@material-ui/styles/withStyles";
 import { withRouter } from "react-router-dom";
+import withStyles from "@material-ui/styles/withStyles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Typography from "@material-ui/core/Typography";
 import Container from '@material-ui/core/Container';
@@ -25,8 +25,12 @@ const styles = theme => ({
   },
   siteTitleContainer: {
     position: "absolute",
-    bottom: "70px",
-    maxWidth: "790px"
+    bottom: "0px",
+    maxWidth: "790px",
+    // lower on mobile
+    ['@media (min-width:780px)']: {
+      bottom: "70px",
+    }
   },
   title: {
     paddingTop: theme.spacing(2),
@@ -116,7 +120,7 @@ class Main extends Component {
         <Topbar />
         <div className={classes.root}>
           <div className={classes.backgroundGraph} />
-          <Container className={classes.siteTitleContainer}>
+          <Container className={classes.siteTitleContainer} >
             <Typography className={classes.title} gutterBottom>
               Howdy! I'm Curtis Mitchell, a software engineer based in San Francisco.
             </Typography>
