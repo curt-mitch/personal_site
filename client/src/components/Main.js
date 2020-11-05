@@ -25,6 +25,7 @@ const styles = theme => ({
     backgroundColor: theme.palette.grey["100"],
     height: "100%",
     width: "100%",
+    imageRendering: "-webkit-optimize-contrast",
   },
   siteTitleContainer: {
     position: "absolute",
