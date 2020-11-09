@@ -6,6 +6,7 @@ import ProjectsList from './components/ProjectsList';
 import About from './components/About'
 import PythonFeaturesInJS from './posts/PythonFeaturesInJS'
 import EvaluatingMTPerformance from './posts/EvaluatingMTModels';
+import JPENTranslatorWalkthrough from './posts/JPENTranslatorWalkthrough';
 import JPENTranslator from './projects/JPENTranslator';
 import CurtMitchSiteWalkthrough from './projects/CurtMitchSiteWalkthrough';
 import ScrollToTop from './components/ScrollTop'
@@ -20,6 +21,7 @@ export default props => (
           <Route exact path='/about' component={ About } />
           <Route exact path='/post/python-features-in-js' component={PythonFeaturesInJS} />
           <Route exact path='/post/evaluating-machine-translation-models' component={EvaluatingMTPerformance} />
+          <Route exact path='/post/jp-en-translator-walkthrough' component={JPENTranslatorWalkthrough} />
           <Route exact path='/project/jp-en-translator' component={JPENTranslator} />
           <Route exact path='/project/website-walkthrough' component={CurtMitchSiteWalkthrough} />
         </Switch>
