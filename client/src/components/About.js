@@ -19,49 +19,23 @@ const styles = theme => ({
     backgroundPosition: "0 400px",
     paddingBottom: 200
   },
-  grid: {
-    width: 1200,
-    marginTop: 40,
-    [theme.breakpoints.down("sm")]: {
-      width: "calc(100% - 20px)"
-    }
-  },
-  paper: {
-    padding: theme.spacing(3),
-    textAlign: "left",
-    color: theme.palette.text.secondary
-  },
-  rangeLabel: {
-    display: "flex",
-    justifyContent: "space-between",
-    paddingTop: theme.spacing(2)
-  },
   topBar: {
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
     marginTop: 32
   },
-  outlinedButtom: {
-    textTransform: "uppercase",
-    margin: theme.spacing(1)
-  },
-  actionButtom: {
-    textTransform: "uppercase",
-    margin: theme.spacing(1),
-    width: 152
-  },
-  blockCenter: {
+  title: {
     padding: theme.spacing(2),
-    textAlign: "center"
-  },
-  block: {
-    padding: theme.spacing(2),
+    maxWidth: '700px',
+    margin: 'auto',
   },
   paragraph: {
     padding: theme.spacing(2),
     textIndent: '20px',
     textAlign: 'justify',
+    maxWidth: '700px',
+    margin: 'auto',
   },
   box: {
     marginBottom: 40,
@@ -91,8 +65,10 @@ const styles = theme => ({
   },
   externalLink: {
     fontSize: "20px",
-    marginLeft: "20px",
+    paddingLeft: "20px",
     marginTop: "8px",
+    maxWidth: "700px",
+    margin: "auto"
   },
   linkText: {
     paddingLeft: "8px",
@@ -147,7 +123,7 @@ class About extends Component {
           <Typography variant='body1' className={classes.paragraph} >
             I’m a software developer based in the San Francisco Bay Area. After having worked as a web developer at a variety of analytics- and machine learning-startups I’m now enrolled in Springboard’s <Link color="secondary" underline="hover" target="_blank" rel="noopener noreferrer" href="https://www.springboard.com/workshops/ai-machine-learning-career-track/">machine learning engineering track</Link> in the next stage of my career and pursuit of using technology to make complex data more comprehensible.
           </Typography>
-          <Typography variant='h5' className={classes.block} >
+          <Typography variant='h5' className={classes.title} >
             Background
           </Typography>
           <Typography variant='body1' className={classes.paragraph} >
@@ -162,7 +138,7 @@ class About extends Component {
           <Typography variant='body1' className={classes.paragraph} >
             For more information on my work, to get in touch regarding employment opportunities, or to just say hello, feel free to get in touch at curtis.l.mitchell AT gmail.com.
           </Typography>
-          <Typography variant='h5' className={classes.block} >
+          <Typography variant='h5' className={classes.title} >
             External Links
           </Typography>
           <Typography variant='body1' className={classes.externalLink} >

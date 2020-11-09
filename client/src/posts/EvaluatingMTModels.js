@@ -59,8 +59,16 @@ const styles = theme => ({
     padding: theme.spacing(2),
     textAlign: "center"
   },
-  block: {
-    padding: theme.spacing(2)
+  title: {
+    padding: theme.spacing(2),
+    maxWidth: '700px',
+    margin: 'auto',
+  },
+  sectionTitle: {
+    paddingLeft: theme.spacing(2),
+    textDecoration: 'underline',
+    maxWidth: '700px',
+    margin: 'auto',
   },
   box: {
     marginBottom: 40,
@@ -77,9 +85,6 @@ const styles = theme => ({
     display: "flex",
     justifyContent: "flex-end"
   },
-  noBorder: {
-    borderBottomStyle: "hidden"
-  },
   loadingState: {
     opacity: 0.05
   },
@@ -88,23 +93,25 @@ const styles = theme => ({
     top: "40%",
     left: "40%"
   },
-  highlight: {
-    padding: '0px 48px'
+  codeHighlight: {
+    padding: '0px 48px',
+    maxWidth: '700px',
+    margin: 'auto',
   },
   paragraph: {
     padding: theme.spacing(2),
     textIndent: '20px',
     textAlign: 'justify',
+    maxWidth: '700px',
+    margin: 'auto',
   },
   equation: {
     padding: 0,
   },
-  sectionTitle: {
-    paddingLeft: theme.spacing(2),
-    textDecoration: 'underline',
-  },
   exampleList: {
     paddingLeft: theme.spacing(2),
+    maxWidth: '700px',
+    margin: 'auto',
   },
   codeSample: {
     backgroundColor: '#EDEDED',
@@ -165,7 +172,7 @@ class EvaluatingMTModels extends Component {
         <CssBaseline />
         <Topbar />
         <div className={classes.root}>
-          <Typography variant='h3' className={classes.block} >
+          <Typography variant='h3' className={classes.title} >
             How to Evaluate A Machine Translation Model
           </Typography>
           <Typography variant='body1' className={classes.paragraph} >
@@ -174,7 +181,7 @@ class EvaluatingMTModels extends Component {
           <Typography variant='body1' className={classes.paragraph} >
             As I mentioned above, beyond the simplest of sentences multiple translations of one language to another are possible. For instance, the English sentence “Yesterday I went to the store” could be translated into Spanish as “Ayer yo me fui a la tienda.” But since Spanish allows the dropping of subjects, in this case “yo” (because listeners can infer the subject from the form of the verb’s conjugation), this sentence could also be “Ayer me fui a la tienda.” Here is where confusion about the best translation can start to arise. For instance, for a native Spanish-speaker which sentence is closer to the original English sentence? And this is still a fairly simple example where the two languages are relatively closely related and the word order in each sentence is the same!
           </Typography>
-          <Typography variant='h5' className={classes.block} >
+          <Typography variant='h5' className={classes.title} >
             Building Blocks
           </Typography>
           <Typography variant='body1' className={classes.paragraph} >
@@ -219,7 +226,7 @@ class EvaluatingMTModels extends Component {
           <Typography variant='body1' className={classes.paragraph} >
             Note that each metric discussed here uses a different type of average, the details of which I’ll present towards the end of the post along with links to the original papers that introduced each metric.
           </Typography>
-          <Typography variant='h5' className={classes.block} >
+          <Typography variant='h5' className={classes.title} >
             BLEU
           </Typography>
           <Typography variant='body1' className={classes.paragraph}>
@@ -228,7 +235,7 @@ class EvaluatingMTModels extends Component {
           <Typography variant='body1' className={classes.paragraph}>
             Let’s look at some examples to build our intuition. We’ll compare a known reference sentence and a hypothesis sentence that’s hypothetically the output of a machine translation program, and both sentences will be stored as arrays of tokens representing individual words. We can use the sentence-level BLEU score that comes as part of the NLTK API:
           </Typography>
-          <Highlight className={classes.highlight} language={'python'}>
+          <Highlight className={classes.codeHighlight} language={'python'}>
             {pyContent1}
             <br/>
             {pyContent2}
@@ -248,7 +255,7 @@ class EvaluatingMTModels extends Component {
           <Typography variant='body1' className={classes.paragraph} >
             What happens when we change one word in the hypothesis sentence (the second “the” becomes “a”)?
           </Typography>
-          <Highlight className={classes.highlight} language={'python'}>
+          <Highlight className={classes.codeHighlight} language={'python'}>
             {pyContent6}
             <br/>
             {pyContent7}
@@ -259,7 +266,7 @@ class EvaluatingMTModels extends Component {
           <Typography variant='body1' className={classes.paragraph} >
             We can see a dramatic drop in the score here. It won’t be intuitive based on the score value, but the BLEU score is calculated by comparing the precision of n-grams in the hypothesis and reference sentences. Another thing to note is that by default the BLEU methods in NTLK compare 1- to 4-grams. If we were to only compare unigrams and bigrams by specifying their weighting, our score would be significantly boosted:
           </Typography>
-          <Highlight className={classes.highlight} language={'python'}>
+          <Highlight className={classes.codeHighlight} language={'python'}>
             {pyContent9}
             <br/>
             {pyContent10}
@@ -274,13 +281,13 @@ class EvaluatingMTModels extends Component {
           <Typography variant='body1' className={classes.paragraph} >
             Although the BLEU score was innovative when introduced and creates scores between 0 and 1 that can be easy to reason about, compared to more recently-introduced methods it can seem somewhat simplistic to use a method that only compares the number of overlapping n-grams.
           </Typography>
-          <Typography variant='h5' className={classes.block} >
+          <Typography variant='h5' className={classes.title} >
             NIST
           </Typography>
           <Typography variant='body1' className={classes.paragraph} >
             In 2002 DARPA (The US Defense Advanced Research Projects Agency) commissioned NIST (the US National Institute of Standards and Technology) to evaluate and create their own machine translation metric based on BLEU. The result was a method similar to the BLEU score but with a few minor changes such as increased weighting for less-common n-grams and a reduced scoring penalty for shorter sentences (known as the “brevity penalty”):
           </Typography>
-          <Highlight className={classes.highlight} language={'python'}>
+          <Highlight className={classes.codeHighlight} language={'python'}>
             {pyContent11}
             <br/>
             {pyContent12}
@@ -291,7 +298,7 @@ class EvaluatingMTModels extends Component {
           <Typography variant='body1' className={classes.paragraph} >
             and with the second hypothesis sentence:
           </Typography>
-          <Highlight className={classes.highlight} language={'python'}>
+          <Highlight className={classes.codeHighlight} language={'python'}>
             {pyContent14}
             <br/>
             {pyContent15}
@@ -303,7 +310,7 @@ class EvaluatingMTModels extends Component {
           <Typography variant='body1' className={classes.paragraph} >
             Although the NIST does have slight improvements over BLEU due to the higher weighting of uncommon n-grams and the different calculation of the brevity penalty, those same features make the potential range of score values more difficult to reason about.
           </Typography>
-          <Typography variant='h5' className={classes.block} >
+          <Typography variant='h5' className={classes.title} >
             METEOR
           </Typography>
           <Typography variant='body1' className={classes.paragraph} >
@@ -312,7 +319,7 @@ class EvaluatingMTModels extends Component {
           <Typography variant='body1' className={classes.paragraph} >
             Let’s compute the METEOR scores using the same example sentence we used for the BLEU examples, noting that the <span fontFamily="Monospace">meteor_score</span> method expects sentences as whole strings instead of an array of tokens as with the BLEU and NIST methods:
           </Typography>
-          <Highlight className={classes.highlight} language={'python'}>
+          <Highlight className={classes.codeHighlight} language={'python'}>
             {pyContent16}
             <br/>
             {pyContent17}
@@ -333,7 +340,7 @@ class EvaluatingMTModels extends Component {
           <Typography variant='body1' className={classes.paragraph} >
             Because of the increased weighting for recall, and the use of the harmonic mean which works better than the arithmetic or geometric means for situations where an average of weights is desired, METEOR is a great choice for machine translation models that is relatively simple to calculate (versus more modern methods) and remains easy to reason about. This is especially true for sentence level translations and these are the reasons I chose to use the METEOR score when evaluating my own translation model that I’ll discuss in a future post.
           </Typography>
-          <Typography variant='h5' className={classes.block} >
+          <Typography variant='h5' className={classes.title} >
             Conclusion
           </Typography>
           <Typography variant='body1' className={classes.paragraph} >
@@ -342,7 +349,7 @@ class EvaluatingMTModels extends Component {
           <Typography variant='body1' className={classes.paragraph} >
             Translation metrics is still a field of active development, but it’s not uncommon for newer methods to be compared to the three metrics described here. In fact Google recently announced a newly developed metric they call “BLEURT” (<Link color="secondary" underline="hover" target="_blank" rel="noopener noreferrer" href="https://ai.googleblog.com/2020/05/evaluating-natural-language-generation.html">Google AI Blog: Evaluating Natural Language Generation with BLEURT</Link>), so it’s clear that BLEU is still often considered the metric to beat!
           </Typography>
-          <Typography variant='h6' className={classes.block} >
+          <Typography variant='h6' className={classes.title} >
             Supplement: Mathematical Details
           </Typography>
           <Typography variant='body1' className={classes.paragraph} >
@@ -372,7 +379,7 @@ class EvaluatingMTModels extends Component {
           <Typography variant='body1' className={classes.paragraph} >
             For instance, the harmonic mean of 1, 4, and 4 would be ((1/1 + 1/4 + 1/4) / 3) ^ (-1) = 3/(1 + 0.25 + 0.25) = 3/1.5 = 2
           </Typography>
-          <Typography variant='h6' className={classes.block} >
+          <Typography variant='h6' className={classes.title} >
             Supplement: Original Papers for Machine Translation Metrics
           </Typography>
           <Typography variant='body1' className={classes.paragraph} >

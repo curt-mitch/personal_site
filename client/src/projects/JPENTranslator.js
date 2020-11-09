@@ -59,43 +59,23 @@ const styles = theme => ({
     padding: theme.spacing(2),
     textAlign: "center"
   },
-  block: {
-    padding: theme.spacing(2)
-  },
-  box: {
-    marginBottom: 40,
-    height: 65
-  },
-  inlining: {
-    display: "inline-block",
-    marginRight: 10
-  },
-  buttonBar: {
-    display: "flex"
-  },
-  alignRight: {
-    display: "flex",
-    justifyContent: "flex-end"
-  },
-  noBorder: {
-    borderBottomStyle: "hidden"
-  },
-  loadingState: {
-    opacity: 0.05
-  },
-  loadingMessage: {
-    position: "absolute",
-    top: "40%",
-    left: "40%"
+  title: {
+    padding: theme.spacing(2),
+    maxWidth: '700px',
+    margin: 'auto',
   },
   jpInputContainer: {
-    padding: '0px 48px',
-    margin: '8px'
+    padding: '0px 24px',
+    margin: '8px',
+    maxWidth: '700px',
+    margin: 'auto',
   },
   paragraph: {
     padding: theme.spacing(2),
     textIndent: '20px',
     textAlign: 'justify',
+    maxWidth: '700px',
+    margin: 'auto',
   },
   errorMessage: {
     color: 'red',
@@ -188,7 +168,7 @@ class JPENTranslator extends Component {
         <CssBaseline />
         <Topbar />
         <div className={classes.root}>
-          <Typography variant='h3' className={classes.block} >
+          <Typography variant='h3' className={classes.title} >
             Japanese-To-English Translation Application
           </Typography>
           <Typography variant='body1' className={classes.paragraph} >

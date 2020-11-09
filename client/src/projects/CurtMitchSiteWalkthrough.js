@@ -54,12 +54,10 @@ const styles = theme => ({
     padding: theme.spacing(2),
     textAlign: "center"
   },
-  block: {
-    padding: theme.spacing(2)
-  },
-  box: {
-    marginBottom: 40,
-    height: 65
+  title: {
+    padding: theme.spacing(2),
+    maxWidth: '700px',
+    margin: 'auto',
   },
   inlining: {
     display: "inline-block",
@@ -83,17 +81,12 @@ const styles = theme => ({
     top: "40%",
     left: "40%"
   },
-  highlight: {
-    padding: '0px 48px'
-  },
   paragraph: {
     padding: theme.spacing(2),
     textIndent: '20px',
     textAlign: 'justify',
-  },
-  codeSample: {
-    backgroundColor: '#EDEDED',
-    fontFamily: 'Courier, monospace',
+    maxWidth: '700px',
+    margin: 'auto',
   },
 });
 
@@ -129,7 +122,7 @@ class CurtMitchSiteWalkthrough extends Component {
         <CssBaseline />
         <Topbar />
         <div className={classes.root}>
-          <Typography variant='h3' className={classes.block} >
+          <Typography variant='h3' className={classes.title} >
             Curt-Mitch.com
           </Typography>
           <Typography variant='body1' className={classes.paragraph} >
