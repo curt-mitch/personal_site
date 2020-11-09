@@ -16,12 +16,12 @@ const Menu = [
     pathname: "/about"
   },
   {
-    label: '',
+    label: 'post',
     pathname: "/post",
     display: "none"
   },
   {
-    label: '',
+    label: 'project',
     pathname: "/project",
     display: "none"
   }
