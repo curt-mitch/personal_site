@@ -66,7 +66,6 @@ const styles = theme => ({
   },
   jpInputContainer: {
     padding: '0px 24px',
-    margin: '8px',
     maxWidth: '700px',
     margin: 'auto',
   },
