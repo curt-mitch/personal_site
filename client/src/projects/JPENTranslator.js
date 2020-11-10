@@ -171,6 +171,9 @@ class JPENTranslator extends Component {
             Japanese-To-English Translation Application
           </Typography>
           <Typography variant='body1' className={classes.paragraph} >
+            <strong>Note</strong>: A walkthrough of this project can be found here: <Link color="secondary" underline="hover" href="/post/jp-en-translator-walkthrough">Creating a Japanese-English Translation Application</Link>.
+          </Typography>
+          <Typography variant='body1' className={classes.paragraph} >
             This application takes in a Japanese sentence and returns a predicted English translation of that sentence. It was trained on the <Link color="secondary" underline="hover" target="_blank" rel="noopener noreferrer" href="https://nlp.stanford.edu/projects/jesc/">JESC Japanese-English Subtitle Corpus</Link> using an encoder-decoder neural network.
           </Typography>
           <Typography variant='body1' className={classes.paragraph} >

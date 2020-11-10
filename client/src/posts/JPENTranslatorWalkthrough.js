@@ -13,6 +13,7 @@ import Topbar from "../components/Topbar";
 import LSTMCell from '../images/LSTM-network-cell.png';
 import encoderDecoderDiagram from '../images/Encoder-Decoder-Model-for-Text-Translation.png';
 import bahdanauAttentionDiagram from '../images/attention_bahdanau.png';
+import deployedAppDiagram from '../images/jp-en-translation-deployment.png';
 
 // allow single-line comments in code examples
 hljs.configure({ useBR: true })
@@ -344,6 +345,23 @@ class JPENTranslatorWalkthrough extends Component {
           <Typography variant='body1' className={classes.paragraph} >
             Once training and evaluation were complete, I chose to deploy this model through this site. After saving the weights of the model using Tensorflow’s own model saving method and saving the input and target language vectorizers as pickle objects, I built a class within the <Link color="secondary" underline="hover" target="_blank" rel="noopener noreferrer" href="https://www.djangoproject.com/">Django</Link> backend that instantiates a model, uses the saved, static weights and vectorizers from the Paperspace training, and returns a predicted English translation.
           </Typography>
+          <Image
+            imageStyle={{
+              height: "247px",
+              width: "624px",
+            }}
+            style={{
+              height: "247px",
+              width: "624px",
+              paddingTop: 0,
+              margin: '12px auto',
+              imageRendering: "-webkit-optimize-contrast",
+            }}
+            src={deployedAppDiagram}
+          />
+          <Typography variant='body1' className={classes.pictureCaption} >
+            Data flow in the deployed application
+          </Typography>
           <Typography variant='body1' className={classes.paragraph} >
             The application has basic error handling in place on both the frontend and backend, and logging on the backend as well.
           </Typography>
@@ -381,7 +399,7 @@ class JPENTranslatorWalkthrough extends Component {
             The deployment is generally working fine, although one thing I would like to add is a caching layer to avoid recomputing estimated translations for common input values. For this I would probably use <Link color="secondary" underline="hover" target="_blank" rel="noopener noreferrer" href="https://redis.io/">Redis</Link> or a similar in-memory database to store common input-output pairs of sentences.
           </Typography>
           <Typography variant='body1' className={classes.paragraph} >
-            If usage of the app grew large enough, considering strategies for deploying, managing, and networking multiple instances of the backend application would be fun. Using <Link color="secondary" underline="hover" target="_blank" rel="noopener noreferrer" href="https://kubernetes.io/">Kubernetes</Link> to orchestrate multiple Docker containers would be a natural choice here, and my existing NGINX configuration could be updated to handle routing requests to multiple backend servers.
+            If usage of the app grew large enough, considering strategies for deploying, managing, and networking multiple instances of the backend application would be fun. Using <Link color="secondary" underline="hover" target="_blank" rel="noopener noreferrer" href="https://kubernetes.io/">Kubernetes</Link> to orchestrate multiple <Link color="secondary" underline="hover" target="_blank" rel="noopener noreferrer" href="https://www.docker.com/">Docker</Link> containers would be a natural choice here, and my existing <Link color="secondary" underline="hover" target="_blank" rel="noopener noreferrer" href="https://www.nginx.com/">NGINX</Link> configuration could be updated to handle routing requests to multiple backend servers.
           </Typography>
           <Typography variant='h5' className={classes.sectionTitle} >
             Extra Lessons Learned
