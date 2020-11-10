@@ -62,14 +62,15 @@ const styles = theme => ({
       display: "block"
     }
   },
-  iconButton: {
-    // float: "right"
+  mobileSideMenu: {
+    backgroundColor: "transparent",
   },
   tabContainer: {
     marginLeft: 32,
     [theme.breakpoints.down("sm")]: {
       display: "none"
-    }
+    },
+    backgroundColor: "transparent",
   },
   tabItem: {
     paddingTop: 20,
@@ -151,6 +152,7 @@ class Topbar extends Component {
                   </div>
                   <div className={classes.tabContainer}>
                     <SwipeableDrawer
+                      className={classes.mobileSideMenu}
                       anchor="right"
                       open={this.state.menuDrawer}
                       onClose={this.mobileMenuClose}
@@ -162,6 +164,7 @@ class Topbar extends Component {
                           <ListItem
                             component={item.external ? MaterialLink : Link}
                             href={item.external ? item.pathname : null}
+                            style={{ display: item.display }}
                             to={
                               item.external
                                 ? null
