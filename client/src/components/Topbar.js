@@ -31,9 +31,7 @@ const styles = theme => ({
   flex: {
     display: "flex",
     [theme.breakpoints.down("sm")]: {
-      display: "flex",
-      justifyContent: "space-evenly",
-      alignItems: "center"
+      justifyContent: "space-between"
     }
   },
   link: {
@@ -51,7 +49,7 @@ const styles = theme => ({
   },
   tagline: {
     display: "inline-block",
-    marginLeft: 10,
+    margin: 6,
     [theme.breakpoints.up("md")]: {
       paddingTop: "0.8em"
     }
@@ -59,7 +57,7 @@ const styles = theme => ({
   iconContainer: {
     display: "none",
     [theme.breakpoints.down("sm")]: {
-      display: "block"
+      display: "block",
     }
   },
   mobileSideMenu: {
