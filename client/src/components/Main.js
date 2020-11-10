@@ -32,7 +32,7 @@ const styles = theme => ({
     bottom: "0px",
     maxWidth: "790px",
     // lower on mobile
-    ['@media (min-width:780px)']: { // eslint-disable-line no-useless-computed-key
+    [theme.breakpoints.down("xs")]: {
       bottom: "70px",
     }
   },

@@ -24,7 +24,7 @@ const styles = theme => ({
     flexDirection: "row",
     maxWidth: '900px',
     margin: 'auto',
-    ['@media (max-width:780px)']: { // eslint-disable-line no-useless-computed-key
+    [theme.breakpoints.down("sm")]: {
       flexDirection: "column",
     }
   },
@@ -46,7 +46,7 @@ const styles = theme => ({
     textAlign: 'justify',
     maxWidth: '435px',
     marginLeft: 'auto',
-    ['@media (max-width:780px)']: { // eslint-disable-line no-useless-computed-key
+    [theme.breakpoints.down("sm")]: {
       fontSize: '16px',
       padding: theme.spacing(2),
       margin: 'auto',
