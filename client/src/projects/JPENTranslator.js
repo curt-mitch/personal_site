@@ -174,7 +174,7 @@ class JPENTranslator extends Component {
             <strong>Note</strong>: A walkthrough of this project can be found here: <Link color="secondary" underline="hover" href="/post/jp-en-translator-walkthrough">Creating a Japanese-English Translation Application</Link>.
           </Typography>
           <Typography variant='body1' className={classes.paragraph} >
-            This application takes in a Japanese sentence and returns a predicted English translation of that sentence. It was trained on the <Link color="secondary" underline="hover" target="_blank" rel="noopener noreferrer" href="https://nlp.stanford.edu/projects/jesc/">JESC Japanese-English Subtitle Corpus</Link> using an encoder-decoder neural network.
+            This application takes in Japanese text and returns a predicted English translation of that text. It was trained on the <Link color="secondary" underline="hover" target="_blank" rel="noopener noreferrer" href="https://nlp.stanford.edu/projects/jesc/">JESC Japanese-English Subtitle Corpus</Link> using an encoder-decoder neural network.
           </Typography>
           <Typography variant='body1' className={classes.paragraph} >
             Not a Japanese-speaker? Just click this link to got to Google Translate where you can create and copy some Japanese text to paste back here: <Link color="secondary" underline="hover" target="_blank" rel="noopener noreferrer" href="https://translate.google.com/#view=home&op=translate&sl=en&tl=ja">EN-JP Google Translate</Link>
