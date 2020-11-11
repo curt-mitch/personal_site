@@ -49,9 +49,11 @@ const styles = theme => ({
   },
   tagline: {
     display: "inline-block",
-    margin: 6,
     [theme.breakpoints.up("md")]: {
-      paddingTop: "0.8em"
+      paddingTop: "0.8em",
+    },
+    [theme.breakpoints.down("sm")]: {
+      marginTop: "6px"
     }
   },
   iconContainer: {
