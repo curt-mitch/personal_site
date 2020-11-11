@@ -16,8 +16,6 @@ import SwipeableDrawer from "@material-ui/core/SwipeableDrawer";
 import { Link as MaterialLink } from "@material-ui/core";
 import Menu from "./Menu";
 
-const logo = require("../images/curt-mitch-logo.svg");
-
 const styles = theme => ({
   appBar: {
     position: "relative",
@@ -133,7 +131,6 @@ class Topbar extends Component {
               <div className={classes.inline}>
                 <Typography variant="h6" color="inherit" noWrap>
                   <Link to="/" className={classes.link}>
-                    <img width={20} src={logo} alt="" />
                     <span className={classes.tagline}>Curtis Mitchell</span>
                   </Link>
                 </Typography>
