@@ -29,10 +29,10 @@ const styles = theme => ({
   },
   siteTitleContainer: {
     position: "absolute",
-    bottom: "0px",
+    bottom: "70px",
     maxWidth: "790px",
-    [theme.breakpoints.down("xs")]: {
-      bottom: "70px",
+    [theme.breakpoints.down("sm")]: {
+      bottom: "0px",
     }
   },
   title: {
