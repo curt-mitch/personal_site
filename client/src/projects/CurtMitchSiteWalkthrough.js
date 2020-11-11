@@ -41,15 +41,6 @@ const styles = theme => ({
     alignItems: "center",
     marginTop: 32
   },
-  outlinedButtom: {
-    textTransform: "uppercase",
-    margin: theme.spacing(1)
-  },
-  actionButtom: {
-    textTransform: "uppercase",
-    margin: theme.spacing(1),
-    width: 152
-  },
   blockCenter: {
     padding: theme.spacing(2),
     textAlign: "center"
@@ -58,23 +49,6 @@ const styles = theme => ({
     padding: theme.spacing(2),
     maxWidth: '700px',
     margin: 'auto',
-  },
-  inlining: {
-    display: "inline-block",
-    marginRight: 10
-  },
-  buttonBar: {
-    display: "flex"
-  },
-  alignRight: {
-    display: "flex",
-    justifyContent: "flex-end"
-  },
-  noBorder: {
-    borderBottomStyle: "hidden"
-  },
-  loadingState: {
-    opacity: 0.05
   },
   loadingMessage: {
     position: "absolute",
@@ -91,28 +65,7 @@ const styles = theme => ({
 });
 
 class CurtMitchSiteWalkthrough extends Component {
-  state = {
-    learnMoredialog: false,
-    getStartedDialog: false
-  };
-
   componentDidMount() {}
-
-  openDialog = event => {
-    this.setState({ learnMoredialog: true });
-  };
-
-  dialogClose = event => {
-    this.setState({ learnMoredialog: false });
-  };
-
-  openGetStartedDialog = event => {
-    this.setState({ getStartedDialog: true });
-  };
-
-  closeGetStartedDialog = event => {
-    this.setState({ getStartedDialog: false });
-  };
 
   render() {
     const { classes } = this.props;
@@ -129,7 +82,7 @@ class CurtMitchSiteWalkthrough extends Component {
             I initially started work on this project to test out website and web development ideas, to have a place to tinker with various frameworks and UI libraries, and to have a place to write articles with more control over the appearance and layout. It’s also a showcase of articles and projects to share with recruiters, hiring managers, and colleagues. <span role="img" aria-label="grinning face">😄</span>
           </Typography>
           <Typography variant='body1' className={classes.paragraph} >
-            The frontend portion of the site was bootstrapped using the <Link color="secondary" underline="hover" target="_blank" rel="noopener noreferrer" href="https://create-react-app.dev/">Create React App</Link> tool and uses <Link color="secondary" underline="hover" target="_blank" rel="noopener noreferrer" href="https://reactjs.org/">React</Link>, <Link color="secondary" underline="hover" target="_blank" rel="noopener noreferrer" href="https://reactrouter.com/">React Router</Link>, and several components from <Link color="secondary" underline="hover" target="_blank" rel="noopener noreferrer" href="https://material-ui.com/">Material-UI</Link>. This does mean that the size of the website is not small and that a user must have JavaScript enabled on their browser. Much of the site could certainly be a more lightweight, progressive web application. However building something using React was a primary goal for me and I have nonetheless added <Link color="secondary" underline="hover" target="_blank" rel="noopener noreferrer" href="https://reactjs.org/docs/code-splitting.html#route-based-code-splitting">router-based code splitting</Link> to reduce the loading time by about 30% to 50% across the site.
+            The frontend portion of the site was bootstrapped using the <Link color="secondary" underline="hover" target="_blank" rel="noopener noreferrer" href="https://create-react-app.dev/">Create React App</Link> tool and uses <Link color="secondary" underline="hover" target="_blank" rel="noopener noreferrer" href="https://reactjs.org/">React</Link>, <Link color="secondary" underline="hover" target="_blank" rel="noopener noreferrer" href="https://reactrouter.com/">React Router</Link>, and several components from <Link color="secondary" underline="hover" target="_blank" rel="noopener noreferrer" href="https://material-ui.com/">Material-UI</Link>. This does mean that the size of the website is not small and that a user must have JavaScript enabled on their browser. Much of the site could certainly be a more lightweight, progressive web application. But building something using React was a primary goal for me and I have nonetheless added <Link color="secondary" underline="hover" target="_blank" rel="noopener noreferrer" href="https://reactjs.org/docs/code-splitting.html#route-based-code-splitting">router-based code splitting</Link> to reduce the loading time by about 30% to 50% across the site.
           </Typography>
           <Typography variant='body1' className={classes.paragraph} >
             The backend of the website is a <Link color="secondary" underline="hover" target="_blank" rel="noopener noreferrer" href="https://www.djangoproject.com/">Django</Link> application with a <Link color="secondary" underline="hover" target="_blank" rel="noopener noreferrer" href="https://www.sqlite.org/index.html">SQLite</Link> database. I built this backend in order to learn the Django framework itself and to have an environment for deploying my Python-based machine learning projects. Additionally, I’m using the <Link color="secondary" underline="hover" target="_blank" rel="noopener noreferrer" href="https://www.django-rest-framework.org/">Django REST framework</Link> for API endpoints rather than utilizing the default Django template layer (the “view” layer in standard MVC architectures).
