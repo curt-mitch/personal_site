@@ -1,30 +1,33 @@
-import React from 'react'
+import React, { Suspense, lazy } from 'react'
 import { Route, Switch, BrowserRouter } from 'react-router-dom'
-import Main from './components/Main'
-import PostsList from './components/PostsList';
-import ProjectsList from './components/ProjectsList';
-import About from './components/About'
-import PythonFeaturesInJS from './posts/PythonFeaturesInJS'
-import EvaluatingMTPerformance from './posts/EvaluatingMTModels';
-import JPENTranslatorWalkthrough from './posts/JPENTranslatorWalkthrough';
-import JPENTranslator from './projects/JPENTranslator';
-import CurtMitchSiteWalkthrough from './projects/CurtMitchSiteWalkthrough';
-import ScrollToTop from './components/ScrollTop'
 
-export default props => (
+const Main = lazy(() => import('./components/Main'));
+const ScrollToTop = lazy(() => import('./components/ScrollTop'));
+const About = lazy(() => import('./components/About'));
+const PostsList = lazy(() => import('./components/PostsList'));
+const ProjectsList = lazy(() => import('./components/ProjectsList'));
+const PythonFeaturesInJS = lazy(() => import('./posts/PythonFeaturesInJS'));
+const EvaluatingMTPerformance = lazy(() => import('./posts/EvaluatingMTModels'));
+const JPENTranslatorWalkthrough = lazy(() => import('./posts/JPENTranslatorWalkthrough'));
+const JPENTranslator = lazy(() => import('./projects/JPENTranslator'));
+const CurtMitchSiteWalkthrough = lazy(() => import('./projects/CurtMitchSiteWalkthrough'));
+
+export default () => (
     <BrowserRouter>
-      <ScrollToTop>
-        <Switch>
-          <Route exact path='/' component={ Main } />
-          <Route exact path='/posts' component={ PostsList } />
-          <Route exact path='/projects' component={ ProjectsList } />
-          <Route exact path='/about' component={ About } />
-          <Route exact path='/post/python-features-in-js' component={PythonFeaturesInJS} />
-          <Route exact path='/post/evaluating-machine-translation-models' component={EvaluatingMTPerformance} />
-          <Route exact path='/post/jp-en-translator-walkthrough' component={JPENTranslatorWalkthrough} />
-          <Route exact path='/project/jp-en-translator' component={JPENTranslator} />
-          <Route exact path='/project/website-walkthrough' component={CurtMitchSiteWalkthrough} />
-        </Switch>
-      </ScrollToTop>
+      <Suspense fallback={<div>Loading...</div>}>
+        <ScrollToTop>
+          <Switch>
+            <Route exact path='/' component={ Main } />
+            <Route exact path='/posts' component={ PostsList } />
+            <Route exact path='/projects' component={ ProjectsList } />
+            <Route exact path='/about' component={ About } />
+            <Route exact path='/post/python-features-in-js' component={PythonFeaturesInJS} />
+            <Route exact path='/post/evaluating-machine-translation-models' component={EvaluatingMTPerformance} />
+            <Route exact path='/post/jp-en-translator-walkthrough' component={JPENTranslatorWalkthrough} />
+            <Route exact path='/project/jp-en-translator' component={JPENTranslator} />
+            <Route exact path='/project/website-walkthrough' component={CurtMitchSiteWalkthrough} />
+          </Switch>
+        </ScrollToTop>
+      </Suspense>
     </BrowserRouter>
   )
