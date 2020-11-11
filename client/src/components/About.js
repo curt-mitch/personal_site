@@ -68,6 +68,25 @@ const styles = theme => ({
   },
   linkText: {
     paddingLeft: "8px",
+  },
+  talkTitle: {
+    paddingTop: theme.spacing(4),
+    paddingLeft: theme.spacing(2),
+    paddingBottom: theme.spacing(1),
+    maxWidth: '900px',
+    margin: 'auto',
+  },
+  publicTalkLink: {
+    fontSize: "20px",
+    paddingLeft: "12px",
+    maxWidth: '900px',
+    marginTop: "8px",
+    margin: "8px auto"
+  },
+  talkDescription: {
+    maxWidth: '900px',
+    paddingLeft: "20px",
+    margin: '8px auto',
   }
 });
 
@@ -145,6 +164,18 @@ class About extends Component {
           </Typography>
           <Typography variant='body1' className={classes.externalLink} >
             <FontAwesomeIcon className={classes.faIcon} icon={['fab', 'linkedin']} /><Link className={classes.linkText} color="secondary" underline="hover" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/curtislmitchell/">LinkedIn</Link>
+          </Typography>
+          <Typography variant='body1' className={classes.externalLink} >
+            <FontAwesomeIcon className={classes.faIcon} icon={['fab', 'twitter']} /><Link className={classes.linkText} color="secondary" underline="hover" target="_blank" rel="noopener noreferrer" href="https://twitter.com/Curt_Mitch">Twitter</Link>
+          </Typography>
+          <Typography variant='h5' className={classes.talkTitle} >
+            Public Talks
+          </Typography>
+          <Typography variant='body1' className={classes.publicTalkLink} >
+            <Link className={classes.linkText} color="secondary" underline="hover" target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=Fb1za8ZWhYw">A Pseudorandom Walkthrough of d3-random</Link>
+          </Typography>
+          <Typography variant='body1' className={classes.talkDescription} >
+            A deep-dive of the <Link color="secondary" underline="hover" target="_blank" rel="noopener noreferrer" href="https://github.com/d3/d3-random">d3-random module</Link> from the <Link color="secondary" underline="hover" target="_blank" rel="noopener noreferrer" href="https://d3js.org/">d3.js</Link> ecosystem. Hosted by the <Link color="secondary" underline="hover" target="_blank" rel="noopener noreferrer" href="https://www.meetup.com/Bay-Area-d3-User-Group/">Bay Area d3 User Group</Link> and <Link color="secondary" underline="hover" target="_blank" rel="noopener noreferrer" href="https://www.opendoor.com/">Opendoor</Link> on August, 14th 2018.
           </Typography>
         </div>
       </React.Fragment>
