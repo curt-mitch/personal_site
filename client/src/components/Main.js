@@ -31,7 +31,6 @@ const styles = theme => ({
     position: "absolute",
     bottom: "0px",
     maxWidth: "790px",
-    // lower on mobile
     [theme.breakpoints.down("xs")]: {
       bottom: "70px",
     }
@@ -41,6 +40,9 @@ const styles = theme => ({
     paddingRight: theme.spacing(3.5),
     paddingLeft: theme.spacing(3.5),
     fontSize: "40px",
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "30px",
+    }
   },
   subTitle: {
     paddingTop: theme.spacing(2),
