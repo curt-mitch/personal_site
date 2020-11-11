@@ -34,6 +34,11 @@ const styles = theme => ({
       width: "calc(100% - 20px)"
     }
   },
+  diagram: {
+    [theme.breakpoints.down("xs")]: {
+      imageRendering: "-webkit-optimize-contrast",
+    }
+  },
   paper: {
     padding: theme.spacing(3),
     textAlign: "left",
@@ -49,19 +54,6 @@ const styles = theme => ({
     justifyContent: "space-between",
     alignItems: "center",
     marginTop: 32
-  },
-  outlinedButtom: {
-    textTransform: "uppercase",
-    margin: theme.spacing(1)
-  },
-  actionButtom: {
-    textTransform: "uppercase",
-    margin: theme.spacing(1),
-    width: 152
-  },
-  blockCenter: {
-    padding: theme.spacing(2),
-    textAlign: "center"
   },
   title: {
     padding: theme.spacing(2),
@@ -256,17 +248,16 @@ class JPENTranslatorWalkthrough extends Component {
             The neural network used in this project was built using the <Link color="secondary" underline="hover" target="_blank" rel="noopener noreferrer" href="https://www.tensorflow.org/">Tensorflow</Link> framework, and the architecture I chose for this project was a sequence-to-sequence (seq2seq) model, more specifically an encoder-decoder model with attention. Seq2seq models use recurrent-neural-networks (RNNs), a natural choice for NLP problems as RNNs are capable of working with variable-length inputs and thus can handle text of various lengths. An additional appeal of RNNs, especially in NLP contexts, is that they have a sense of “memory” by being able to pass state between the layers of a neural network.
           </Typography>
           <Image
-            imageStyle={{
-              height: "148px",
-              width: "622px",
-            }}
+            className={classes.diagram}
             style={{
               height: "148px",
               width: "622px",
               paddingTop: 0,
-              margin: '12px auto'
+              margin: '12px auto',
+              maxWidth: "100%",
             }}
             src={encoderDecoderDiagram}
+            aspectRatio={(1/1)}
           />
           <Typography variant='body1' className={classes.pictureCaption} >
             Depiction of a sequence-to-sequence model, "EOS" is "end of sentence" (Sutskever et al., 2014)
@@ -275,15 +266,13 @@ class JPENTranslatorWalkthrough extends Component {
             RNNs feature several sub-classes of networks such as long-short term memory networks (LSTMs). It turns out that standard RNNs have a difficult time if the space between references gets too long (an example would be having the context from the beginning of a long sentence to help translate the end of a sentence). This problem is referred to as the “long-term dependency problem”, and LSTMs were designed specifically to avoid this issue! They feature a concept called “cell state” that lets information pass between modules of a neural network to overcome the long-term dependency problem. My model specifically uses GRUs, or “Gated Recurrent Units” which, among other changes, simplifies the storing and passing around of this hidden state versus traditional LSTMs.
           </Typography>
           <Image
-            imageStyle={{
-              height: "169px",
-              width: "450px",
-            }}
+            className={classes.diagram}
             style={{
               height: "169px",
               width: "450px",
               paddingTop: 0,
-              margin: '12px auto'
+              margin: '12px auto',
+              maxWidth: "100%",
             }}
             src={LSTMCell}
           />
@@ -309,15 +298,13 @@ class JPENTranslatorWalkthrough extends Component {
             Bahdanau attention works by using a linear combination of the encoder and decoder states to generate the context vector. The context vectors created by the Bahdanau attention mechanism as well as previously generated target words are then used by the model to predict a new target word. See the original paper that introduced Bahdanau attention, <Link color="secondary" underline="hover" target="_blank" rel="noopener noreferrer" href="https://arxiv.org/pdf/1409.0473.pdf">"Neural Machine Translation by Jointly Learning to Align and Translate"</Link>, for more information.
           </Typography>
           <Image
-            imageStyle={{
-              height: "314px",
-              width: "250px",
-            }}
+            className={classes.diagram}
             style={{
               height: "314px",
               width: "250px",
               paddingTop: 0,
-              margin: '12px auto'
+              margin: '12px auto',
+              maxWidth: "100%",
             }}
             src={bahdanauAttentionDiagram}
           />
@@ -346,16 +333,13 @@ class JPENTranslatorWalkthrough extends Component {
             Once training and evaluation were complete, I chose to deploy this model through this site. After saving the weights of the model using Tensorflow’s own model saving method and saving the input and target language vectorizers as pickle objects, I built a class within the <Link color="secondary" underline="hover" target="_blank" rel="noopener noreferrer" href="https://www.djangoproject.com/">Django</Link> backend that instantiates a model, uses the saved, static weights and vectorizers from the Paperspace training, and returns a predicted English translation.
           </Typography>
           <Image
-            imageStyle={{
-              height: "247px",
-              width: "624px",
-            }}
+            className={classes.diagram}
             style={{
               height: "247px",
               width: "624px",
               paddingTop: 0,
               margin: '12px auto',
-              imageRendering: "-webkit-optimize-contrast",
+              maxWidth: "100%",
             }}
             src={deployedAppDiagram}
           />
