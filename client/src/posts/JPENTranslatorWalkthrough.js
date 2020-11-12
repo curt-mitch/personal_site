@@ -258,6 +258,7 @@ class JPENTranslatorWalkthrough extends Component {
             }}
             src={encoderDecoderDiagram}
             aspectRatio={(1/1)}
+            alt="encoder-decoder diagram"
           />
           <Typography variant='body1' className={classes.pictureCaption} >
             Depiction of a sequence-to-sequence model, "EOS" is "end of sentence" (Sutskever et al., 2014)
@@ -275,6 +276,7 @@ class JPENTranslatorWalkthrough extends Component {
               maxWidth: "100%",
             }}
             src={LSTMCell}
+            alt="LSTM cell diagram"
           />
           <Typography variant='body1' className={classes.pictureCaption} >
             Visualization of An LSTM network cell (<Link color="secondary" underline="hover" target="_blank" rel="noopener noreferrer" href="https://colah.github.io/posts/2015-08-Understanding-LSTMs/">Source</Link>)
@@ -307,6 +309,7 @@ class JPENTranslatorWalkthrough extends Component {
               maxWidth: "100%",
             }}
             src={bahdanauAttentionDiagram}
+            alt="Bahdanau Attention Diagram"
           />
           <Typography variant='body1' className={classes.pictureCaption} >
             Bahdanau Attention Diagram (Bahdanau et al., 2015)
@@ -342,6 +345,7 @@ class JPENTranslatorWalkthrough extends Component {
               maxWidth: "100%",
             }}
             src={deployedAppDiagram}
+            alt="Deployed app data flow diagram"
           />
           <Typography variant='body1' className={classes.pictureCaption} >
             Data flow in the deployed application

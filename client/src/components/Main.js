@@ -132,6 +132,7 @@ class Main extends Component {
               width: "100%",
             }}
             src={radialGradient}
+            alt="radial gradient design"
           />
           </div>
           <Container className={classes.siteTitleContainer} >
