@@ -405,7 +405,7 @@ class JPENTranslatorWalkthrough extends Component {
             Acknowledgements
           </Typography>
           <Typography variant='body1' className={classes.paragraph} >
-            I want to give a huge thank you to my Springboard mentor, Dhiraj Kumar. During our weekly calls (which were late in the evening for him in Mumbai!) he would regularly provide me with suggestions and feedback that kept me moving forward when I could have gotten stuck or spent too much time on a particular aspect or another of the project. Please check out his <Link color="secondary" underline="hover" target="_blank" rel="noopener noreferrer" href="https://dhirajkumarblog.medium.com/">Medium blog</Link> and <Link color="secondary" underline="hover" target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/channel/UCuOT2b1Umrr0MittMzuxNcA/">YouTube channel</Link>.
+            I want to give a huge thank you to my Springboard mentor, Dhiraj Kumar. During our weekly calls (which were late in the evening for his timezone!) he would regularly provide me with suggestions and feedback that kept me moving forward when I could have gotten stuck or spent too much time on a particular aspect or another of the project. Please check out his <Link color="secondary" underline="hover" target="_blank" rel="noopener noreferrer" href="https://dhirajkumarblog.medium.com/">Medium blog</Link> and <Link color="secondary" underline="hover" target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/channel/UCuOT2b1Umrr0MittMzuxNcA/">YouTube channel</Link>.
           </Typography>
         </div>
       </React.Fragment>
