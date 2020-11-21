@@ -1,5 +1,6 @@
 import React, { Suspense, lazy } from 'react'
 import { Route, Switch, BrowserRouter } from 'react-router-dom'
+import PrimaryLoadingScreen from './components/PrimaryLoadingScreen';
 
 const Main = lazy(() => import('./components/Main'));
 const ScrollToTop = lazy(() => import('./components/ScrollTop'));
@@ -14,7 +15,7 @@ const CurtMitchSiteWalkthrough = lazy(() => import('./projects/CurtMitchSiteWalk
 
 export default () => (
     <BrowserRouter>
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<PrimaryLoadingScreen/>}>
         <ScrollToTop>
           <Switch>
             <Route exact path='/' component={ Main } />
