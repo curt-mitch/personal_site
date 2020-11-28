@@ -172,7 +172,7 @@ class About extends Component {
               alt="profile picture"
             />
             <Typography variant='body1' className={classes.IntroParagraph} >
-              I’m a software developer based in the San Francisco Bay Area. After having worked as a web developer at a variety of analytics- and machine learning-startups I’m now enrolled in Springboard’s <Link color="secondary" underline="hover" target="_blank" rel="noopener noreferrer" href="https://www.springboard.com/workshops/ai-machine-learning-career-track/">machine learning engineering track</Link> in the next stage of my career and pursuit of using technology to make complex data more comprehensible.
+              I’m a software developer based in the San Francisco Bay Area. After having worked as a web developer at a variety of analytics- and machine learning-startups I recently completed Springboard’s <Link color="secondary" underline="hover" target="_blank" rel="noopener noreferrer" href="https://www.springboard.com/workshops/ai-machine-learning-career-track/">machine learning engineering track</Link> in the next stage of my career and pursuit of using technology to make complex data more comprehensible. (<Link color="secondary" underline="hover" target="_blank" rel="noopener noreferrer" href="https://curt-mitch.com/documents/certificate/">See certificate</Link>)
             </Typography>
           </div>
           <Typography variant='h5' className={classes.BackgroundTitle} >
