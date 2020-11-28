@@ -100,6 +100,13 @@ const styles = theme => ({
     maxWidth: "865px",
     margin: "auto"
   },
+  documentLink: {
+    fontSize: "20px",
+    paddingLeft: "12px",
+    maxWidth: '865px',
+    marginTop: "8px",
+    margin: "8px auto"
+  },
   linkText: {
     paddingLeft: "8px",
   },
@@ -172,7 +179,7 @@ class About extends Component {
               alt="profile picture"
             />
             <Typography variant='body1' className={classes.IntroParagraph} >
-              I’m a software developer based in the San Francisco Bay Area. After having worked as a web developer at a variety of analytics- and machine learning-startups I recently completed Springboard’s <Link color="secondary" underline="hover" target="_blank" rel="noopener noreferrer" href="https://www.springboard.com/workshops/ai-machine-learning-career-track/">machine learning engineering track</Link> in the next stage of my career and pursuit of using technology to make complex data more comprehensible. (<Link color="secondary" underline="hover" target="_blank" rel="noopener noreferrer" href="https://curt-mitch.com/documents/certificate/">See certificate</Link>)
+              I’m a software developer based in the San Francisco Bay Area. After having worked as a web developer at a variety of analytics- and machine learning-startups, and I recently completed Springboard’s <Link color="secondary" underline="hover" target="_blank" rel="noopener noreferrer" href="https://www.springboard.com/workshops/ai-machine-learning-career-track/">machine learning engineering track</Link> as part of the next stage in my career and pursuit of using technology to make complex data more comprehensible.
             </Typography>
           </div>
           <Typography variant='h5' className={classes.BackgroundTitle} >
@@ -196,6 +203,15 @@ class About extends Component {
               </Typography>
             </div>
           </div>
+          <Typography variant='h5' className={classes.title} >
+            Documents
+          </Typography>
+          <Typography variant='body1' className={classes.documentLink} >
+            <Link className={classes.linkText} color="secondary" underline="hover" target="_blank" rel="noopener noreferrer" href="/documents/resume">Resume</Link>
+          </Typography>
+          <Typography variant='body1' className={classes.documentLink} >
+            <Link className={classes.linkText} color="secondary" underline="hover" target="_blank" rel="noopener noreferrer" href="/documents/certificate">Springboard Certificate</Link>
+          </Typography>
           <Typography variant='h5' className={classes.title} >
             External Links
           </Typography>
