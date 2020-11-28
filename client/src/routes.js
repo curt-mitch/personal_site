@@ -10,6 +10,7 @@ const ProjectsList = lazy(() => import('./components/ProjectsList'));
 const PythonFeaturesInJS = lazy(() => import('./posts/PythonFeaturesInJS'));
 const EvaluatingMTPerformance = lazy(() => import('./posts/EvaluatingMTModels'));
 const JPENTranslatorWalkthrough = lazy(() => import('./posts/JPENTranslatorWalkthrough'));
+const ConcludingSpringboard = lazy(() => import('./posts/ConcludingSpringboard'));
 const JPENTranslator = lazy(() => import('./projects/JPENTranslator'));
 const CurtMitchSiteWalkthrough = lazy(() => import('./projects/CurtMitchSiteWalkthrough'));
 
@@ -25,6 +26,7 @@ export default () => (
             <Route exact path='/post/python-features-in-js' component={PythonFeaturesInJS} />
             <Route exact path='/post/evaluating-machine-translation-models' component={EvaluatingMTPerformance} />
             <Route exact path='/post/jp-en-translator-walkthrough' component={JPENTranslatorWalkthrough} />
+            <Route exact path='/post/concluding-springboard' component={ConcludingSpringboard} />
             <Route exact path='/project/jp-en-translator' component={JPENTranslator} />
             <Route exact path='/project/website-walkthrough' component={CurtMitchSiteWalkthrough} />
           </Switch>
