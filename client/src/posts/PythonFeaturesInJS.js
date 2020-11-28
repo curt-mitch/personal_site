@@ -45,44 +45,10 @@ const styles = theme => ({
     alignItems: "center",
     marginTop: 32
   },
-  outlinedButtom: {
-    textTransform: "uppercase",
-    margin: theme.spacing(1)
-  },
-  actionButtom: {
-    textTransform: "uppercase",
-    margin: theme.spacing(1),
-    width: 152
-  },
-  blockCenter: {
-    padding: theme.spacing(2),
-    textAlign: "center"
-  },
-  block: {
-    padding: theme.spacing(2)
-  },
   title: {
     padding: theme.spacing(2),
     maxWidth: '700px',
     margin: 'auto',
-  },
-  box: {
-    marginBottom: 40,
-    height: 65
-  },
-  inlining: {
-    display: "inline-block",
-    marginRight: 10
-  },
-  buttonBar: {
-    display: "flex"
-  },
-  alignRight: {
-    display: "flex",
-    justifyContent: "flex-end"
-  },
-  noBorder: {
-    borderBottomStyle: "hidden"
   },
   loadingState: {
     opacity: 0.05
@@ -111,28 +77,6 @@ const styles = theme => ({
 });
 
 class PythonFeaturesInJS extends Component {
-  state = {
-    learnMoredialog: false,
-    getStartedDialog: false
-  };
-
-  componentDidMount() {}
-
-  openDialog = event => {
-    this.setState({ learnMoredialog: true });
-  };
-
-  dialogClose = event => {
-    this.setState({ learnMoredialog: false });
-  };
-
-  openGetStartedDialog = event => {
-    this.setState({ getStartedDialog: true });
-  };
-
-  closeGetStartedDialog = event => {
-    this.setState({ getStartedDialog: false });
-  };
 
   render() {
     const { classes } = this.props;
