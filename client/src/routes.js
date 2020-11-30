@@ -26,7 +26,7 @@ export default () => (
             <Route exact path='/post/python-features-in-js' component={PythonFeaturesInJS} />
             <Route exact path='/post/evaluating-machine-translation-models' component={EvaluatingMTPerformance} />
             <Route exact path='/post/jp-en-translator-walkthrough' component={JPENTranslatorWalkthrough} />
-            <Route exact path='/post/concluding-springboard' component={ConcludingSpringboard} />
+            <Route exact path='/post/concluding-springboard-next-adventure' component={ConcludingSpringboard} />
             <Route exact path='/project/jp-en-translator' component={JPENTranslator} />
             <Route exact path='/project/website-walkthrough' component={CurtMitchSiteWalkthrough} />
           </Switch>
