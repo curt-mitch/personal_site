@@ -67,8 +67,9 @@ const styles = theme => ({
       fontSize: '16px',
       padding: theme.spacing(2),
       lineHeight: "24px",
-      margin: 'auto 16px',
-    }
+      maxWidth: '400px',
+      margin: 'auto',
+    },
   },
   mainTextColumnLeft: {
     flex: 1,
