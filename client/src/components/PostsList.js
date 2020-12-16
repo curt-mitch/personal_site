@@ -21,11 +21,6 @@ const styles = theme => ({
     height: "100%",
     width: "100%",
   },
-  backgroundGraph: {
-    color: "green",
-    height: "100%",
-    width: "100%",
-  },
   subTitle: {
     paddingTop: theme.spacing(2),
     paddingRight: theme.spacing(3.5),
@@ -62,30 +57,12 @@ const styles = theme => ({
 
 class PostsList extends Component {
   state = {
-    learnMoredialog: false,
-    getStartedDialog: false,
     postList: [],
   };
 
   componentDidMount() {
     this.getPostsLists();
   }
-
-  openDialog = event => {
-    this.setState({ learnMoredialog: true });
-  };
-
-  dialogClose = event => {
-    this.setState({ learnMoredialog: false });
-  };
-
-  openGetStartedDialog = event => {
-    this.setState({ getStartedDialog: true });
-  };
-
-  closeGetStartedDialog = event => {
-    this.setState({ getStartedDialog: false });
-  };
 
   getPostsLists = () => {
     axios
@@ -99,7 +76,6 @@ class PostsList extends Component {
   renderPostList = (posts, classes) => {
     return (
       posts
-
         .map(post => {
           return (
             <Paper

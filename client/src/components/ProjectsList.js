@@ -21,11 +21,6 @@ const styles = theme => ({
     height: "100%",
     width: "100%",
   },
-  backgroundGraph: {
-    color: "green",
-    height: "100%",
-    width: "100%",
-  },
   subTitle: {
     paddingTop: theme.spacing(2),
     paddingRight: theme.spacing(3.5),
@@ -62,55 +57,36 @@ const styles = theme => ({
 
 class ProjectsList extends Component {
   state = {
-    learnMoredialog: false,
-    getStartedDialog: false,
-    postList: [],
+    projectList: [],
   };
 
   componentDidMount() {
     this.getPostsLists();
   }
 
-  openDialog = event => {
-    this.setState({ learnMoredialog: true });
-  };
-
-  dialogClose = event => {
-    this.setState({ learnMoredialog: false });
-  };
-
-  openGetStartedDialog = event => {
-    this.setState({ getStartedDialog: true });
-  };
-
-  closeGetStartedDialog = event => {
-    this.setState({ getStartedDialog: false });
-  };
-
   getPostsLists = () => {
     axios
       .get(`${process.env.REACT_APP_HOST_IP_ADDRESS}/api/projects/`)
       .then(res => {
-        this.setState({ postList: res.data })
+        this.setState({ projectList: res.data })
       })
       .catch(err => console.log(err));
   }
 
-  renderPostList = (posts, classes) => {
+  renderProjectList = (projects, classes) => {
     return (
-      posts
-
-        .map(post => {
+      projects
+        .map(project => {
           return (
             <Paper
               className={classes.paper}
-              key={post.id}>
+              key={project.id}>
               <div>
                   <ProjectListing
-                    title={post.title}
-                    publishDate={post.publish_date}
-                    description={post.description}
-                    postLink={post.project_link}
+                    title={project.title}
+                    publishDate={project.publish_date}
+                    description={project.description}
+                    postLink={project.project_link}
                   />
                 </div>
             </Paper>
@@ -121,7 +97,7 @@ class ProjectsList extends Component {
 
   render() {
     const { classes } = this.props;
-    const { postList } = this.state;
+    const { projectList } = this.state;
     return (
       <React.Fragment>
         <CssBaseline />
@@ -141,7 +117,7 @@ class ProjectsList extends Component {
             >
               <Grid container item xs={12}>
                 <Grid item xs={12}>
-                  {this.renderPostList(postList, classes)}
+                  {this.renderProjectList(projectList, classes)}
                 </Grid>
               </Grid>
             </Grid>
