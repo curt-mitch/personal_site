@@ -14,13 +14,6 @@ const styles = theme => ({
     margin: theme.spacing(1),
     width: 175
   },
-  blockCenter: {
-    padding: theme.spacing(2),
-    textAlign: "center"
-  },
-  block: {
-    padding: theme.spacing(2)
-  },
   box: {
     marginBottom: 40,
     height: 55,
@@ -36,28 +29,6 @@ const styles = theme => ({
     overflow: "hidden",
     textOverflow: "ellipsis"
   },
-  inlining: {
-    display: "inline-block",
-    marginRight: 10
-  },
-  buttonBar: {
-    display: "flex"
-  },
-  alignRight: {
-    display: "flex",
-    justifyContent: "flex-end"
-  },
-  noBorder: {
-    borderBottomStyle: "hidden"
-  },
-  loadingState: {
-    opacity: 0.05
-  },
-  loadingMessage: {
-    position: "absolute",
-    top: "40%",
-    left: "40%"
-  }
 });
 
 class ProjectListing extends Component {

@@ -43,71 +43,21 @@ const styles = theme => ({
     color: theme.palette.text.secondary,
     margin: theme.spacing(2)
   },
-  rangeLabel: {
-    display: "flex",
-    justifyContent: "space-between",
-    paddingTop: theme.spacing(2)
-  },
   topBar: {
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
     marginTop: 32
   },
-  outlinedButton: {
-    textTransform: "uppercase",
-    margin: theme.spacing(1)
-  },
-  actionButton: {
-    textTransform: "uppercase",
-    margin: theme.spacing(1),
-    width: 175
-  },
-  blockCenter: {
-    padding: theme.spacing(2),
-    textAlign: "center"
-  },
-  block: {
-    padding: theme.spacing(2)
-  },
-  box: {
-    marginBottom: 40,
-    height: 55,
-  },
   postHeading: {
     display: "flex",
     justifyContent: "space-between",
-  },
-  postDate: {
-
   },
   postDescription: {
     whiteSpace: "nowrap",
     overflow: "hidden",
     textOverflow: "ellipsis"
   },
-  inlining: {
-    display: "inline-block",
-    marginRight: 10
-  },
-  buttonBar: {
-    display: "flex"
-  },
-  alignRight: {
-    display: "flex",
-    justifyContent: "flex-end"
-  },
-  noBorder: {
-    borderBottomStyle: "hidden"
-  },
-  loadingState: {
-    opacity: 0.05
-  },
-  loadingMessage: {
-    position: "absolute",
-    top: "40%",
-    left: "40%"
-  }
 });
 
 class ProjectsList extends Component {
