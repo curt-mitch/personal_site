@@ -4,12 +4,15 @@ import { withRouter } from "react-router-dom";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Typography from "@material-ui/core/Typography";
 import Link from '@material-ui/core/Link';
-
-import hljs from 'highlight.js/lib/highlight';
+import hljs from 'highlight.js/lib/core';
 import Highlight from 'react-highlight.js';
-
+import python from 'highlight.js/lib/languages/python';
+import javascript from 'highlight.js/lib/languages/javascript';
+import 'highlight.js/styles/solarized-dark.css';
 import Topbar from "../components/Topbar";
 
+hljs.registerLanguage('python', python);
+hljs.registerLanguage('javascript', javascript);
 // allow single-line comments in code examples
 hljs.configure({ useBR: true })
 
