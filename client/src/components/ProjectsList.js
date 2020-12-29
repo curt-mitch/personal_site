@@ -9,6 +9,7 @@ import Grid from "@material-ui/core/Grid";
 
 import Topbar from "./Topbar";
 import ProjectListing from "./ProjectListing";
+import PrimaryLoadingScreen from './PrimaryLoadingScreen';
 
 const styles = theme => ({
   root: {
@@ -58,41 +59,52 @@ const styles = theme => ({
 class ProjectsList extends Component {
   state = {
     projectList: [],
+    isLoading: true,
   };
 
   componentDidMount() {
-    this.getPostsLists();
+    this.getProjectsLists();
   }
 
-  getPostsLists = () => {
+  getProjectsLists = () => {
     axios
       .get(`${process.env.REACT_APP_HOST_IP_ADDRESS}/api/projects/`)
       .then(res => {
-        this.setState({ projectList: res.data })
+        this.setState({
+          projectList: res.data,
+          isLoading: false,
+        })
       })
-      .catch(err => console.log(err));
+      .catch(err => {
+        console.log(err);
+        this.setState({ isLoading: false })
+      });
   }
 
   renderProjectList = (projects, classes) => {
-    return (
-      projects
-        .map(project => {
-          return (
-            <Paper
-              className={classes.paper}
-              key={project.id}>
-              <div>
-                  <ProjectListing
-                    title={project.title}
-                    publishDate={project.publish_date}
-                    description={project.description}
-                    postLink={project.project_link}
-                  />
-                </div>
-            </Paper>
-          );
-      })
-   );
+    if(this.state.isLoading === true) {
+      return (<PrimaryLoadingScreen/>);
+    } else {
+      return (
+        projects
+          .map(project => {
+            return (
+              <Paper
+                className={classes.paper}
+                key={project.id}>
+                <div>
+                    <ProjectListing
+                      title={project.title}
+                      publishDate={project.publish_date}
+                      description={project.description}
+                      postLink={project.project_link}
+                    />
+                  </div>
+              </Paper>
+            );
+          })
+      );
+    }
   };
 
   render() {

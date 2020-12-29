@@ -9,6 +9,7 @@ import Grid from "@material-ui/core/Grid";
 
 import Topbar from "./Topbar";
 import PostListing from "./PostListing";
+import PrimaryLoadingScreen from './PrimaryLoadingScreen';
 
 const styles = theme => ({
   root: {
@@ -58,6 +59,7 @@ const styles = theme => ({
 class PostsList extends Component {
   state = {
     postList: [],
+    isLoading: true,
   };
 
   componentDidMount() {
@@ -68,31 +70,41 @@ class PostsList extends Component {
     axios
       .get(`${process.env.REACT_APP_HOST_IP_ADDRESS}/api/posts/`)
       .then(res => {
-        this.setState({ postList: res.data })
+        this.setState({
+          postList: res.data,
+          isLoading: false,
+        })
       })
-      .catch(err => console.log(err));
+      .catch(err => {
+        console.log(err);
+        this.setState({ isLoading: false })
+      });
   }
 
   renderPostList = (posts, classes) => {
-    return (
-      posts
-        .map(post => {
-          return (
-            <Paper
-              className={classes.paper}
-              key={post.id}>
-              <div>
-                  <PostListing
-                    title={post.title}
-                    publishDate={post.publish_date}
-                    firstSentence={post.first_sentence}
-                    postLink={post.post_link}
-                  />
-                </div>
-            </Paper>
-          );
-      })
-   );
+    if(this.state.isLoading === true) {
+      return (<PrimaryLoadingScreen/>);
+    } else {
+      return (
+        posts
+          .map(post => {
+            return (
+              <Paper
+                className={classes.paper}
+                key={post.id}>
+                <div>
+                    <PostListing
+                      title={post.title}
+                      publishDate={post.publish_date}
+                      firstSentence={post.first_sentence}
+                      postLink={post.post_link}
+                    />
+                  </div>
+              </Paper>
+            );
+          })
+      );
+    }
   };
 
   render() {
