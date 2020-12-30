@@ -5,8 +5,8 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import Typography from "@material-ui/core/Typography";
 import Link from '@material-ui/core/Link';
 import Image from 'material-ui-image';
-import hljs from 'highlight.js/lib/highlight';
-import Highlight from 'react-highlight.js';
+import SyntaxHighlighter from 'react-syntax-highlighter';
+import { solarizedDark } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
 import Topbar from "../components/Topbar";
 
@@ -15,8 +15,6 @@ import encoderDecoderDiagram from '../images/Encoder-Decoder-Model-for-Text-Tran
 import bahdanauAttentionDiagram from '../images/attention_bahdanau.png';
 import deployedAppDiagram from '../images/jp-en-translation-deployment.png';
 
-// allow single-line comments in code examples
-hljs.configure({ useBR: true })
 
 const styles = theme => ({
   root: {
@@ -145,15 +143,18 @@ class JPENTranslatorWalkthrough extends Component {
   render() {
     const { classes } = this.props;
 
-    const pyContent1 = "mode = tokenizer.Tokenizer.SplitMode.C";
-    const pyContent2 = '[m.surface() for m in tokenizer_obj.tokenize("国家公務員", mode)]';
-    const pyContent3 = "# => ['国家公務員']";
-    const pyContent4 = "mode = tokenizer.Tokenizer.SplitMode.B";
-    const pyContent5 = '[m.surface() for m in tokenizer_obj.tokenize("国家公務員", mode)]';
-    const pyContent6 = "# => ['国家', '公務員']";
-    const pyContent7 = "mode = tokenizer.Tokenizer.SplitMode.A";
-    const pyContent8 = '[m.surface() for m in tokenizer_obj.tokenize("国家公務員", mode)]';
-    const pyContent9 = "# => ['国家', '公務', '員']";
+    const pyContent1 =
+`  mode = tokenizer.Tokenizer.SplitMode.C
+  [m.surface() for m in tokenizer_obj.tokenize("国家公務員", mode)]
+  # => ['国家公務員']
+
+  mode = tokenizer.Tokenizer.SplitMode.B
+  [m.surface() for m in tokenizer_obj.tokenize("国家公務員", mode)]
+  # => ['国家', '公務員']
+
+  mode = tokenizer.Tokenizer.SplitMode.A
+  [m.surface() for m in tokenizer_obj.tokenize("国家公務員", mode)]
+  # => ['国家', '公務', '員']`;
 
     return (
       <React.Fragment>
@@ -208,27 +209,14 @@ class JPENTranslatorWalkthrough extends Component {
           <Typography variant='body1' className={classes.paragraph} >
             While this visual division works fine for human readers of Japanese, it’s still easier for software if it can break up English and Japanese text in similar ways, a process known in natural language processing as “tokenization”. Therefore we need a way to add spaces between logical portions of Japanese text, which can present challenges for things like compound words. For my project I used the popular NLP Python library <Link color="secondary" underline="hover" target="_blank" rel="noopener noreferrer" href="https://spacy.io/">Spacy</Link> along with the Japanese tokenizer library <Link color="secondary" underline="hover" target="_blank" rel="noopener noreferrer" href="https://github.com/WorksApplications/SudachiPy">SudachiPy</Link>. This library actually has settings that allow you to vary the level of granularity in its tokenization. For instance, here is an example from the documentation showing the various options available to break up the word for “government official” (I opted for the middle-of-the-road option “B” in my project):
           </Typography>
-          <Highlight className={classes.codeHighlight} language={'python'}>
+          <SyntaxHighlighter
+            className={classes.codeHighlight}
+            language={'python'}
+            style={solarizedDark}
+            wrapLines={true}
+          >
             {pyContent1}
-            <br/>
-            {pyContent2}
-            <br/>
-            {pyContent3}
-            <br/>
-            <br/>
-            {pyContent4}
-            <br/>
-            {pyContent5}
-            <br/>
-            {pyContent6}
-            <br/>
-            <br/>
-            {pyContent7}
-            <br/>
-            {pyContent8}
-            <br/>
-            {pyContent9}
-          </Highlight>
+          </SyntaxHighlighter>
           <Typography variant='body1' className={classes.paragraph} >
             Another issue is that while Japanese has some obviously different puncuation marks (periods are “。”, for example), even punctuation that looks similar to the English counterparts (！or !) have different unicode values. Handling these as well as removing potential accented characters from the English text (i.e., turning “résumé” into “resume”) and transforming the text of both languages from Unicode into ASCII encodings was the majority of my pre-processing and text normalization work. Additionally, each sentence needs to start and end with special tokens (literally <span className={classes.codeSample}>&lt;start&gt;</span> and <span className={classes.codeSample}>&lt;end&gt;</span> in this case) as guidance for parsing each sentence.
           </Typography>
