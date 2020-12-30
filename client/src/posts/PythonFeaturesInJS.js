@@ -4,15 +4,9 @@ import { withRouter } from "react-router-dom";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Typography from "@material-ui/core/Typography";
 import Link from '@material-ui/core/Link';
-import hljs from 'highlight.js/lib/core';
 import SyntaxHighlighter from 'react-syntax-highlighter';
-import python from 'highlight.js/lib/languages/python';
-import javascript from 'highlight.js/lib/languages/javascript';
 import { solarizedDark } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 import Topbar from "../components/Topbar";
-
-hljs.registerLanguage('python', python);
-hljs.registerLanguage('javascript', javascript);
 
 const styles = theme => ({
   root: {
