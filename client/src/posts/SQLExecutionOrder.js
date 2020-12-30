@@ -3,13 +3,10 @@ import withStyles from "@material-ui/styles/withStyles";
 import { withRouter } from "react-router-dom";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Typography from "@material-ui/core/Typography";
-import hljs from 'highlight.js/lib/core';
-import Highlight from 'react-highlight.js';
-import sql from 'highlight.js/lib/languages/sql';
-import 'highlight.js/styles/solarized-dark.css';
-import Topbar from "../components/Topbar";
+import SyntaxHighlighter from 'react-syntax-highlighter';
+import { solarizedDark } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
-hljs.registerLanguage('sql', sql);
+import Topbar from "../components/Topbar";
 
 const styles = theme => ({
   root: {
@@ -68,6 +65,9 @@ const styles = theme => ({
     maxWidth: '700px',
     margin: 'auto',
   },
+  sqlTableRow: {
+    display: 'block',
+  },
   codeSample: {
     backgroundColor: '#EDEDED',
     fontFamily: 'Courier, monospace',
@@ -79,29 +79,32 @@ class SQLExecutionOrder extends Component {
   render() {
     const { classes } = this.props;
 
-    const sqlContent1 = "SELECT";
-    const sqlContent2 = "  customer_id,";
-    const sqlContent3 = "  contract_1,";
-    const sqlContent4 = "  contract_2,";
-    const sqlContent5 = "  contract_3,";
-    const sqlContent6 = "  SUM(contract_1, contract_2, contract_3) AS contract_totals";
-    const sqlContent7 = "FROM contract_table";
-    const sqlContent8 = "SELECT";
-    const sqlContent9 = "  customer_id,";
-    const sqlContent10 = "  contract_1,";
-    const sqlContent11 = "  contract_2,";
-    const sqlContent12 = "  contract_3,";
-    const sqlContent13 = "  SUM(contract_1, contract_2, contract_3) AS contract_totals";
-    const sqlContent14 = "FROM contract_table";
-    const sqlContent15 = "ORDER BY contract_totals;";
-    const sqlContent16 = "SELECT";
-    const sqlContent17 = "  customer_id,";
-    const sqlContent18 = "  contract_1,";
-    const sqlContent19 = "  contract_2,";
-    const sqlContent20 = "  contract_3,";
-    const sqlContent21 = "  SUM(contract_1, contract_2, contract_3) AS contract_totals";
-    const sqlContent22 = "FROM contract_table";
-    const sqlContent23 = "ORDER BY sum(contract_1, contract_2, contract_3);";
+    const sqlContent1 =
+`  SELECT
+    customer_id,
+    contract_1,
+    contract_2,
+    contract_3,
+    SUM(contract_1, contract_2, contract_3) AS contract_totals
+  FROM contract_table;`;
+    const sqlContent2 =
+`  SELECT
+    customer_id,
+    contract_1,
+    contract_2,
+    contract_3,
+    SUM(contract_1, contract_2, contract_3) AS contract_totals
+  FROM contract_table
+  ORDER BY contract_totals;`;
+    const sqlContent3 =
+`  SELECT
+    customer_id,
+    contract_1,
+    contract_2,
+    contract_3,
+    SUM(contract_1, contract_2, contract_3) AS contract_totals
+  FROM contract_table
+  ORDER BY sum(contract_1, contract_2, contract_3);`;
 
     return (
       <React.Fragment>
@@ -117,73 +120,48 @@ class SQLExecutionOrder extends Component {
           <Typography variant='body1' className={classes.paragraph} >
             As an example, say we’re creating a derived column and then we want to group the results by that new column. In this code example we’ll create a new column summing the value of multiple customer contracts from a hypothetical database:
           </Typography>
-          <Highlight className={classes.codeHighlight} language={'sql'}>
+          <SyntaxHighlighter
+            className={classes.codeHighlight}
+            language={'sql'}
+            style={solarizedDark}
+            wrapLines={true}
+          >
             {sqlContent1}
-            <br/>
-            {sqlContent2}
-            <br/>
-            {sqlContent3}
-            <br/>
-            {sqlContent4}
-            <br/>
-            {sqlContent5}
-            <br/>
-            {sqlContent6}
-            <br/>
-            {sqlContent7}
-          </Highlight>
+          </SyntaxHighlighter>
           <Typography variant='body1' className={classes.paragraph} >
             In the case where you want to order by the size of the contract totals, you would likely encounter an error stating that the column <span className={classes.codeSample}>contract_totals</span> does not exist:
           </Typography>
-          <Highlight className={classes.codeHighlight} language={'sql'}>
-            {sqlContent8}
-            <br/>
-            {sqlContent9}
-            <br/>
-            {sqlContent10}
-            <br/>
-            {sqlContent11}
-            <br/>
-            {sqlContent12}
-            <br/>
-            {sqlContent13}
-            <br/>
-            {sqlContent14}
-            <br/>
-            {sqlContent15}
-          </Highlight>
+          <SyntaxHighlighter
+            className={classes.codeHighlight}
+            language={'sql'}
+            style={solarizedDark}
+            wrapLines={true}
+          >
+            {sqlContent2}
+          </SyntaxHighlighter>
           <Typography variant='body1' className={classes.paragraph} >
             It turns out that standard SQL runtimes will attempt to run a “group by” statement before the “select” statement, and in fact the “select” statement is one of the last parts of a SQL query that gets executed. The following is the order that a typical SQL statement is executed in with a brief description of that command:
           </Typography>
           <Typography variant='body1' className={classes.paragraph} >
-            <div><span className={classes.codeSample}>FROM</span>: pick the table(s) to be queried</div>
-            <div><span className={classes.codeSample}>WHERE</span>: filter the rows</div>
-            <div><span className={classes.codeSample}>GROUP BY</span>: aggregate the rows</div>
-            <div><span className={classes.codeSample}>HAVING</span>: filter the aggregated rows</div>
-            <div><span className={classes.codeSample}>SELECT</span>: select the columns that appear in the output</div>
-            <div><span className={classes.codeSample}>ORDER BY</span>: sort rows by value(s)</div>
-            <div><span className={classes.codeSample}>LIMIT</span>: restrict the maximum number of returned rows</div>
+            <span className={classes.sqlTableRow}><span className={classes.codeSample}>FROM</span>: pick the table(s) to be queried</span>
+            <span className={classes.sqlTableRow}><span className={classes.codeSample}>WHERE</span>: filter the rows</span>
+            <span className={classes.sqlTableRow}><span className={classes.codeSample}>GROUP BY</span>: aggregate the rows</span>
+            <span className={classes.sqlTableRow}><span className={classes.codeSample}>HAVING</span>: filter the aggregated rows</span>
+            <span className={classes.sqlTableRow}><span className={classes.codeSample}>SELECT</span>: select the columns that appear in the output</span>
+            <span className={classes.sqlTableRow}><span className={classes.codeSample}>ORDER BY</span>: sort rows by value(s)</span>
+            <span className={classes.sqlTableRow}><span className={classes.codeSample}>LIMIT</span>: restrict the maximum number of returned rows</span>
           </Typography>
           <Typography variant='body1' className={classes.paragraph} >
             Unfortunately there’s not a great way to work around this process and your best bet is to have this order of execution memorized. For instance, returning to our previous example with the contract amount summation, it’s easiest to repeat the sum expression within the <span className={classes.codeSample}>ORDER BY</span> statement:
           </Typography>
-          <Highlight className={classes.codeHighlight} language={'sql'}>
-            {sqlContent16}
-            <br/>
-            {sqlContent17}
-            <br/>
-            {sqlContent18}
-            <br/>
-            {sqlContent19}
-            <br/>
-            {sqlContent20}
-            <br/>
-            {sqlContent21}
-            <br/>
-            {sqlContent22}
-            <br/>
-            {sqlContent23}
-          </Highlight>
+          <SyntaxHighlighter
+            className={classes.codeHighlight}
+            language={'sql'}
+            style={solarizedDark}
+            wrapLines={true}
+          >
+            {sqlContent3}
+          </SyntaxHighlighter>
           <Typography variant='body1' className={classes.paragraph} >
             Even though this should set off every programmer’s DRY alarm (DRY=“don’t repeat yourself”), writing your SQL queries with the execution order in mind will reduce the number of errors you encounter, especially as you transition from a SQL newbie to a seasoned user!
           </Typography>
