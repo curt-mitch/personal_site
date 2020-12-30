@@ -21,12 +21,12 @@
     "react": "^16.13.1",
     "react-canvas-draw": "^1.1.1",
     "react-dom": "^16.13.1",
-    "react-highlight.js": "^1.0.7",
     "react-pdf": "^5.0.0",
     "react-redux": "^7.2.0",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
+    "react-syntax-highlighter": "^15.4.3",
     "redux": "^4.0.5",
     "source-map-explorer": "^2.5.0"
   },
@@ -53,6 +53,7 @@
     ]
   },
   "devDependencies": {
+    "prettier": "2.2.1",
     "redux-devtools": "^3.5.0"
   }
 }
