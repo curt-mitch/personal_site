@@ -95,7 +95,7 @@ class JPENTranslator extends Component {
     englishTranslation: '',
     fetchingTranslation: false,
     errorState: null,
-};
+  };
 
   makeTranslationRequest() {
     const textValue = this.state.japaneseText;
