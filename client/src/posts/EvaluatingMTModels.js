@@ -4,15 +4,11 @@ import { withRouter } from "react-router-dom";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Typography from "@material-ui/core/Typography";
 import Link from '@material-ui/core/Link';
-
-import hljs from 'highlight.js/lib/highlight';
-import Highlight from 'react-highlight.js';
+import SyntaxHighlighter from 'react-syntax-highlighter';
+import { solarizedDark } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 import { MathComponent } from 'mathjax-react'
 
 import Topbar from "../components/Topbar";
-
-// allow single-line comments in code examples
-hljs.configure({ useBR: true })
 
 const styles = theme => ({
   root: {
@@ -146,26 +142,32 @@ class EvaluatingMTModels extends Component {
   render() {
     const { classes } = this.props;
 
-    const pyContent1 = "from nltk.translate.bleu_score import sentence_bleu";
-    const pyContent2 = "reference_1 = ['the', 'hungry', 'gray', 'dog', 'ate', 'the', 'tasty', 'treat']";
-    const pyContent3 = "hypothesis_1 = ['the', 'hungry', 'gray', 'dog', 'ate', 'the', 'tasty', 'treat']";
-    const pyContent4 = "score = sentence_bleu([reference_1], hypothesis_1)";
-    const pyContent5 = "score # 1.0";
-    const pyContent6 = "hypothesis_2 = ['the', 'hungry', 'gray', 'dog', 'ate', 'a', 'tasty', 'treat']";
-    const pyContent7 = "score = sentence_bleu([reference_1], hypothesis_2";
-    const pyContent8 = "score # 0.5946035575013605";
-    const pyContent9 = "score = sentence_bleu([reference_1], hypothesis_1, weights=(0.5, 0.5))";
-    const pyContent10 = "score # 0.7905694150420949";
-    const pyContent11 = "from nltk.translate.nist_score import sentence_nist";
-    const pyContent12 = "score = sentence_nist([reference_1], hypothesis_1)";
-    const pyContent13 = "score # 3.0357142857142856";
-    const pyContent14 = "score = sentence_nist([reference_1], hypothesis_2)";
-    const pyContent15 = "score # 2.642857142857143";
-    const pyContent16 = "from nltk.translate.meteor_score import meteor_score";
-    const pyContent17 = "reference_1 = 'the hungry gray dog ate the tasty treat'";
-    const pyContent18 = "hypothesis_1 = 'the hungry gray dog ate a tasty treat'";
-    const pyContent19 = "score = meteor_score([reference_1], hypothesis_1)";
-    const pyContent20 = "score # 0.840561224489796";
+    const pyContent1 =
+`  from nltk.translate.bleu_score import sentence_bleu
+  reference_1 = ['the', 'hungry', 'gray', 'dog', 'ate', 'the', 'tasty', 'treat']
+  hypothesis_1 = ['the', 'hungry', 'gray', 'dog', 'ate', 'the', 'tasty', 'treat']
+  score = sentence_bleu([reference_1], hypothesis_1)
+  score # 1.0`;
+    const pyContent2 =
+`  hypothesis_2 = ['the', 'hungry', 'gray', 'dog', 'ate', 'a', 'tasty', 'treat']
+  score = sentence_bleu([reference_1], hypothesis_2
+  score # 0.5946035575013605`;
+    const pyContent3 =
+`  score = sentence_bleu([reference_1], hypothesis_1, weights=(0.5, 0.5))
+  score # 0.7905694150420949`;
+    const pyContent4 =
+`  from nltk.translate.nist_score import sentence_nist
+  score = sentence_nist([reference_1], hypothesis_1)
+  score # 3.0357142857142856`;
+    const pyContent5 =
+`  score = sentence_nist([reference_1], hypothesis_2)
+  score # 2.642857142857143`
+    const pyContent6 =
+`  from nltk.translate.meteor_score import meteor_score
+  reference_1 = 'the hungry gray dog ate the tasty treat'
+  hypothesis_1 = 'the hungry gray dog ate a tasty treat'
+  score = meteor_score([reference_1], hypothesis_1)
+  score # 0.840561224489796`;
 
     return (
       <React.Fragment>
@@ -235,17 +237,14 @@ class EvaluatingMTModels extends Component {
           <Typography variant='body1' className={classes.paragraph}>
             Let’s look at some examples to build our intuition. We’ll compare a known reference sentence and a hypothesis sentence that’s hypothetically the output of a machine translation program, and both sentences will be stored as arrays of tokens representing individual words. We can use the sentence-level BLEU score that comes as part of the NLTK API:
           </Typography>
-          <Highlight className={classes.codeHighlight} language={'python'}>
+          <SyntaxHighlighter
+            className={classes.codeHighlight}
+            language={'python'}
+            style={solarizedDark}
+            wrapLines={true}
+          >
             {pyContent1}
-            <br/>
-            {pyContent2}
-            <br/>
-            {pyContent3}
-            <br/>
-            {pyContent4}
-            <br/>
-            {pyContent5}
-          </Highlight>
+          </SyntaxHighlighter>
           <Typography variant='body1' className={classes.exampleList} >
             <strong>note</strong>: you may notice that the argument for the reference sentence is inside list brackets. This is because the BLEU methods in NLTK assume there will generally be more than one reference sentence passed as a list.
           </Typography>
@@ -255,23 +254,25 @@ class EvaluatingMTModels extends Component {
           <Typography variant='body1' className={classes.paragraph} >
             What happens when we change one word in the hypothesis sentence (the second “the” becomes “a”)?
           </Typography>
-          <Highlight className={classes.codeHighlight} language={'python'}>
-            {pyContent6}
-            <br/>
-            {pyContent7}
-            <br/>
-            {pyContent8}
-            <br/>
-          </Highlight>
+          <SyntaxHighlighter
+            className={classes.codeHighlight}
+            language={'python'}
+            style={solarizedDark}
+            wrapLines={true}
+          >
+            {pyContent2}
+          </SyntaxHighlighter>
           <Typography variant='body1' className={classes.paragraph} >
             We can see a dramatic drop in the score here. It won’t be intuitive based on the score value, but the BLEU score is calculated by comparing the precision of n-grams in the hypothesis and reference sentences. Another thing to note is that by default the BLEU methods in NTLK compare 1- to 4-grams. If we were to only compare unigrams and bigrams by specifying their weighting, our score would be significantly boosted:
           </Typography>
-          <Highlight className={classes.codeHighlight} language={'python'}>
-            {pyContent9}
-            <br/>
-            {pyContent10}
-            <br/>
-          </Highlight>
+          <SyntaxHighlighter
+            className={classes.codeHighlight}
+            language={'python'}
+            style={solarizedDark}
+            wrapLines={true}
+          >
+            {pyContent3}
+          </SyntaxHighlighter>
           <Typography variant='body1' className={classes.paragraph} >
             More concretely, the BLEU score is comparing the precision and recall of the hypothesis sentence versus the reference sentences. Assuming we’re only looking at the unigrams of each sentence, the BLEU score tests to see how many of the words in the reference sentence (8 words total) appear in the hypothesis sentence (7, since the second “the” has become “a”). This would give a score of 7/8 = 0.875.
           </Typography>
@@ -287,23 +288,25 @@ class EvaluatingMTModels extends Component {
           <Typography variant='body1' className={classes.paragraph} >
             In 2002 DARPA (The US Defense Advanced Research Projects Agency) commissioned NIST (the US National Institute of Standards and Technology) to evaluate and create their own machine translation metric based on BLEU. The result was a method similar to the BLEU score but with a few minor changes such as increased weighting for less-common n-grams and a reduced scoring penalty for shorter sentences (known as the “brevity penalty”):
           </Typography>
-          <Highlight className={classes.codeHighlight} language={'python'}>
-            {pyContent11}
-            <br/>
-            {pyContent12}
-            <br/>
-            {pyContent13}
-            <br/>
-          </Highlight>
+          <SyntaxHighlighter
+            className={classes.codeHighlight}
+            language={'python'}
+            style={solarizedDark}
+            wrapLines={true}
+          >
+            {pyContent4}
+          </SyntaxHighlighter>
           <Typography variant='body1' className={classes.paragraph} >
             and with the second hypothesis sentence:
           </Typography>
-          <Highlight className={classes.codeHighlight} language={'python'}>
-            {pyContent14}
-            <br/>
-            {pyContent15}
-            <br/>
-          </Highlight>
+          <SyntaxHighlighter
+            className={classes.codeHighlight}
+            language={'python'}
+            style={solarizedDark}
+            wrapLines={true}
+          >
+            {pyContent5}
+          </SyntaxHighlighter>
           <Typography variant='body1' className={classes.paragraph} >
             Notice that the NIST scores will tend to be greater than one. This is due to the differences between the NIST and BLEU methods given above, plus the fact that the NIST method uses the arithmetic mean of the n-gram overlaps while BLEU uses the geometric mean. See the final section below for details on the differences.
           </Typography>
@@ -319,18 +322,14 @@ class EvaluatingMTModels extends Component {
           <Typography variant='body1' className={classes.paragraph} >
             Let’s compute the METEOR scores using the same example sentence we used for the BLEU examples, noting that the <span fontFamily="Monospace">meteor_score</span> method expects sentences as whole strings instead of an array of tokens as with the BLEU and NIST methods:
           </Typography>
-          <Highlight className={classes.codeHighlight} language={'python'}>
-            {pyContent16}
-            <br/>
-            {pyContent17}
-            <br/>
-            {pyContent18}
-            <br/>
-            {pyContent19}
-            <br/>
-            {pyContent20}
-            <br/>
-          </Highlight>
+          <SyntaxHighlighter
+            className={classes.codeHighlight}
+            language={'python'}
+            style={solarizedDark}
+            wrapLines={true}
+          >
+            {pyContent6}
+          </SyntaxHighlighter>
           <Typography variant='body1' className={classes.exampleList} >
             <strong>note</strong>: The NLTK <span fontFamily="Monospace">meteor_score</span> method takes full sentences as strings (or a list of sentences in the case of reference sentences) for its arguments instead of a list of tokens.
           </Typography>
