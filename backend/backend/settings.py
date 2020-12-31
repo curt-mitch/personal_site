@@ -58,6 +58,7 @@ INSTALLED_APPS = [
     'apps.posts',
     'apps.projects',
     'apps.jp_en_endpoints',
+    'apps.urdu_letter_endpoints',
     'apps.ml',
 ]
 

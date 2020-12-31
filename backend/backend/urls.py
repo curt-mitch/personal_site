@@ -19,7 +19,8 @@ from rest_framework import routers
 from apps.posts.views import PostsView
 from apps.projects.views import ProjectsView
 
-from apps.jp_en_endpoints.urls import urlpatterns as endpoints_urlpatterns
+from apps.jp_en_endpoints.urls import urlpatterns as jp_en_endpoints_urlpatterns
+from apps.urdu_letter_endpoints.urls import urlpatterns as urdu_letter_endpoints_urlpatterns
 
 router = routers.DefaultRouter()
 router.register(r'posts', PostsView, 'posts')
@@ -30,4 +31,5 @@ urlpatterns = [
     path('api/', include(router.urls))
 ]
 
-urlpatterns += endpoints_urlpatterns
+urlpatterns += jp_en_endpoints_urlpatterns
+urlpatterns += urdu_letter_endpoints_urlpatterns
