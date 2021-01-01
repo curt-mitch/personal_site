@@ -2,7 +2,7 @@ import sys
 import re
 
 from rest_framework import generics
-from rest_framework.parsers import JSONParser
+from rest_framework.parsers import JSONParser, MultiPartParser, FormParser
 from rest_framework import status
 from django.http import JsonResponse
 from apps.jp_en_endpoints.models import TranslationTextGet
@@ -16,18 +16,19 @@ class Prediction(generics.RetrieveAPIView):
     print('prediction!!!')
     queryset = TranslationTextGet.objects.all()
     serializer_class = TranslationTextGetSerializer
-    parser_classes = [JSONParser]
+    parser_classes = [JSONParser, MultiPartParser, FormParser]
 
-    def get(self, request, *args, **kwargs):
-        print('Prediction get request')
-        input_text = request.GET.get('input_text')
+    def post(self, request, *args, **kwargs):
+        print('Prediction post request')
+        input_image = request.POST.get('form-data')
+        print(request.data)
         prediction = ''
-        try:
-          prediction = self.create_prediction_response(input_text)
-        except Exception as exception:
-          prediction = { 'error': exception.__class__.__name__}
+        # try:
+        #   prediction = self.create_prediction_response(input_text)
+        # except Exception as exception:
+        #   prediction = { 'error': exception.__class__.__name__}
 
-        serializer = TranslationTextGetSerializer(data=input_text)
+        # serializer = TranslationTextGetSerializer(data=input_text)
         response = {'prediction': prediction}
 
         return JsonResponse(response)

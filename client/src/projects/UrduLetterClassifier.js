@@ -85,9 +85,6 @@ const styles = theme => ({
     justifyContent: 'space-between',
     margin: 'auto'
   },
-  predictionBtn: {
-    // marginRight: '18px',
-  },
   canvasInput: {
     border: '1px solid #000',
     margin: 'auto',
@@ -107,27 +104,30 @@ class UrduLetterClassifier extends Component {
     const canvasData = this.saveableCanvas.getSaveData();
     const canvasGrid = this.saveableCanvas.canvas.grid;
     const imgData = canvasGrid.getContext('2d').getImageData(0, 0, 280, 280);
-    console.log(imgData)
-      this.setState({
-        fetchingClassification: true,
-      });
-      // axios
-      // .get(`${process.env.REACT_APP_HOST_IP_ADDRESS}/apGridp_en_translator/predict?input_text=${textValue}`)
-      // .then(res => {
-      //   this.showClassificationResult(res.data.prediction);
-      //   this.setState({
-      //     fetchingClassification: false,
-      //   });
-      // })
-      // .catch(err => {
-      //   console.error(err);
-      //   const message = `The server does not appear to be connected. Please try again later.
-      //   サーバーが接続されていないようです。 後でもう一度やり直してください。`
-      //   this.setErrorState(message);
-      //   this.setState({
-      //     fetchingClassification: false,
-      //   });
+    let imageURL = this.saveableCanvas.canvasContainer.childNodes[1].toDataURL('image/jpg', 0.1)
+
+    run().catch(err => console.log(err));
+    async function run() {
+      const blob = await fetch(imageURL).then(res => res.blob());
+      const formData = new FormData();
+
+      formData.append('letter.jpg', blob);
+      // TODO: this.setState not accessible inside async/await functions
+      // this.setState({
+      //   fetchingClassification: true,
       // });
+
+      const res = await axios.post(`${process.env.REACT_APP_HOST_IP_ADDRESS}/api/urdu_letter_predictor/predict`, formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+      });
+      // this.showClassificationResult(res.data.prediction);
+      // this.setState({
+      //   fetchingClassification: false,
+      // });
+    }
+
   }
 
   updateEmptyState(e) {
@@ -203,7 +203,6 @@ class UrduLetterClassifier extends Component {
                 variant="contained"
                 color="primary"
                 disabled={this.state.sketchboxEmpty}
-                className={classes.predictionBtn}
                 onClick={() => this.makeClassificationRequest()}>
                 Get Prediction
               </Button>
@@ -212,7 +211,6 @@ class UrduLetterClassifier extends Component {
                 variant="contained"
                 color="primary"
                 disabled={this.state.sketchboxEmpty}
-                className={classes.predictionBtn}
                 onClick={() => this.saveableCanvas.clear()}>
                 Clear
               </Button>
