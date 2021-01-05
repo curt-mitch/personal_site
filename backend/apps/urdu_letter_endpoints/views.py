@@ -1,50 +1,54 @@
-import sys
-import re
+import json
+from PIL import Image
+import numpy as np
 
 from rest_framework import generics
 from rest_framework.parsers import JSONParser, MultiPartParser, FormParser
 from rest_framework import status
 from django.http import JsonResponse
-from apps.jp_en_endpoints.models import TranslationTextGet
-from apps.jp_en_endpoints.serializers import TranslationTextGetSerializer
+from django.core.serializers import serialize
 from rest_framework.response import Response
 # translation model imports
-# from apps.ml.jp_en_translator.model_instance import Model
+from apps.ml.urdu_letter_predictor.model_instance import Model
+from apps.ml.urdu_letter_predictor.utils import uhat_map
+from apps.urdu_letter_endpoints.serializers import PredictionsSerializer
 
 
 class Prediction(generics.RetrieveAPIView):
-    print('prediction!!!')
-    queryset = TranslationTextGet.objects.all()
-    serializer_class = TranslationTextGetSerializer
+    # queryset = TranslationTextGet.objects.all()
+    # serializer_class = TranslationTextGetSerializer
     parser_classes = [JSONParser, MultiPartParser, FormParser]
 
     def post(self, request, *args, **kwargs):
-        print('Prediction post request')
-        input_image = request.POST.get('form-data')
-        print(request.data)
-        prediction = ''
-        # try:
-        #   prediction = self.create_prediction_response(input_text)
-        # except Exception as exception:
-        #   prediction = { 'error': exception.__class__.__name__}
+        input_image = request.data['letter.jpg']
+        input_data = self.convert_image_to_npdata(input_image)
+        predictions = []
 
-        # serializer = TranslationTextGetSerializer(data=input_text)
-        response = {'prediction': prediction}
+        try:
+            predictions = self.create_prediction_response(input_data)
+        except Exception as exception:
+            predictions = {"error": exception.__class__.__name__}
+        response = {"predictions": predictions}
 
-        return JsonResponse(response)
+        return JsonResponse(response, safe=False)
 
-    def create_prediction_response(self, request_sentence):
-        # initialize translation model
-        model = Model(VOCAB_INPUT_SIZE, VOCAB_TARGET_SIZE, EMBEDDING_DIM,
-                      UNITS, BATCH_SIZE, OPTIMIZER)
-        encoder, decoder, input_token, target_token = model.define_model()
+    def convert_image_to_npdata(self, input_image):
+        img = Image.open(input_image)
+        size = 28, 28
+        img.thumbnail(size)
+        npdata = np.asarray(img)
+        npdata = npdata[:, :, [0]] / 255.
+        npdata = np.expand_dims(npdata, 0)
+        return npdata
 
-        # predict
-        predict = Prediction(encoder, decoder, UNITS, MAX_LENGTH_INPUT,
-                             MAX_LENGTH_TARGET, input_token, target_token,
-                             request_sentence)
-        result = predict.predict()
+    def create_prediction_response(self, input_data):
+        # initialize prediction model
+        model = Model()
+        results = model.get_prediction(input_data)
+        response_list = []
+        for result in results:
+            char_map = uhat_map[result[0]]
+            char_map["percentage"] = str(result[1])
+            response_list.append(char_map)
 
-        # remove spaces around punctuation and ' <end> ' substring
-        result = re.sub(r'\s([?.!,"](?:\s|$))', r'\1', result)[:-7]
-        return result
+        return response_list
