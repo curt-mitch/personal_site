@@ -95,17 +95,16 @@ class UrduLetterClassifier extends Component {
   state = {
     predictionAbsent: true,
     sketchboxEmpty: true,
-    predictedLetter: '',
+    predictedLetters: [],
     fetchingClassification: false,
     errorState: null,
   };
 
   makeClassificationRequest() {
-    const canvasData = this.saveableCanvas.getSaveData();
-    const canvasGrid = this.saveableCanvas.canvas.grid;
-    const imgData = canvasGrid.getContext('2d').getImageData(0, 0, 280, 280);
     let imageURL = this.saveableCanvas.canvasContainer.childNodes[1].toDataURL('image/jpg', 0.1)
 
+    const updateFetchState = this.updateFetchState.bind(this);
+    const showClassificationResult = this.showClassificationResult.bind(this);
     run().catch(err => console.log(err));
     async function run() {
       const blob = await fetch(imageURL).then(res => res.blob());
@@ -113,21 +112,23 @@ class UrduLetterClassifier extends Component {
 
       formData.append('letter.jpg', blob);
       // TODO: this.setState not accessible inside async/await functions
-      // this.setState({
-      //   fetchingClassification: true,
-      // });
+      updateFetchState(true);
 
       const res = await axios.post(`${process.env.REACT_APP_HOST_IP_ADDRESS}/api/urdu_letter_predictor/predict`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
       });
-      // this.showClassificationResult(res.data.prediction);
-      // this.setState({
-      //   fetchingClassification: false,
-      // });
+      showClassificationResult(res.data);
+      updateFetchState(false);
     }
 
+  }
+
+  updateFetchState(currentlyFetching) {
+    this.setState({
+      fetchingClassification: currentlyFetching,
+    });
   }
 
   updateEmptyState(e) {
@@ -152,15 +153,19 @@ class UrduLetterClassifier extends Component {
     }
   }
 
-  showClassificationResult(predictedLetter) {
-    if (predictedLetter.error) {
-      if (predictedLetter.error === 'KeyError') {
+  showClassificationResult(response) {
+    console.log('response', response);
+    if (response.error) {
+      if (response.error === 'KeyError') {
         const message = `It appears one or more words are not included in the model's lexicon. Please try a different phrase.
         1つ以上の単語がモデルのレキシコンに含まれていないようです。別のフレーズを試してください。`;
         this.setErrorState(message)
       }
     } else {
-      this.setState({ predictedLetter });
+      this.setState({
+        predictedLetters: response['predictions']
+      });
+      console.log(this.state)
     }
   }
 
@@ -215,17 +220,6 @@ class UrduLetterClassifier extends Component {
                 Clear
               </Button>
             </div>
-            <TextField
-              placeholder=""
-              helperText="The predicted letter will appear here"
-              fullWidth
-              margin="normal"
-              InputLabelProps={{
-                shrink: true,
-              }}
-              variant="outlined"
-              value={this.state.predictedLetter}
-            />
             <Typography className={classes.errorMessage}>
               {this.state.errorState}
             </Typography>

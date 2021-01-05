@@ -12,7 +12,7 @@ const EvaluatingMTPerformance = lazy(() => import('./posts/EvaluatingMTModels'))
 const JPENTranslatorWalkthrough = lazy(() => import('./posts/JPENTranslatorWalkthrough'));
 const ConcludingSpringboard = lazy(() => import('./posts/ConcludingSpringboard'));
 const SQLExecutionOrder = lazy(() => import('./posts/SQLExecutionOrder'));
-// const UrduLetterClassifier = lazy(() => import('./projects/UrduLetterClassifier'));
+const UrduLetterClassifier = lazy(() => import('./projects/UrduLetterClassifier'));
 const JPENTranslator = lazy(() => import('./projects/JPENTranslator'));
 const CurtMitchSiteWalkthrough = lazy(() => import('./projects/CurtMitchSiteWalkthrough'));
 
@@ -30,7 +30,7 @@ export default () => (
             <Route exact path='/post/jp-en-translator-walkthrough' component={JPENTranslatorWalkthrough} />
             <Route exact path='/post/concluding-springboard-next-adventure' component={ConcludingSpringboard} />
             <Route exact path='/post/sql-order-of-execution' component={SQLExecutionOrder} />
-            {/* <Route exact path='/project/urdu-letter-classifier' component={UrduLetterClassifier} /> */}
+            <Route exact path='/project/urdu-letter-classifier' component={UrduLetterClassifier} />
             <Route exact path='/project/jp-en-translator' component={JPENTranslator} />
             <Route exact path='/project/website-walkthrough' component={CurtMitchSiteWalkthrough} />
           </Switch>
