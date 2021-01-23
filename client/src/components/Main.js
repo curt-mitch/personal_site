@@ -137,7 +137,7 @@ class Main extends Component {
           </div>
           <Container className={classes.siteTitleContainer} >
             <Typography className={classes.title} gutterBottom>
-              Howdy! I'm Curtis Mitchell, a software engineer based in San Francisco.
+              Howdy! I'm Curtis Mitchell, a machine learning engineer based in San Francisco.
             </Typography>
             <Typography className={classes.subTitle} gutterBottom>
               Welcome to my website where I host my articles and projects at the intersection of machine learning, natural language processing, web development, and mathematics.
