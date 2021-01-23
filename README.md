@@ -7,8 +7,7 @@ Repo for personal site.
 ### Frontend
 [React](https://reactjs.org/) - UI Framework\
 [React Router](https://reacttraining.com/react-router/) - Client-Side Routing\
-[Material-UI](https://material-ui.com/) - React Component Library
-[Redux](https://redux.js.org/) - Frontend State Management Framework\
+[Material-UI](https://material-ui.com/) - React Component Library\
 [Axios](https://github.com/axios/axios) - HTTP Client
 
 ### Backend
