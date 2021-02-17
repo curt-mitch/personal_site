@@ -5,7 +5,7 @@ import numpy as np
 class Model():
     def __init__(self):
         self.model = keras.models.load_model(
-            'apps/ml/urdu_letter_predictor/static/uhat_digits.m5')
+            'apps/ml/urdu_number_predictor/static/uhat_digits.m5')
 
     def get_prediction(self, image_data):
         prediction_list = self.model.predict(image_data) * 100

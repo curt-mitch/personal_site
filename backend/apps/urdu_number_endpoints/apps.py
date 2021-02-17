@@ -2,4 +2,4 @@ from django.apps import AppConfig
 
 
 class UrduLetterEndpointsConfig(AppConfig):
-    name = 'urdu_letter_endpoints'
+    name = 'urdu_number_endpoints'

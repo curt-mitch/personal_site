@@ -20,7 +20,7 @@ from apps.posts.views import PostsView
 from apps.projects.views import ProjectsView
 
 from apps.jp_en_endpoints.urls import urlpatterns as jp_en_endpoints_urlpatterns
-from apps.urdu_letter_endpoints.urls import urlpatterns as urdu_letter_endpoints_urlpatterns
+from apps.urdu_number_endpoints.urls import urlpatterns as urdu_number_endpoints_urlpatterns
 
 router = routers.DefaultRouter()
 router.register(r'posts', PostsView, 'posts')
@@ -32,4 +32,4 @@ urlpatterns = [
 ]
 
 urlpatterns += jp_en_endpoints_urlpatterns
-urlpatterns += urdu_letter_endpoints_urlpatterns
+urlpatterns += urdu_number_endpoints_urlpatterns

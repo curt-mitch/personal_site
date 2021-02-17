@@ -2,7 +2,7 @@ from django.db import models
 from rest_framework import serializers
 
 
-class PredictionLetterPost(models.Model):
+class PredictionNumberPost(models.Model):
     """
     Prediction get for the UHaT letter model
     input_image = image data to be predicted on
