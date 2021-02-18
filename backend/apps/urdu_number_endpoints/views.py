@@ -14,7 +14,7 @@ class Prediction(generics.RetrieveAPIView):
     parser_classes = [JSONParser, MultiPartParser, FormParser]
 
     def post(self, request, *args, **kwargs):
-        input_image = request.data['letter.png']
+        input_image = request.data['number.png']
         input_data = self.convert_image_to_npdata(input_image)
         predictions = []
 
@@ -30,7 +30,6 @@ class Prediction(generics.RetrieveAPIView):
         img = Image.open(input_image)
         size = 28, 28
         img = img.resize((size), Image.ANTIALIAS)
-        img.save('img.png')
         npdata = np.asarray(img)
         npdata = (npdata[:, :, [0]])
         npdata = np.expand_dims(npdata, 0)
