@@ -63,7 +63,7 @@ const styles = theme => ({
     maxWidth: '700px',
     margin: 'auto',
   },
-  jpInputContainer: {
+  urInputContainer: {
     padding: '0px 24px',
     maxWidth: '700px',
     margin: 'auto',
@@ -102,7 +102,6 @@ const styles = theme => ({
     textAlign: 'center'
   },
   characterNames: {
-    // textAlign: 'center',
     fontSize: '20px',
   },
   predictionPercent: {
@@ -131,8 +130,7 @@ class UrduNumberClassifier extends Component {
       const blob = await fetch(imageURL).then(res => res.blob());
       const formData = new FormData();
 
-      formData.append('letter.png', blob);
-      // TODO: this.setState not accessible inside async/await functions
+      formData.append('number.png', blob);
       updateFetchState(true);
 
       const res = await axios.post(`${process.env.REACT_APP_HOST_IP_ADDRESS}/api/urdu_number_predictor/predict`, formData, {
@@ -229,18 +227,18 @@ class UrduNumberClassifier extends Component {
         <Topbar />
         <div className={classes.root}>
           <Typography variant='h3' className={classes.title} >
-            Urdu Letter Classifier
+            Urdu Number Classifier
           </Typography>
           <Typography variant='body1' className={classes.paragraph} >
             <strong>Note</strong>: A walkthrough of this project is forthcoming.
           </Typography>
           <Typography variant='body1' className={classes.paragraph} >
-            This application takes in a drawing of an Urdu letter and attempts to predict which letter was drawn. It was trained on the <Link color="secondary" underline="hover" target="_blank" rel="noopener noreferrer" href="https://www.kaggle.com/hazrat/uhat-urdu-handwritten-text-dataset">UHaT (Urdu Handwritten Text) dataset</Link> using a convolutional neural network with max pooling and dropout.
+            This application takes in a drawing of a single Urdu number and attempts to predict which number was drawn, returning between 1 and 3 possible numbers along with an associated probability value that reflects the model's confidence for that answer. This model was trained on the <Link color="secondary" underline="hover" target="_blank" rel="noopener noreferrer" href="https://www.kaggle.com/hazrat/uhat-urdu-handwritten-text-dataset">UHaT (Urdu Handwritten Text) dataset</Link> using a convolutional neural network with max pooling and dropout.
           </Typography>
           <Typography variant='body1' className={classes.paragraph} >
-            Not an Urdu-speaker? Just click this link to go to the Wikipedia entry for the Urdu Alphabet and write one of the characters from the left side of the table of letters: <Link color="secondary" underline="hover" target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Urdu_alphabet">Urdu Alphabet</Link>. Note that the Urdu alphabet, like the Arabic and Persian alphabets it's derived from, has joined and isolated versions of most of the letters. For example, this is the isolated version of the letter "be": ب , but here are three connected "be" letters: ببب , which shows the different connected versions. <strong>This classifier works only for the isolated versions of each letter</strong>.
+            Not an Urdu-speaker? Like the letters in its alphabet, numbers in Urdu are based on the numbers used in the Arabic and Persian languages (also referred to as the <Link color="secondary" underline="hover" target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Eastern_Arabic_numerals">Eastern Arabic numerals</Link>). For an idea of what the handwritten variations look like I would suggest this Google image search: <Link color="secondary" underline="hover" target="_blank" rel="noopener noreferrer" href="https://www.google.com/search?q=handwritten+urdu+numbers&tbm=isch">handwritten Urdu numbers</Link>.
           </Typography>
-          <div className={classes.jpInputContainer}>
+          <div className={classes.urInputContainer}>
           <CanvasDraw
             ref={canvasDraw => (this.saveableCanvas = canvasDraw)}
             className={classes.canvasInput}
@@ -248,6 +246,7 @@ class UrduNumberClassifier extends Component {
             canvasHeight={280}
             canvasWidth={280}
             brushRadius={2}
+            lazyRadius={5}
             onChange={(e) => { this.updateEmptyState(e)}}
           ></CanvasDraw>
             <div className={classes.buttonSpinnerContainer}>
