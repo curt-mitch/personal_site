@@ -5,7 +5,7 @@ import numpy as np
 from rest_framework import generics
 from rest_framework.parsers import JSONParser, MultiPartParser, FormParser
 from django.http import JsonResponse
-# translation model imports
+# number classifier model imports
 from apps.ml.urdu_number_predictor.model_instance import Model
 from apps.ml.urdu_number_predictor.utils import uhat_numerals_map
 
