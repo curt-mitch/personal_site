@@ -113,7 +113,7 @@ const styles = theme => ({
   }
 });
 
-class UrduLetterClassifier extends Component {
+class UrduNumberClassifier extends Component {
   state = {
     predictionAbsent: true,
     sketchboxEmpty: true,
@@ -279,4 +279,4 @@ class UrduLetterClassifier extends Component {
   }
 }
 
-export default withRouter(withStyles(styles)(UrduLetterClassifier));
+export default withRouter(withStyles(styles)(UrduNumberClassifier));
