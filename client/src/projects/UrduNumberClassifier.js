@@ -90,7 +90,7 @@ const styles = theme => ({
   },
   predictionsContainer: {
     display: "flex",
-    justifyContent: "space-between",
+    justifyContent: "space-evenly",
   },
   predictionBox: {
     border: '1px solid #000',
@@ -116,7 +116,7 @@ class UrduNumberClassifier extends Component {
   state = {
     predictionAbsent: true,
     sketchboxEmpty: true,
-    predictedLetters: [],
+    predictedNumbers: [],
     fetchingClassification: false,
     errorState: null,
   };
@@ -141,7 +141,13 @@ class UrduNumberClassifier extends Component {
       showClassificationResult(res.data);
       updateFetchState(false);
     }
+  }
 
+  resetPredictor() {
+    this.saveableCanvas.clear();
+    this.setState({
+      predictedNumbers: []
+    });
   }
 
   updateFetchState(currentlyFetching) {
@@ -180,12 +186,12 @@ class UrduNumberClassifier extends Component {
         this.setErrorState(message)
       }
     } else {
-      let predictedLetters = response['predictions'];
+      let predictedNumbers = response['predictions'];
       // remove low-probability predictions
-      predictedLetters = predictedLetters.filter(p => p.percentage !== "0.00");
+      predictedNumbers = predictedNumbers.filter(p => p.percentage !== "0.00");
 
       this.setState({
-        predictedLetters
+        predictedNumbers
       });
     }
   }
@@ -194,12 +200,12 @@ class UrduNumberClassifier extends Component {
     this.setState({ errorState: message })
   }
 
-  renderPredictions = (predictedLetters, classes) => {
+  renderPredictions = (predictedNumbers, classes) => {
     if(this.state.fetchingClassification === true) {
       return (<PrimaryLoadingScreen/>);
-    } else if (predictedLetters.length > 0) {
+    } else if (predictedNumbers.length > 0) {
       return (
-        predictedLetters
+        predictedNumbers
           .map(letterInfo => {
             return (
               <div
@@ -220,7 +226,7 @@ class UrduNumberClassifier extends Component {
 
   render() {
     const { classes } = this.props;
-    const { predictedLetters } = this.state;
+    const { predictedNumbers } = this.state;
     return (
       <React.Fragment>
         <CssBaseline />
@@ -261,12 +267,12 @@ class UrduNumberClassifier extends Component {
                 variant="contained"
                 color="primary"
                 disabled={this.state.sketchboxEmpty}
-                onClick={() => this.saveableCanvas.clear()}>
+                onClick={() => this.resetPredictor()}>
                 Clear
               </Button>
             </div>
             <div className={classes.predictionsContainer}>
-              { this.renderPredictions(predictedLetters, classes) }
+              { this.renderPredictions(predictedNumbers, classes) }
             </div>
             <Typography className={classes.errorMessage}>
               {this.state.errorState}
