@@ -18,7 +18,6 @@ const styles = theme => ({
     overflow: "hidden",
     backgroundSize: "cover",
     backgroundPosition: "0 400px",
-    paddingBottom: '100%',
     height: "100%",
     width: "100%",
   },
