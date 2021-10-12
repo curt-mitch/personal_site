@@ -1,10 +1,9 @@
 import React, { Component } from "react";
 import withStyles from "@material-ui/styles/withStyles";
-import { withRouter } from "react-router-dom";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Typography from "@material-ui/core/Typography";
 
-import Topbar from "../components/Topbar";
+import Topbar from "../../src/components/Topbar";
 
 const styles = theme => ({
   root: {
@@ -126,4 +125,4 @@ class CryptographyHistory extends Component {
   }
 }
 
-export default withRouter(withStyles(styles)(CryptographyHistory));
+export default withStyles(styles)(CryptographyHistory);

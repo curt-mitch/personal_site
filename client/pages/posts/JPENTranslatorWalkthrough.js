@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import withStyles from "@material-ui/styles/withStyles";
-import { withRouter } from "react-router-dom";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Typography from "@material-ui/core/Typography";
 import Link from '@material-ui/core/Link';
@@ -8,12 +7,12 @@ import Image from 'material-ui-image';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { solarizedDark } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
-import Topbar from "../components/Topbar";
+import Topbar from "../../src/components/Topbar";
 
-import LSTMCell from '../images/LSTM-network-cell.png';
-import encoderDecoderDiagram from '../images/Encoder-Decoder-Model-for-Text-Translation.png';
-import bahdanauAttentionDiagram from '../images/attention_bahdanau.png';
-import deployedAppDiagram from '../images/jp-en-translation-deployment.png';
+import LSTMCell from '../../public/images/LSTM-network-cell.png';
+import encoderDecoderDiagram from '../../public/images/Encoder-Decoder-Model-for-Text-Translation.png';
+import bahdanauAttentionDiagram from '../../public/images/attention_bahdanau.png';
+import deployedAppDiagram from '../../public/images/jp-en-translation-deployment.png';
 
 
 const styles = theme => ({
@@ -404,4 +403,4 @@ class JPENTranslatorWalkthrough extends Component {
   }
 }
 
-export default withRouter(withStyles(styles)(JPENTranslatorWalkthrough));
+export default withStyles(styles)(JPENTranslatorWalkthrough);

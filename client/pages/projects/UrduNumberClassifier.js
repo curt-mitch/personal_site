@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { withRouter } from "react-router-dom";
 import withStyles from "@material-ui/styles/withStyles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Typography from "@material-ui/core/Typography";
@@ -8,8 +7,8 @@ import Link from '@material-ui/core/Link';
 import Button from '@material-ui/core/Button';
 import CanvasDraw from "react-canvas-draw";
 
-import Topbar from "../components/Topbar";
-import PrimaryLoadingScreen from '../components/PrimaryLoadingScreen';
+import Topbar from "../../src/components/Topbar";
+import PrimaryLoadingScreen from '../../src/components/PrimaryLoadingScreen';
 
 const styles = theme => ({
   root: {
@@ -283,4 +282,4 @@ class UrduNumberClassifier extends Component {
   }
 }
 
-export default withRouter(withStyles(styles)(UrduNumberClassifier));
+export default withStyles(styles)(UrduNumberClassifier);

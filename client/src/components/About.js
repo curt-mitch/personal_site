@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { withRouter } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import withStyles from "@material-ui/styles/withStyles";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -7,7 +6,7 @@ import Typography from "@material-ui/core/Typography";
 import Link from '@material-ui/core/Link';
 import Image from 'material-ui-image';
 
-import profilePicture from '../images/curtis-profile-pic-small.png';
+import profilePicture from '../../public/images/curtis-profile-pic-small.png';
 import Topbar from "./Topbar";
 
 const styles = theme => ({
@@ -243,4 +242,4 @@ class About extends Component {
   }
 }
 
-export default withRouter(withStyles(styles)(About));
+export default withStyles(styles)(About);

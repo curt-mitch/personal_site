@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
 import withStyles from "@material-ui/styles/withStyles";
-import { withRouter } from "react-router-dom";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
@@ -139,4 +138,4 @@ class PostsList extends Component {
   }
 }
 
-export default withRouter(withStyles(styles)(PostsList));
+export default withStyles(styles)(PostsList);

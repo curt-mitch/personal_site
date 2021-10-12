@@ -1,17 +1,16 @@
 import React, { Component } from "react";
 import withStyles from "@material-ui/styles/withStyles";
-import { withRouter } from "react-router-dom";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Typography from "@material-ui/core/Typography";
-import { pdfjs, Document, Page } from 'react-pdf';
+// import { pdfjs, Document, Page } from 'react-pdf';
 
 import Link from '@material-ui/core/Link';
 
-import Topbar from "../components/Topbar";
-import SpringboardCertificate from "../documents/springboard-certificate.pdf"
+import Topbar from "../../src/components/Topbar";
+// import SpringboardCertificate from "../../public/documents/springboard-certificate.pdf"
 
 // include pdf service worker
-pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
+// pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
 const styles = theme => ({
   root: {
@@ -138,15 +137,15 @@ class ConcludingSpringboard extends Component {
           <Typography variant='body1' className={classes.paragraph} >
             Now that I’ve completed the program my search for a full-time ML engineering role begins in earnest. If you’re looking to hire or know a team that is, I’d be extremely grateful if you could let me know! My email is curtis.l.mitchell AT gmail.com.
           </Typography>
-          <div className={classes.certificatePdf}>
+          {/* <div className={classes.certificatePdf}>
             <Document file={ SpringboardCertificate }>
               <Page pageNumber={1} />
             </Document>
-          </div>
+          </div> */}
         </div>
       </React.Fragment>
     );
   }
 }
 
-export default withRouter(withStyles(styles)(ConcludingSpringboard));
+export default withStyles(styles)(ConcludingSpringboard);

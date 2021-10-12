@@ -4,7 +4,6 @@ import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import Hidden from '@material-ui/core/Hidden';
 import CssBaseline from "@material-ui/core/CssBaseline";
-import { withRouter } from "react-router-dom";
 import { Link } from 'react-router-dom';
 import moment from 'moment';
 
@@ -70,4 +69,4 @@ class PostListing extends Component {
   }
 }
 
-export default withRouter(withStyles(styles)(PostListing));
+export default withStyles(styles)(PostListing);

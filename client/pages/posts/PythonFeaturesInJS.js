@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import withStyles from "@material-ui/styles/withStyles";
-import { withRouter } from "react-router-dom";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Typography from "@material-ui/core/Typography";
 import Link from '@material-ui/core/Link';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { solarizedDark } from 'react-syntax-highlighter/dist/esm/styles/hljs';
-import Topbar from "../components/Topbar";
+
+import Topbar from "../../src/components/Topbar";
 
 const styles = theme => ({
   root: {
@@ -230,4 +230,4 @@ class PythonFeaturesInJS extends Component {
   }
 }
 
-export default withRouter(withStyles(styles)(PythonFeaturesInJS));
+export default withStyles(styles)(PythonFeaturesInJS);

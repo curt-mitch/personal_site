@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { withRouter } from "react-router-dom";
 import withStyles from "@material-ui/styles/withStyles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Typography from "@material-ui/core/Typography";
@@ -9,8 +8,8 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import CircularProgress from '@material-ui/core/CircularProgress';
 
-import Topbar from "../components/Topbar";
-import isJapaneseText from "../utils/jpTextDetector";
+import Topbar from "../../src/components/Topbar";
+import isJapaneseText from "../../src/utils/jpTextDetector";
 
 const styles = theme => ({
   root: {
@@ -222,4 +221,4 @@ class JPENTranslator extends Component {
   }
 }
 
-export default withRouter(withStyles(styles)(JPENTranslator));
+export default withStyles(styles)(JPENTranslator);

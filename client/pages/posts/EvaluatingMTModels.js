@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import withStyles from "@material-ui/styles/withStyles";
-import { withRouter } from "react-router-dom";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Typography from "@material-ui/core/Typography";
 import Link from '@material-ui/core/Link';
@@ -8,7 +7,7 @@ import SyntaxHighlighter from 'react-syntax-highlighter';
 import { solarizedDark } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 import { MathComponent } from 'mathjax-react'
 
-import Topbar from "../components/Topbar";
+import Topbar from "../../src/components/Topbar";
 
 const styles = theme => ({
   root: {
@@ -354,27 +353,33 @@ class EvaluatingMTModels extends Component {
           <Typography variant='body1' className={classes.paragraph} >
             <strong>Arithmetic mean</strong>: The NIST metric utilizes the arithmetic mean, which is the most common version of an average and is usually what is implied when someone uses the word “mean” on its own. The arithmetic mean is the sum of n numbers divided by n:
           </Typography>
-          <Typography component={'span'} className={classes.equation}>
-            <MathComponent tex={String.raw`A = \frac{1}{n} \sum_{i-1}^n x_i = \frac{x_1 + x_2 + ... + x_n}{n}`}/>
-          </Typography>
+          if (typeof window !== 'undefined') {
+            <Typography component={'span'} className={classes.equation}>
+              <MathComponent tex={String.raw`A = \frac{1}{n} \sum_{i-1}^n x_i = \frac{x_1 + x_2 + ... + x_n}{n}`}/>
+            </Typography>
+          }
           <Typography variant='body1' className={classes.paragraph} >
           For instance, the arithmetic mean of 2, 4, and 3 would be (2 + 4 + 3) / 3 = 9/3 = 3
           </Typography>
           <Typography variant='body1' className={classes.paragraph} >
             <strong>Geometric mean</strong>: The BLEU metric utilizes the geometric mean of the number of overlapping n-grams. The geometric mean is defined as the nth root of the product of n numbers:
           </Typography>
-          <Typography component={'span'} className={classes.equation}>
-            <MathComponent tex={String.raw`G = \Bigl(\prod_{i=1}^n x_i\Bigl)^\frac{1}{n} = \sqrt[n]{x_1 x_2 ... x_n}`} />
-          </Typography>
+          if (typeof window !== 'undefined') {
+            <Typography component={'span'} className={classes.equation}>
+              <MathComponent tex={String.raw`G = \Bigl(\prod_{i=1}^n x_i\Bigl)^\frac{1}{n} = \sqrt[n]{x_1 x_2 ... x_n}`} />
+            </Typography>
+          }
           <Typography variant='body1' className={classes.paragraph} >
             For instance, the geometric mean of the numbers 1, 4, and 2 would be (1 * 4 * 2) ^ (1/3) = 8^(1/3) = 2
           </Typography>
           <Typography variant='body1' className={classes.paragraph} >
             <strong>Harmonic mean</strong>: The METEOR metric utilizes the harmonic mean of the number of overlapping n-grams. The harmonic mean is defined as the reciprocal of the arithmetic mean of the reciprocals of n numbers:
           </Typography>
-          <Typography component={'span'} className={classes.equation} >
-            <MathComponent tex={String.raw`H = \Biggl(\frac{\sum\limits_{i=1}^{n} x_i^{-1}}{n}\Biggl)^{-1} = \frac{n}{\sum\limits_{i=1}^{n} \frac{1}{x_i}} = \frac{n}{\frac{1}{x_1} + \frac{1}{x_2} + ... + \frac{1}{x_n}}`} />
-          </Typography>
+          if (typeof window !== 'undefined') {
+            <Typography component={'span'} className={classes.equation} >
+              <MathComponent tex={String.raw`H = \Biggl(\frac{\sum\limits_{i=1}^{n} x_i^{-1}}{n}\Biggl)^{-1} = \frac{n}{\sum\limits_{i=1}^{n} \frac{1}{x_i}} = \frac{n}{\frac{1}{x_1} + \frac{1}{x_2} + ... + \frac{1}{x_n}}`} />
+            </Typography>
+          }
           <Typography variant='body1' className={classes.paragraph} >
             For instance, the harmonic mean of 1, 4, and 4 would be ((1/1 + 1/4 + 1/4) / 3) ^ (-1) = 3/(1 + 0.25 + 0.25) = 3/1.5 = 2
           </Typography>
@@ -396,4 +401,4 @@ class EvaluatingMTModels extends Component {
   }
 }
 
-export default withRouter(withStyles(styles)(EvaluatingMTModels));
+export default withStyles(styles)(EvaluatingMTModels);

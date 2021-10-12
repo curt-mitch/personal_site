@@ -1,5 +1,6 @@
 import React, { Suspense, lazy } from 'react'
 import { Route, Switch, BrowserRouter } from 'react-router-dom'
+
 import PrimaryLoadingScreen from './components/PrimaryLoadingScreen';
 
 const Main = lazy(() => import('./components/Main'));
@@ -7,15 +8,15 @@ const ScrollToTop = lazy(() => import('./components/ScrollTop'));
 const About = lazy(() => import('./components/About'));
 const PostsList = lazy(() => import('./components/PostsList'));
 const ProjectsList = lazy(() => import('./components/ProjectsList'));
-const PythonFeaturesInJS = lazy(() => import('./posts/PythonFeaturesInJS'));
-const EvaluatingMTPerformance = lazy(() => import('./posts/EvaluatingMTModels'));
-const JPENTranslatorWalkthrough = lazy(() => import('./posts/JPENTranslatorWalkthrough'));
-const ConcludingSpringboard = lazy(() => import('./posts/ConcludingSpringboard'));
-const SQLExecutionOrder = lazy(() => import('./posts/SQLExecutionOrder'));
-const UrduNumberClassifier = lazy(() => import('./projects/UrduNumberClassifier'));
-const JPENTranslator = lazy(() => import('./projects/JPENTranslator'));
-const CurtMitchSiteWalkthrough = lazy(() => import('./projects/CurtMitchSiteWalkthrough'));
-const CryptographyHistory = lazy(() => import('./posts/CryptographyHistory'));
+const PythonFeaturesInJS = lazy(() => import('../pages/posts/PythonFeaturesInJS'));
+const EvaluatingMTPerformance = lazy(() => import('../pages/posts/EvaluatingMTModels'));
+const JPENTranslatorWalkthrough = lazy(() => import('../pages/posts/JPENTranslatorWalkthrough'));
+const ConcludingSpringboard = lazy(() => import('../pages/posts/ConcludingSpringboard'));
+const SQLExecutionOrder = lazy(() => import('../pages/posts/SQLExecutionOrder'));
+const UrduNumberClassifier = lazy(() => import('../pages/projects/UrduNumberClassifier'));
+const JPENTranslator = lazy(() => import('../pages/projects/JPENTranslator'));
+const CurtMitchSiteWalkthrough = lazy(() => import('../pages/projects/CurtMitchSiteWalkthrough'));
+const CryptographyHistory = lazy(() => import('../pages/posts/CryptographyHistory'));
 
 export default () => (
     <BrowserRouter>
