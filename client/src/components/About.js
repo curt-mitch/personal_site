@@ -6,7 +6,7 @@ import Typography from "@material-ui/core/Typography";
 import Link from '@material-ui/core/Link';
 import Image from 'material-ui-image';
 
-import profilePicture from '../../public/images/curtis-profile-pic-small.png';
+import profilePicture from '../images/curtis-profile-pic-small.png';
 import Topbar from "./Topbar";
 
 const styles = theme => ({

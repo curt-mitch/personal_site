@@ -9,10 +9,10 @@ import { solarizedDark } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
 import Topbar from "../../src/components/Topbar";
 
-import LSTMCell from '../../public/images/LSTM-network-cell.png';
-import encoderDecoderDiagram from '../../public/images/Encoder-Decoder-Model-for-Text-Translation.png';
-import bahdanauAttentionDiagram from '../../public/images/attention_bahdanau.png';
-import deployedAppDiagram from '../../public/images/jp-en-translation-deployment.png';
+import LSTMCell from '../images/LSTM-network-cell.png';
+import encoderDecoderDiagram from '../images/Encoder-Decoder-Model-for-Text-Translation.png';
+import bahdanauAttentionDiagram from '../images/attention_bahdanau.png';
+import deployedAppDiagram from '../images/jp-en-translation-deployment.png';
 
 
 const styles = theme => ({

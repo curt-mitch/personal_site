@@ -15,6 +15,7 @@ const SQLExecutionOrder = lazy(() => import('./posts/SQLExecutionOrder'));
 const UrduNumberClassifier = lazy(() => import('./projects/UrduNumberClassifier'));
 const JPENTranslator = lazy(() => import('./projects/JPENTranslator'));
 const CurtMitchSiteWalkthrough = lazy(() => import('./projects/CurtMitchSiteWalkthrough'));
+const frontendMigration = lazy(() => import('./posts/FrontendMigrationNote'));
 
 export default () => (
     <BrowserRouter>
@@ -30,6 +31,7 @@ export default () => (
             <Route exact path='/post/jp-en-translator-walkthrough' component={JPENTranslatorWalkthrough} />
             <Route exact path='/post/concluding-springboard-next-adventure' component={ConcludingSpringboard} />
             <Route exact path='/post/sql-order-of-execution' component={SQLExecutionOrder} />
+            <Route exact path='/post/frontend-migration-note' component={frontendMigration} />
             <Route exact path='/project/urdu-number-classifier' component={UrduNumberClassifier} />
             <Route exact path='/project/jp-en-translator' component={JPENTranslator} />
             <Route exact path='/project/website-walkthrough' component={CurtMitchSiteWalkthrough} />

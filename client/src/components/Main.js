@@ -5,7 +5,7 @@ import Typography from "@material-ui/core/Typography";
 import Container from '@material-ui/core/Container';
 import Image from 'material-ui-image';
 
-import radialGradient from '../../public/images/radial_gradient1.png';
+import radialGradient from '../images/radial_gradient1.png';
 import Topbar from "./Topbar";
 
 const styles = theme => ({
