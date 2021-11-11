@@ -1,6 +1,5 @@
 import React, { Suspense, lazy } from 'react'
 import { Route, Switch, BrowserRouter } from 'react-router-dom'
-
 import PrimaryLoadingScreen from './components/PrimaryLoadingScreen';
 
 const Main = lazy(() => import('./components/Main'));
@@ -8,15 +7,14 @@ const ScrollToTop = lazy(() => import('./components/ScrollTop'));
 const About = lazy(() => import('./components/About'));
 const PostsList = lazy(() => import('./components/PostsList'));
 const ProjectsList = lazy(() => import('./components/ProjectsList'));
-const PythonFeaturesInJS = lazy(() => import('../pages/posts/PythonFeaturesInJS'));
-const EvaluatingMTPerformance = lazy(() => import('../pages/posts/EvaluatingMTModels'));
-const JPENTranslatorWalkthrough = lazy(() => import('../pages/posts/JPENTranslatorWalkthrough'));
-const ConcludingSpringboard = lazy(() => import('../pages/posts/ConcludingSpringboard'));
-const SQLExecutionOrder = lazy(() => import('../pages/posts/SQLExecutionOrder'));
-const UrduNumberClassifier = lazy(() => import('../pages/projects/UrduNumberClassifier'));
-const JPENTranslator = lazy(() => import('../pages/projects/JPENTranslator'));
-const CurtMitchSiteWalkthrough = lazy(() => import('../pages/projects/CurtMitchSiteWalkthrough'));
-const CryptographyHistory = lazy(() => import('../pages/posts/CryptographyHistory'));
+const PythonFeaturesInJS = lazy(() => import('./posts/PythonFeaturesInJS'));
+const EvaluatingMTPerformance = lazy(() => import('./posts/EvaluatingMTModels'));
+const JPENTranslatorWalkthrough = lazy(() => import('./posts/JPENTranslatorWalkthrough'));
+const ConcludingSpringboard = lazy(() => import('./posts/ConcludingSpringboard'));
+const SQLExecutionOrder = lazy(() => import('./posts/SQLExecutionOrder'));
+const UrduNumberClassifier = lazy(() => import('./projects/UrduNumberClassifier'));
+const JPENTranslator = lazy(() => import('./projects/JPENTranslator'));
+const CurtMitchSiteWalkthrough = lazy(() => import('./projects/CurtMitchSiteWalkthrough'));
 
 export default () => (
     <BrowserRouter>
@@ -32,7 +30,6 @@ export default () => (
             <Route exact path='/post/jp-en-translator-walkthrough' component={JPENTranslatorWalkthrough} />
             <Route exact path='/post/concluding-springboard-next-adventure' component={ConcludingSpringboard} />
             <Route exact path='/post/sql-order-of-execution' component={SQLExecutionOrder} />
-            <Route exact path='/post/cryptography-history' component={CryptographyHistory} />
             <Route exact path='/project/urdu-number-classifier' component={UrduNumberClassifier} />
             <Route exact path='/project/jp-en-translator' component={JPENTranslator} />
             <Route exact path='/project/website-walkthrough' component={CurtMitchSiteWalkthrough} />
