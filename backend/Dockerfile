@@ -1,4 +1,4 @@
-FROM continuumio/miniconda3
+FROM python:3.8.5
 ENV PYTHONUNBUFFERED 1
 
 ARG DJANGO_ALLOWED_HOSTS
@@ -13,7 +13,8 @@ RUN mkdir /backend
 WORKDIR /backend
 COPY requirements.txt /backend/
 EXPOSE 8000
-RUN pip install -r requirements.txt
+RUN pip install --no-cache-dir --upgrade pip
+RUN pip install --no-cache-dir -r requirements.txt
 COPY . /backend/
 RUN python manage.py makemigrations
 RUN python manage.py migrate
