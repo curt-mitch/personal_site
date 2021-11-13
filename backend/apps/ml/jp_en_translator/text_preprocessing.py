@@ -1,6 +1,6 @@
 import unicodedata
 import re
-import mojimoji
+# import mojimoji
 from spacy.lang.ja import Japanese
 
 
@@ -16,8 +16,8 @@ class PreprocessText():
 
     # convert any half-width katakana to normal-width katakana using
     # mojimoji library
-    def norm_kt(self, text):
-        return mojimoji.han_to_zen(text)
+    # def norm_kt(self, text):
+    #     return mojimoji.han_to_zen(text)
 
     # convert unicode to ascii
     def jp_unicode_to_ascii(self, text):
@@ -47,7 +47,7 @@ class PreprocessText():
 
         jp_text = self.jp_preprocessing_and_spacing(jp_text)
         jp_text = self.tokenize_jp_sentence(jp_text)
-        jp_text = self.norm_kt(jp_text)
+        # jp_text = self.norm_kt(jp_text)
         jp_text = self.jp_unicode_to_ascii(jp_text)
         jp_text = "<start>\u3000" + jp_text + "\u3000<end>"
 
