@@ -2,12 +2,12 @@ version: '3'
 
 services:
   backend:
+    environment:
+      DJANGO_ALLOWED_HOSTS: ${DJANGO_ALLOWED_HOSTS}
+      DJANGO_SECRET_KEY: ${DJANGO_SECRET_KEY}
+      DJANGO_CORS_ALLOWED_ORIGINS: ${DJANGO_CORS_ALLOWED_ORIGINS}
     build:
       context: ./backend
-      args:
-        DJANGO_ALLOWED_HOSTS: $DJANGO_ALLOWED_HOSTS
-        DJANGO_SECRET_KEY: $DJANGO_SECRET_KEY
-        DJANGO_CORS_ALLOWED_ORIGINS: $DJANGO_CORS_ALLOWED_ORIGINS
     command: gunicorn backend.wsgi --bind 0.0.0.0:8000
     ports:
       - "8000:8000"

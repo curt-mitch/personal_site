@@ -18,7 +18,7 @@ env = environ.Env()
 environ.Env.read_env()
 
 # Raises django's ImproperlyConfigured exception if SECRET_KEY not in os.environ
-SECRET_KEY = env("SECRET_KEY")
+SECRET_KEY = env("DJANGO_SECRET_KEY")
 
 DATABASES = {
     'default': {
@@ -41,7 +41,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env("DEBUG")
 
-ALLOWED_HOSTS = [host for host in env("ALLOWED_HOSTS").split(" ")]
+ALLOWED_HOSTS = [host for host in env("DJANGO_ALLOWED_HOSTS").split(" ")]
 
 
 # Application definition
@@ -144,7 +144,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 # we whitelist where frontend will be served from
-CORS_ALLOWED_ORIGINS = [ipAdd for ipAdd in env("CORS_ALLOWED_ORIGINS").split(" ")]
+CORS_ALLOWED_ORIGINS = [ipAdd for ipAdd in env("DJANGO_CORS_ALLOWED_ORIGINS").split(" ")]
 
 # create logging for file debug.log
 LOGGING = {
