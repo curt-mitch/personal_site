@@ -1,0 +1,9 @@
+$primary-color: #64FF00;
+$background-color: #F5F5F5;
+
+$link-color: #0D47A2;
+
+:export {
+  primaryColor: $primary-color;
+  linkColor: $link-color;
+}
