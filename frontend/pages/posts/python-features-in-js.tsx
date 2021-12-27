@@ -3,7 +3,6 @@ import Typography from '@mui/material/Typography';
 
 import styles from './python-features-in-js.module.scss';
 import PrismCode from '../../components/PrismCode';
-import { Link } from '@mui/material';
 
 const pyCode1 = `
 example_list = [1, 2, 3, 4]
@@ -50,7 +49,7 @@ function PythonFeaturesInJS() {
             Three Python Features I Would Love To Have In JavaScript
         </Typography>
         <Typography variant='body1' className={styles.paragraph} >
-            As someone who primarily learned to code using JavaScript, reading languages like C and Java wasn’t too much of a struggle once I learned to read the typing-related code (something that became all the more easy after adopting TypeScript). But once I started digging deeper into machine learning and data science it became clear I would not be able to avoid learning Python. I was reluctant to learn it primarily because its syntax is so different from that of JavaScript (whitespace?!), and I was unmoved by people and <Link color="secondary" underline="hover" target="_blank" rel="noopener noreferrer" href="https://xkcd.com/353/">comics</Link> singing the language’s praises (well, maybe slightly moved by the comics).
+            As someone who primarily learned to code using JavaScript, reading languages like C and Java wasn’t too much of a struggle once I learned to read the typing-related code (something that became all the more easy after adopting TypeScript). But once I started digging deeper into machine learning and data science it became clear I would not be able to avoid learning Python. I was reluctant to learn it primarily because its syntax is so different from that of JavaScript (whitespace?!), and I was unmoved by people and <a className={styles.link} target="_blank" href="https://xkcd.com/353/" rel="noopener noreferrer">comics</a> singing the language’s praises (well, maybe I was slightly moved by the comics).
         </Typography>
         <Typography variant='body1' className={styles.paragraph} >
             But I eventually acquiesced and once I got comfortable reading and writing Python I discovered some things I actually enjoyed about the language. In fact these were things I wish I could adopt into my JavaScript code. Below is a short list of these features:
@@ -102,7 +101,7 @@ function PythonFeaturesInJS() {
             codeSnippet={pyCode5}
         />
         <Typography variant='body1' className={styles.paragraph} >
-            Unfortunately, although list comprehensions were actually on the roadmap for ECMAScript 2015 and even implemented in some versions of Firefox, the feature was later removed: <Link color="secondary" underline="hover" target="_blank" rel="noopener noreferrer" href="https://developer.mozilla.org/en-US/docs/Archive/Web/JavaScript/Array_comprehensions">Array comprehensions - Archive of obsolete content | MDN</Link>
+            Unfortunately, although list comprehensions were actually on the roadmap for ECMAScript 2015 and even implemented in some versions of Firefox, the feature was later removed: <a className={styles.link} target="_blank" href="http://www-lia.deis.unibo.it/materiale/JS/developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Array_comprehensions.html" rel="noopener noreferrer">Array comprehensions | MDN</a> (12/2021 update: comprehensions are being reconsidered for ECMAScript 7!).
         </Typography>
         <Typography variant='h5' className={styles.title} >
             3. Named Parameters
