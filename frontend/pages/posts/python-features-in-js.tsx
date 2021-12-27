@@ -1,11 +1,8 @@
+import React from 'react';
 import Typography from '@mui/material/Typography';
 
-import React, { useEffect } from "react";
-import Prism from 'prismjs';
-import 'prismjs/components/prism-python';
-import 'prismjs/components/prism-javascript';
-
 import styles from './python-features-in-js.module.scss';
+import PrismCode from '../../components/PrismCode';
 import { Link } from '@mui/material';
 
 const pyCode1 = `
@@ -30,7 +27,7 @@ transposed_matrix = [[row[i] for row in original_matrix] for i in range(3)]
 transposed_matrix # [[1, 4, 7], [2, 5, 8], [3, 6, 9]]
 `.trim();
 const pyCode6 = `
-def rectangle_area(width=0,height=0):
+def rectangle_area(width=0, height=0):
     return width * height
 `.trim();
 const pyCode7 = `
@@ -47,12 +44,6 @@ rectangleArea({ height: h, width: w });
 `.trim();
 
 function PythonFeaturesInJS() {
-    useEffect(() => {
-        if (typeof window !== 'undefined') {
-            Prism.highlightAll();
-        }
-    }, []);
-
     return <>
         <div className={styles.root}>
         <Typography variant='h3' className={styles.title} >
@@ -70,46 +61,46 @@ function PythonFeaturesInJS() {
         <Typography variant='body1' className={styles.paragraph} >
             This was probably the first part of Python’s syntax that made me react with “Okay, that’s a pretty nice feature.” Python’s slicing syntax gives you the ability to easily get multiple subsections of any list (i.e., “array” in JavaScript). It looks like the following:
         </Typography>
-        <pre className={styles.codeHighlight}>
-            <code className="language-python">
-                {pyCode1}
-            </code>
-        </pre>
+        <PrismCode
+            pageClass={styles.codeHighlight}
+            language='python'
+            codeSnippet={pyCode1}
+        />
         <Typography variant='body1' className={styles.paragraph} >
             As you can see, the slice notation syntax can be thought of as consisting of optional "start" and "stop" values like so <span className={styles.codeSample}>[start:stop]</span> (Technically both the "start" and "stop" values can be optional because using <span className={styles.codeSample}>[:]</span> will return a complete copy of the original list), but you can also use a "step" property to skip values within the sliced subsets like so:
         </Typography>
-        <pre className={styles.codeHighlight}>
-            <code className="language-python">
-                {pyCode2}
-            </code>
-        </pre>
+        <PrismCode
+            pageClass={styles.codeHighlight}
+            language='python'
+            codeSnippet={pyCode2}
+        />
         <Typography variant='h5' className={styles.title} >
             2. List Comprehensions
         </Typography>
         <Typography variant='body1' className={styles.paragraph} >
             List comprehensions are a prime example of one of the original goals of Python: to make code read more like a human language (at least if you’re an English speaker!). Comprehensions give you a simple way to create new lists using this basic syntax:
         </Typography>
-        <pre className={styles.codeHighlight}>
-            <code className="language-python">
-                {pyCode3}
-            </code>
-        </pre>
+        <PrismCode
+            pageClass={styles.codeHighlight}
+            language='python'
+            codeSnippet={pyCode3}
+        />
         <Typography variant='body1' className={styles.paragraph} >
             Here is a simple example:
         </Typography>
-        <pre className={styles.codeHighlight}>
-            <code className="language-python">
-                {pyCode4}
-            </code>
-        </pre>
+        <PrismCode
+            pageClass={styles.codeHighlight}
+            language='python'
+            codeSnippet={pyCode4}
+        />
         <Typography variant='body1' className={styles.paragraph} >
             You can even create nested comprehensions, which are especially useful when dealing with nested data structures such as matrices:
         </Typography>
-        <pre className={styles.codeHighlight}>
-            <code className="language-python">
-                {pyCode5}
-            </code>
-        </pre>
+        <PrismCode
+            pageClass={styles.codeHighlight}
+            language='python'
+            codeSnippet={pyCode5}
+        />
         <Typography variant='body1' className={styles.paragraph} >
             Unfortunately, although list comprehensions were actually on the roadmap for ECMAScript 2015 and even implemented in some versions of Firefox, the feature was later removed: <Link color="secondary" underline="hover" target="_blank" rel="noopener noreferrer" href="https://developer.mozilla.org/en-US/docs/Archive/Web/JavaScript/Array_comprehensions">Array comprehensions - Archive of obsolete content | MDN</Link>
         </Typography>
@@ -119,27 +110,27 @@ function PythonFeaturesInJS() {
         <Typography variant='body1' className={styles.paragraph} >
             Python gives you the ability to both pass arguments to a method in a set order, just like you would in JavaScript, or create named parameters that are defined with a default value and that can then be passed in any order. Let’s look at an example:
         </Typography>
-        <pre className={styles.codeHighlight}>
-            <code className="language-python">
-                {pyCode6}
-            </code>
-        </pre>
+        <PrismCode
+            pageClass={styles.codeHighlight}
+            language='python'
+            codeSnippet={pyCode6}
+        />
         <Typography variant='body1' className={styles.paragraph} >
             I could call this method in any of the following ways:
         </Typography>
-        <pre className={styles.codeHighlight}>
-            <code className="language-python">
-                {pyCode7}
-            </code>
-        </pre>
+        <PrismCode
+            pageClass={styles.codeHighlight}
+            language='python'
+            codeSnippet={pyCode7}
+        />
         <Typography variant='body1' className={styles.paragraph} >
             You can sort of adopt this pattern in JavaScript methods using objects:
         </Typography>
-        <pre className={styles.codeHighlight}>
-            <code className="language-javascript">
-                {jsCode}
-            </code>
-        </pre>
+        <PrismCode
+            pageClass={styles.codeHighlight}
+            language='javascript'
+            codeSnippet={jsCode}
+        />
         <Typography variant='body1' className={styles.paragraph} >
             But I personally find the Python pattern easier to read at a glance, especially for methods with more than three or four arguments which are common in several data science and machine learning libraries.
         </Typography>
