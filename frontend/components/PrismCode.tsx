@@ -1,7 +1,8 @@
-import React, { useEffect } from "react";
+import React, { useEffect } from 'react';
 import Prism from 'prismjs';
 import 'prismjs/components/prism-python';
 import 'prismjs/components/prism-javascript';
+import 'prismjs/components/prism-sql';
 
 interface prismCodeProps {
     pageClass: string;
