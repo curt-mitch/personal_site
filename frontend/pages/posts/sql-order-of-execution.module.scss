@@ -1,0 +1,39 @@
+@import '../../styles/variables.module.scss';
+
+.root {
+    flex-grow: 1;
+    background-color: $background-color;
+    overflow: hidden;
+    background-size: cover;
+    background-position: 0 400px;
+    padding-bottom: 200px;
+}
+
+.title {
+    padding: 16px;
+    max-width: 700px;
+    margin: auto;
+}
+
+.codeHighlight {
+    padding: 0px 48px;
+    max-width: 700px;
+    margin: auto !important;
+}
+
+.paragraph {
+    padding: 16px;
+    text-indent: 20px;
+    text-align: justify;
+    max-width: 700px;
+    margin: auto;
+}
+
+.sqlTableRow {
+    display: block;
+}
+
+.codeSample {
+    background-color: #EDEDED;
+    font-family: Courier, monospace;
+}
