@@ -11,6 +11,9 @@
 
 .link {
     color: $link-color;
+    &:hover {
+        text-decoration: underline;
+    }
 }  
 
 .title {
