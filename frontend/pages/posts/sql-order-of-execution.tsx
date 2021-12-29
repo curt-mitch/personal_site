@@ -1,7 +1,7 @@
 import React from 'react';
 import Typography from '@mui/material/Typography';
 
-import styles from './sql-order-of-execution.module.scss';
+import styles from './posts.module.scss';
 import PrismCode from '../../components/PrismCode';
 
 const sqlContent1 =

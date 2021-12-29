@@ -1,7 +1,7 @@
 import React from 'react';
 import Typography from '@mui/material/Typography';
 
-import styles from './python-features-in-js.module.scss';
+import styles from './posts.module.scss';
 import PrismCode from '../../components/PrismCode';
 
 const pyCode1 = `

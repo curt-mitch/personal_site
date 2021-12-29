@@ -6,8 +6,12 @@
     overflow: hidden;
     background-size: cover;
     background-position: 0 400px;
-    padding-bottom: 200px;
+    padding-bottom: 50;
 }
+
+.link {
+    color: $link-color;
+}  
 
 .title {
     padding: 16px;
@@ -15,9 +19,15 @@
     margin: auto;
 }
 
-.link {
-    color: $link-color;
-}  
+.loadingState {
+    opacity: 0.05
+}
+
+.loadingMessage {
+    position: absolute;
+    top: 40%;
+    left: 40%;
+}
 
 .codeHighlight {
     padding: 0px 48px;
@@ -33,11 +43,11 @@
     margin: auto;
 }
 
-.sqlTableRow {
-    display: block;
-}
-
 .codeSample {
     background-color: #EDEDED;
     font-family: Courier, monospace;
+}
+
+.sqlTableRow {
+    display: block;
 }
