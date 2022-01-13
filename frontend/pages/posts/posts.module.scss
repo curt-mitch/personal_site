@@ -22,7 +22,7 @@
     margin: auto;
 }
 
-.sectionTitle {
+.sectionTitle, .subSectionTitle {
     padding-left: 16px;
     text-decoration: underline;
     max-width: 700px;
@@ -75,4 +75,31 @@
 .equation {
     text-align: center;
     vertical-align: middle;
+}
+
+.note {
+    font-style: italic;
+    padding: 16px;
+    text-indent: 20px;
+    text-align: justify;
+    max-width: 700px;
+    margin: auto;
+}
+
+.exampleSentence {
+    text-indent: 20px;
+    max-width: 700px;
+    margin: auto;
+}
+
+.diagram {
+    display: flex;
+    justify-content: center;
+}
+
+.pictureCaption {
+    font-size: 12px;
+    max-width: 700px;
+    margin: auto;
+    text-align: center;
 }
