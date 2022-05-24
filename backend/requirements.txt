@@ -54,7 +54,7 @@ SudachiDict-core==20210802
 SudachiPy==0.5.4
 tensorboard>=2.3.0
 tensorboard-plugin-wit==1.7.0
-tensorflow==2.5.2
+tensorflow==2.6.4
 tensorflow-estimator>=2.3.0
 termcolor==1.1.0
 thinc==7.4.1
