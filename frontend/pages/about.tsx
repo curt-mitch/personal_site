@@ -2,6 +2,8 @@ import React from 'react';
 import Image from 'next/image';
 import Typography from '@mui/material/Typography';
 import CssBaseline from '@mui/material/CssBaseline';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGithub, faLinkedin, faTwitter } from '@fortawesome/free-brands-svg-icons'
 
 import styles from './about.module.scss';
 import profilePicture from '../public/images/profile.jpg';
@@ -51,6 +53,36 @@ function About() {
             </Typography>
           </div>
         </div>
+        <Typography variant='h5' className={styles.title} >
+            Documents
+        </Typography>
+        <Typography variant='body1' className={styles.documentLink} >
+          <a className={styles.linkText} color="secondary" target="_blank" rel="noopener noreferrer" href="/documents/resume">Resume</a>
+        </Typography>
+        <Typography variant='body1' className={styles.documentLink} >
+          <a className={styles.linkText} color="secondary" target="_blank" rel="noopener noreferrer" href="/documents/certificate">Springboard Certificate</a>
+        </Typography>
+        <Typography variant='h5' className={styles.title} >
+          External Links
+        </Typography>
+        <Typography variant='body1' className={styles.externalLink} >
+          <FontAwesomeIcon icon={faGithub} /><a className={styles.linkText} color="secondary" target="_blank" rel="noopener noreferrer" href="https://www.github.com/curt-mitch">Github</a>
+        </Typography>
+        <Typography variant='body1' className={styles.externalLink} >
+          <FontAwesomeIcon icon={faLinkedin} /><a className={styles.linkText} color="secondary" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/curtislmitchell/">LinkedIn</a>
+        </Typography>
+        <Typography variant='body1' className={styles.externalLink} >
+          <FontAwesomeIcon icon={faTwitter} /><a className={styles.linkText} color="secondary" target="_blank" rel="noopener noreferrer" href="https://twitter.com/Curt_Mitch">Twitter</a>
+        </Typography>
+        <Typography variant='h5' className={styles.talkTitle} >
+          Public Talks
+        </Typography>
+        <Typography variant='body1' className={styles.publicTalkLink} >
+          <a className={styles.linkText} color="secondary" target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=Fb1za8ZWhYw">A Pseudorandom Walkthrough of d3-random</a>
+        </Typography>
+        <Typography variant='body1' className={styles.talkDescription} >
+          A deep-dive of the <a color="secondary" target="_blank" rel="noopener noreferrer" href="https://github.com/d3/d3-random">d3-random module</a> from the <a color="secondary" target="_blank" rel="noopener noreferrer" href="https://d3js.org/">d3.js</a> ecosystem. Hosted by the <a color="secondary" target="_blank" rel="noopener noreferrer" href="https://www.meetup.com/Bay-Area-d3-User-Group/">Bay Area d3 User Group</a> and <a color="secondary" target="_blank" rel="noopener noreferrer" href="https://www.opendoor.com/">Opendoor</a> on August 14th, 2018.
+        </Typography>
       </div>
     </React.Fragment>
   );

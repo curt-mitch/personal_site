@@ -88,3 +88,58 @@
   max-width: 400px;
   margin: 0 20px;
 }
+
+.title {
+  padding: $spacer * 2;
+  max-width: 865px;
+  margin: auto;
+}
+
+.externalLink {
+  font-size: 20px;
+  padding-left: 20px;
+  margin-top: 8px;
+  max-width: 865px;
+  margin: auto;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.documentLink {
+  font-size: 20px;
+  padding-left: 12px;
+  max-width: 865px;
+  margin-top: 8px;
+  margin: 8px auto;
+}
+
+.linkText {
+  padding-left: 8px;
+  color: $link-color;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.talkTitle {
+  padding-top: $spacer * 4;
+  padding-left: $spacer * 2;
+  padding-bottom: $spacer;
+  max-width: 865px;
+  margin: auto;
+}
+
+.publicTalkLink {
+  font-size: 20px;
+  padding-left: 12px;
+  max-width: 865px;
+  margin-top: 8px;
+  margin: 8px auto;
+}
+
+.talkDescription {
+  max-width: 865px;
+  padding-left: 20px;
+  margin: 8px auto;
+}
