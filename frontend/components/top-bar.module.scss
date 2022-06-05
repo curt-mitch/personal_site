@@ -1,0 +1,51 @@
+@import '../styles/variables.module.scss';
+
+.appBar {
+  position: relative;
+  box-shadow: none;
+  background-color: $background-color;
+  display: flex;
+}
+.inline {
+  display: inline;
+}
+.flex {
+  display: flex;
+  @media only screen and (max-width: 600px) {
+    justifyContent: space-between;
+  }
+}
+.link {
+  text-decoration: none;
+  color: inherit;
+}
+.tagline {
+  display: inline-block;
+  @media only screen and (min-width: 900px) {
+    padding-top: $spacer;
+  }
+  @media only screen and (max-width: 600px) {
+    margin-top: 6px;
+  }
+}
+.iconContainer {
+  display: none;
+  @media only screen and (max-width: 600px) {
+    display: block;
+  }
+}
+.mobileSideMenu {
+  background-color: transparent;
+}
+.tabContainer {
+  margin-left: 32;
+  background-color: transparent;
+  @media only screen and (max-width: 600px) {
+    display: none;
+  }
+}
+.tabItem {
+  padding-top: 20;
+  padding-bottom: 20;
+  min-width: auto;
+}
