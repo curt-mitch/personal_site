@@ -17,16 +17,17 @@ function About() {
       <Topbar />
       <div className={styles.root}>
         <div className={styles.pictureIntroDoubleColumn}>
-          <Image
-            className={styles.profilePicture}
-            height={336}
-            width={317}
-            src={profilePicture}
-            alt="Picture of the author"
-            priority
-          />
+          <div className={styles.imageContainer}>
+            <Image
+              className={styles.profilePicture}
+              layout="intrinsic"
+              src={profilePicture}
+              alt="Picture of the author"
+              priority
+            />
+          </div>
           <Typography variant='body1' className={styles.IntroParagraph} >
-            I’m a machine learning and full-stack engineer based in the San Francisco Bay Area. I currently work for NASA at the <a className={styles.link} target="_blank" href="https://www.nasa.gov/ames" rel="noopener noreferrer">Ames Research Center</a> in Mountain View where I am contributing to a variety of aerospace projects as part of the <a className={styles.link} target="_blank" href="https://www.nasa.gov/simlabs" rel="noopener noreferrer">Simulation Laboratories</a> (SimLabs) organization.
+            I’m a machine learning and full-stack engineer based in the San Francisco Bay Area. I currently work for NASA at the <a className={styles.link} target="_blank" href="https://www.nasa.gov/ames" rel="noopener noreferrer">Ames Research Center</a> in Mountain View where I am contributing to a variety of aerospace projects as part of the <a className={styles.link} target="_blank" href="https://www.nasa.gov/simlabs" rel="noopener noreferrer">Simulation Laboratories</a> (SimLabs) organization. In my free time I am also a volunteer open-source developer for <a className={styles.link} target="_blank" rel="noopener noreferrer" href="https://www.openmined.org/">OpenMined</a>, which is building tools to enable privacy-preserving machine learning and data science.
           </Typography>
         </div>
         <Typography variant='h5' className={styles.BackgroundTitle} >
@@ -43,7 +44,7 @@ function About() {
           </div>
           <div className={styles.mainTextColumnRight}>
             <Typography variant='body1' className={styles.paragraph} >
-              Outside of regular working hours I enjoy writing posts for this website, playing with different <a className={styles.link} target="_blank" rel="noopener noreferrer" href="https://www.raspberrypi.org/">Raspberry Pi</a> projects, as well as learning all I can about cryptography and how to preserve privacy when it comes to the web and machine learning processes. My interest in these topics is what led me to join the <a className={styles.link} target="_blank" rel="noopener noreferrer" href="https://www.openmined.org/">OpenMined</a> community and contribute code to OpenMined's various open source projects.
+              Outside of regular working hours I enjoy writing posts for this website, playing with different <a className={styles.link} target="_blank" rel="noopener noreferrer" href="https://www.raspberrypi.org/">Raspberry Pi</a> projects, as well as learning all I can about cryptography and how to preserve privacy when it comes to the web and machine learning processes. My interest in these topics is what led me to join the OpenMined community and contribute to its various open source projects.
             </Typography>
             <Typography variant='body1' className={styles.paragraph} >
               In the non-digital realm my hobbies include reading all categories of books, especially fiction and history (recent favorites include <a className={styles.link} target="_blank" rel="noopener noreferrer" href="https://www.goodreads.com/book/show/49985946-homegoing">Homegoing</a>, <a className={styles.link} target="_blank" rel="noopener noreferrer" href="https://www.goodreads.com/series/56399-the-expanse">The Expanse Series</a>, and <a className={styles.link} target="_blank" rel="noopener noreferrer" href="https://www.goodreads.com/book/show/76401.Bury_My_Heart_at_Wounded_Knee">Bury My Heart at Wounded Knee</a>), cooking, meditation, martial arts and personal fitness, and studying languages (previously: German and Spanish, recently: Urdu, continually: Japanese). I also enjoy traveling and my favorite travel experience so far was getting to live in a dojo in rural Japan for a summer while training in Aikido.
