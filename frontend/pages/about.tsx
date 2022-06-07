@@ -65,15 +65,24 @@ function About() {
         <Typography variant='h5' className={styles.title} >
           External Links
         </Typography>
-        <Typography variant='body1' className={styles.externalLink} >
-          <FontAwesomeIcon icon={faGithub} /><a className={styles.linkText} color="secondary" target="_blank" rel="noopener noreferrer" href="https://www.github.com/curt-mitch">Github</a>
-        </Typography>
-        <Typography variant='body1' className={styles.externalLink} >
-          <FontAwesomeIcon icon={faLinkedin} /><a className={styles.linkText} color="secondary" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/curtislmitchell/">LinkedIn</a>
-        </Typography>
-        <Typography variant='body1' className={styles.externalLink} >
-          <FontAwesomeIcon icon={faTwitter} /><a className={styles.linkText} color="secondary" target="_blank" rel="noopener noreferrer" href="https://twitter.com/Curt_Mitch">Twitter</a>
-        </Typography>
+        <a color="secondary" target="_blank" rel="noopener noreferrer" href="https://www.github.com/curt-mitch">
+          <Typography variant='body1' className={styles.externalLink} >
+            <FontAwesomeIcon icon={faGithub} />
+            <span className={styles.linkText}>Github</span>
+          </Typography>
+        </a>
+        <a color="secondary" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/curtislmitchell/">
+          <Typography variant='body1' className={styles.externalLink} >
+            <FontAwesomeIcon icon={faLinkedin} />
+            <span className={styles.linkText}>LinkedIn</span>
+          </Typography>
+        </a>
+        <a color="secondary" target="_blank" rel="noopener noreferrer" href="https://twitter.com/Curt_Mitch">
+          <Typography variant='body1' className={styles.externalLink} >
+            <FontAwesomeIcon icon={faTwitter} />
+            <span className={styles.linkText}>Twitter</span>
+          </Typography>
+        </a>
         <Typography variant='h5' className={styles.talkTitle} >
           Public Talks
         </Typography>

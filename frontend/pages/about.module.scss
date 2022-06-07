@@ -101,9 +101,10 @@
   margin-top: 8px;
   max-width: 865px;
   margin: auto;
-  &:hover {
-    text-decoration: underline;
-  }
+}
+
+.externalLinkText {
+  padding-left: $spacer;
 }
 
 .documentLink {
