@@ -1,0 +1,26 @@
+@import '../styles/variables.module.scss';
+
+.actionButton {
+  text-transform: 'uppercase';
+  margin: $spacer;
+  width: 175;
+}
+
+.box {
+  margin-bottom: 40;
+  height: 55;
+}
+
+.postHeading {
+  display: "flex";
+  justify-content: "space-between";
+}
+
+.postDateLong {
+}
+
+.projectDescription {
+  white-space: "nowrap";
+  overflow: "hidden";
+  text-overflow: "ellipsis";
+}
