@@ -1,7 +1,7 @@
 import Head from 'next/head';
 
 import { siteTitle } from '../components/layout';
-import Main from '../components/main';
+import Homepage from '../components/homepage';
 
 export default function Home() {
   return (
@@ -9,7 +9,7 @@ export default function Home() {
       <Head>
         <title>{siteTitle}</title>
       </Head>
-      <Main/>
+      <Homepage/>
     </>
   );
 }

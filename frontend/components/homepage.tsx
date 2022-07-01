@@ -4,11 +4,11 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
 
-import styles from './main.module.scss';
+import styles from './homepage.module.scss';
 import radialGradient from '../public/images/radial_gradient1.png';
 import Topbar from './Topbar';
 
-class Main extends Component {
+class Homepage extends Component {
   render() {
     return (
       <React.Fragment>
@@ -37,4 +37,4 @@ class Main extends Component {
   }
 }
 
-export default Main;
+export default Homepage;
