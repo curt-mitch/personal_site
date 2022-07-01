@@ -1,15 +1,22 @@
 import React, { Component } from 'react';
 import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
 import Hidden from '@mui/material/Hidden';
 import CssBaseline from '@mui/material/CssBaseline';
 import Link from 'next/link';
 import moment from 'moment';
 
 import styles from './post-listing.module.scss';
+import { postData } from '../types/types';
 
-
+interface listingProps {
+  title: postData['title'];
+  publishDate: postData['publish_date'];
+  firstSentence: postData['first_sentence'];
+  postLink: postData['post_link'];
+}
 class PostListing extends Component {
+  props!: listingProps;
+
   render() {
     const longDate = moment(this.props.publishDate).format("MMMM DD, YYYY");
 
@@ -28,19 +35,17 @@ class PostListing extends Component {
             </Hidden>
           </div>
           <Typography variant="body1" className={styles.projectDescription}>
-            {this.props.description}
+            {this.props.firstSentence}
           </Typography>
         </div>
         <div className={styles.alignRight}>
-          <Button
+          <Link
             color="primary"
-            variant="contained"
             className={styles.actionButton}
-            // component={Link}
             href={this.props.postLink}
           >
             Explore
-          </Button>
+          </Link>
         </div>
       </React.Fragment>
     );

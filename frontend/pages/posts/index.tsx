@@ -9,11 +9,13 @@ import styles from './posts-list.module.scss';
 import Topbar from '../../components/Topbar';
 import PostListing from '../../components/PostListing';
 import PrimaryLoadingScreen from '../../components/PrimaryLoadingScreen';
+import jsonPostData from '../../data.json';
+import { postData } from '../../types/types';
 
 
 class PostsList extends Component {
   state = {
-    postList: [],
+    postList: [] as postData[],
     isLoading: true,
   };
 
@@ -23,14 +25,6 @@ class PostsList extends Component {
   }
 
   getPostsLists = () => {
-    const mockData = [
-      {
-        title: 'Upcoming Website Updates',
-        'publish_date': Date.now(),
-        'first_sentence': 'I\'m closing in on one year since I\'ve written a new piece for this site, but I wanted to leave one now to avoid the impression I\'m no longer maintaining this project.',
-        'post_link': 'post/frontend-migration-note'
-      }
-    ];
     // axios
     //   .get(`${process.env.REACT_APP_HOST_IP_ADDRESS}/api/posts/`)
     //   .then(res => {
@@ -44,13 +38,13 @@ class PostsList extends Component {
     //     this.setState({ isLoading: false })
     //   });
     this.setState({
-      postList: mockData,
+      postList: jsonPostData,
       isLoading: false,
     })
 
   }
 
-  renderPostList = (posts) => {
+  renderPostList = (posts: postData[]) => {
     if(this.state.isLoading === true) {
       return (<PrimaryLoadingScreen/>);
     } else {
