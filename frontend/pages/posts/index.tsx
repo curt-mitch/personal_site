@@ -20,7 +20,6 @@ class PostsList extends Component {
   };
 
   componentDidMount() {
-    console.log('componentDidMount');
     this.getPostsLists();
   }
 
@@ -38,7 +37,7 @@ class PostsList extends Component {
     //     this.setState({ isLoading: false })
     //   });
     this.setState({
-      postList: jsonPostData,
+      postList: jsonPostData.reverse(),
       isLoading: false,
     })
 
@@ -83,7 +82,7 @@ class PostsList extends Component {
           </Typography>
           <Grid container>
             <Grid
-              spacing={4}
+              spacing={8}
               container
               className={styles.grid}
             >

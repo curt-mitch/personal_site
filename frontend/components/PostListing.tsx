@@ -23,30 +23,25 @@ class PostListing extends Component {
     return (
       <React.Fragment>
         <CssBaseline />
-        <div className={styles.box}>
-          <div className={styles.postHeading}>
-            <Typography color="secondary" gutterBottom>
-              {this.props.title}
-            </Typography>
-            <Hidden xsDown={true}>
-              <Typography color="secondary" className={styles.postDateLong}>
-                {longDate}
-              </Typography>
-            </Hidden>
-          </div>
-          <Typography variant="body1" className={styles.projectDescription}>
-            {this.props.firstSentence}
-          </Typography>
-        </div>
-        <div className={styles.alignRight}>
-          <Link
-            color="primary"
-            className={styles.actionButton}
+        <Link
             href={this.props.postLink}
           >
-            Explore
-          </Link>
-        </div>
+          <div className={styles.box}>
+            <div className={styles.postHeading}>
+              <Typography color="secondary" gutterBottom>
+                {this.props.title}
+              </Typography>
+              <Hidden xsDown={true}>
+                <Typography className={styles.postDateLong} gutterBottom>
+                  {longDate}
+                </Typography>
+              </Hidden>
+            </div>
+            <Typography variant="body1" className={styles.projectDescription}>
+              {this.props.firstSentence}
+            </Typography>
+          </div>
+        </Link>
       </React.Fragment>
     );
   }

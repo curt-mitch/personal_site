@@ -18,8 +18,6 @@
 
 .grid {
   width: 1200;
-  align-items: center;
-  justify-content: center; // maybe not needed?
   @media only screen and (max-width: 600px) {
     width: calc(100% - 20px);
   }
@@ -28,8 +26,8 @@
 .paper {
   padding: $spacer * 3;
   text-align: left;
-  // color: theme.palette.text.secondary;
   margin: $spacer * 2;
+  max-width: $max-width-el;
 }
 
 .topBar {

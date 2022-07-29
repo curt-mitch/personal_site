@@ -1,26 +1,29 @@
 @import '../styles/variables.module.scss';
 
-.actionButton {
-  text-transform: 'uppercase';
-  margin: $spacer;
-  width: 175;
+
+.container {
+  max-width: 1000px;
 }
 
 .box {
   margin-bottom: 40;
   height: 55;
+  cursor: pointer;
 }
 
 .postHeading {
-  display: "flex";
-  justify-content: "space-between";
+  display: flex;
+  justify-content: left;
+  flex-direction: column;
 }
 
 .postDateLong {
+  font-style: italic;
 }
 
 .projectDescription {
-  white-space: "nowrap";
-  overflow: "hidden";
-  text-overflow: "ellipsis";
+  max-width: $max-width-el * 95/100;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
