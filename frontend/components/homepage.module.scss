@@ -1,0 +1,40 @@
+@import '../styles/variables.module.scss';
+
+.root {
+  flex-grow: 1;
+  background-color: transparent;
+  overflow: hidden;
+  background-size: cover;
+  background-position: 0 400px;
+  height: 100%;
+  width: 100%;
+}
+.backgroundGraph {
+  position: absolute;
+  background-color: $background-color;
+  height: 100%;
+  width: 100%;
+  image-rendering: -webkit-optimize-contrast;
+}
+.backgroundImageContainer {
+  height: 576;
+  width: 100%;
+}
+
+.siteTitleContainer {
+  position: absolute;
+  bottom: 70px;
+  max-width: 790px;
+  @media only screen and (max-width: 600px) {
+    bottom: 0px;
+  }
+}
+.title {
+  padding-top: $spacer * 2;
+  padding-right: $spacer * 3.5;
+  padding-left: $spacer * 3.5;
+  font-size: 40px;
+  @media only screen and (max-width: 600px) {
+    font-size: 30px;
+  }
+}

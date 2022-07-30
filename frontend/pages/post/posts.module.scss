@@ -1,0 +1,105 @@
+@import '../../styles/variables.module.scss';
+
+.root {
+    flex-grow: 1;
+    background-color: $background-color;
+    overflow: hidden;
+    background-size: cover;
+    background-position: 0 400px;
+    padding-bottom: 50;
+}
+
+.link {
+    color: $link-color;
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.title {
+    padding: 16px;
+    max-width: 700px;
+    margin: auto;
+}
+
+.sectionTitle, .subSectionTitle {
+    padding-left: 16px;
+    text-decoration: underline;
+    max-width: 700px;
+    margin: auto;
+}
+
+.loadingState {
+    opacity: 0.05
+}
+
+.loadingMessage {
+    position: absolute;
+    top: 40%;
+    left: 40%;
+}
+
+.codeHighlight {
+    padding: 0px 48px;
+    max-width: 700px;
+    margin: auto !important;
+}
+
+.paragraph {
+    padding: 16px;
+    text-indent: 20px;
+    text-align: justify;
+    max-width: 700px;
+    margin: auto;
+}
+
+.codeSample {
+    background-color: #EDEDED;
+    font-family: Courier, monospace;
+}
+
+.sqlTableRow {
+    display: block;
+}
+
+.exampleList {
+    padding-left: 16px;
+    max-width: 700px;
+    margin: auto;
+}
+
+.monospaceSpan {
+    font-family: monospace;
+}
+
+.equation {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.note {
+    font-style: italic;
+    padding: 16px;
+    text-indent: 20px;
+    text-align: justify;
+    max-width: 700px;
+    margin: auto;
+}
+
+.exampleSentence {
+    text-indent: 20px;
+    max-width: 700px;
+    margin: auto;
+}
+
+.diagram {
+    display: flex;
+    justify-content: center;
+}
+
+.pictureCaption {
+    font-size: 12px;
+    max-width: 700px;
+    margin: auto;
+    text-align: center;
+}

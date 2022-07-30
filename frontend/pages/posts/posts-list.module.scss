@@ -1,0 +1,49 @@
+@import '../../styles/variables.module.scss';
+
+.root {
+  flex-grow: 1;
+  background-color: $background-color;
+  overflow: hidden;
+  background-size: cover;
+  background-position: 0 400px;
+  height: 100%;
+  width: 100%;
+}
+
+.subTitle {
+  padding-top: $spacer * 2;
+  padding-right: $spacer * 3.5;
+  padding-left: $spacer * 3.5;
+}
+
+.grid {
+  width: 1200;
+  @media only screen and (max-width: 600px) {
+    width: calc(100% - 20px);
+  }
+}
+
+.paper {
+  padding: $spacer * 3;
+  text-align: left;
+  margin: $spacer * 2;
+  max-width: $max-width-el;
+}
+
+.topBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: $spacer * 4;
+}
+
+.postHeading {
+  display: flex;
+  justify-content: space-between;
+}
+
+.postDescription {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

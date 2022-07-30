@@ -1,0 +1,67 @@
+[
+
+  {
+    "id": 1,
+    "title": "Curt-Mitch.com",
+    "first_sentence": "A brief walkthrough of this website and its tech stack",
+    "publish_date": "2020-06-30",
+    "post_link": "/post/website-walkthrough"
+  },
+  {
+    "id": 2,
+    "title": "Three Python Features I Would Love To Have In JavaScript",
+    "first_sentence": "As someone who primarily learned to code using JavaScript, reading languages like C and Java wasn’t too much of a struggle once I learned to read the typing-related code (something that became all the",
+    "publish_date": "2020-07-10",
+    "post_link": "/post/python-features-in-js"
+  },
+  {
+    "id": 3,
+    "title": "How to Evaluate A Machine Translation Model",
+    "first_sentence": "Evaluating how accurately a machine learning model performs is one of the key questions any ML practioner needs to answer during model development. For many types of tasks such as image recognition,",
+    "publish_date": "2020-08-30",
+    "post_link": "/post/evaluating-machine-translation-models"
+  },
+
+  {
+    "id": 4,
+    "title": "Japanese-English Translation Application",
+    "first_sentence": "A Japanese-to-English translation application trained on 2.8 million movie subtitles using an encoder-decoder model",
+    "publish_date": "2020-10-14",
+    "post_link": "/post/jp-en-translator"
+  },
+  {
+    "id": 5,
+    "title": "Creating A Japanese-English Translation Application",
+    "first_sentence": "Note: this is a walkthrough of the JP-EN translation application that can be found here. I assume the reader understands the main principles of deep learning and related concepts such as gradient de",
+    "publish_date": "2020-11-09",
+    "post_link": "/post/jp-en-translator-walkthrough"
+  },
+  {
+    "id": 6,
+    "title": "Concluding my Springboard Journey, and Starting my Next Adventure",
+    "first_sentence": "During this week of Thanksgiving I’m incredibly thankful to the staff and my fellow students at Springboard, as I finally completed the requirements for the machine learning engineering program.",
+    "publish_date": "2020-11-27",
+    "post_link": "/post/concluding-springboard-next-adventure"
+  },
+  {
+    "id": 7,
+    "title": "SQL's Order of Execution",
+    "first_sentence": "If you started learning SQL after having learned a language like Java or Python, it takes getting used to different concepts inherent in database querying, let alone the varied difference",
+    "publish_date": "2020-12-16",
+    "post_link": "/post/sql-order-of-execution"
+  },
+  {
+    "id": 8,
+    "title": "Urdu Number Classifier",
+    "first_sentence": "A handwritten digit classification application using a convolutional neural network",
+    "publish_date": "2021-02-16",
+    "post_link": "/post/urdu-number-classifier"
+  },
+  {
+    "id": 9,
+    "title": "Upcoming Website Updates",
+    "first_sentence": "I'm closing in on one year since I've written a new piece for this site, but I wanted to leave one now to avoid the impression I'm no longer maintaining this project.",
+    "publish_date": "2021-11-12",
+    "post_link": "/post/frontend-migration-note"
+  }
+]

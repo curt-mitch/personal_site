@@ -1,0 +1,14 @@
+// Colors
+$primary-color: #64FF00;
+$background-color: #F5F5F5;
+$link-color: #0D47A2;
+
+// Spacing
+$spacer: 8px;
+$max-width-el: 1000px;
+
+:export {
+  primaryColor: $primary-color;
+  linkColor: $link-color;
+  spacer: $spacer;
+}
