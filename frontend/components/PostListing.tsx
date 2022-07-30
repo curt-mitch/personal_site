@@ -25,6 +25,7 @@ class PostListing extends Component {
         <CssBaseline />
         <Link
             href={this.props.postLink}
+            passHref
           >
           <div className={styles.box}>
             <div className={styles.postHeading}>

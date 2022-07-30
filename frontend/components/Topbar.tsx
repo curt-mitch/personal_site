@@ -69,7 +69,11 @@ export default function Topbar() {
           <Grid item xs={12} className={styles.flex}>
             <div className={styles.inline}>
               <Typography variant="h6" color="inherit" noWrap>
-                <Link href="/" className={styles.link}>
+                <Link
+                  href="/"
+                  className={styles.link}
+                  passHref
+                  >
                   <span className={styles.tagline}>Curtis Mitchell</span>
                 </Link>
               </Typography>

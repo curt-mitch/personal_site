@@ -66,7 +66,7 @@ function PythonFeaturesInJS() {
             codeSnippet={pyCode1}
         />
         <Typography variant='body1' className={styles.paragraph} >
-            As you can see, the slice notation syntax can be thought of as consisting of optional "start" and "stop" values like so <span className={styles.codeSample}>[start:stop]</span> (Technically both the "start" and "stop" values can be optional because using <span className={styles.codeSample}>[:]</span> will return a complete copy of the original list), but you can also use a "step" property to skip values within the sliced subsets like so:
+            As you can see, the slice notation syntax can be thought of as consisting of optional &quot;start&quot; and &quot;stop&quot; values like so <span className={styles.codeSample}>[start:stop]</span> (Technically both the &quot;start&quot; and &quot;stop&quot; values can be optional because using <span className={styles.codeSample}>[:]</span> will return a complete copy of the original list), but you can also use a &quot;step&quot; property to skip values within the sliced subsets like so:
         </Typography>
         <PrismCode
             pageClass={styles.codeHighlight}

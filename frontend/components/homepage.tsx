@@ -25,7 +25,7 @@ class Homepage extends Component {
           </div>
           <Container className={styles.siteTitleContainer} >
             <Typography className={styles.title} gutterBottom>
-              Howdy! I'm Curtis Mitchell, a machine learning engineer based in San Francisco.
+              Howdy! I&apos;m Curtis Mitchell, a machine learning engineer based in San Francisco.
             </Typography>
             <Typography className={styles.subTitle} gutterBottom>
               Welcome to my website where I host my articles and projects at the intersection of machine learning, natural language processing, web development, and mathematics.

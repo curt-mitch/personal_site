@@ -35,13 +35,13 @@ function SqlOrderOfExecution() {
     return <>
         <div className={styles.root}>
             <Typography variant='h3' className={styles.title} >
-                SQL's Order of Execution
+                SQL&apos;s Order of Execution
             </Typography>
             <Typography variant='body1' className={styles.paragraph} >
-                If you started learning SQL after having learned a language like Java or Python, it takes getting used to different concepts inherent in database querying, let alone the varied differences in the way SQL runs. Once you’ve started writing anything more complicated than the “Hello, World!” of SQL queries, meaning <span className={styles.codeSample}>SELECT * FROM TABLE;</span>, then you’ve probably encountered errors that hint at one of the more unintuitive aspects of the language: the order of execution in a SQL statement.
+                If you started learning SQL after having learned a language like Java or Python, it takes getting used to different concepts inherent in database querying, let alone the varied differences in the way SQL runs. Once you’ve started writing anything more complicated than the “Hello, World!” of SQL queries, meaning <span className={styles.codeSample}>SELECT * FROM TABLE;</span>, then you&quot;ve probably encountered errors that hint at one of the more unintuitive aspects of the language: the order of execution in a SQL statement.
             </Typography>
             <Typography variant='body1' className={styles.paragraph} >
-                As an example, say we’re creating a derived column and then we want to group the results by that new column. In this code example we’ll create a new column summing the value of multiple customer contracts from a hypothetical database:
+                As an example, say we&quot;re creating a derived column and then we want to group the results by that new column. In this code example we&quot;ll create a new column summing the value of multiple customer contracts from a hypothetical database:
             </Typography>
             <PrismCode
                 pageClass={styles.codeHighlight}

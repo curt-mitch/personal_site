@@ -6,7 +6,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faLinkedin, faTwitter } from '@fortawesome/free-brands-svg-icons'
 
 import styles from './about.module.scss';
-import profilePicture from '../public/images/profile.jpg';
 import Topbar from '../components/Topbar';
 
 
@@ -20,9 +19,11 @@ function About() {
           <div className={styles.imageContainer}>
             <Image
               className={styles.profilePicture}
-              layout="intrinsic"
-              src={profilePicture}
+              layout="responsive"
+              src="/images/profile.jpg"
               alt="Picture of the author"
+              height={336}
+              width={317}
               priority
             />
           </div>
