@@ -37,7 +37,8 @@ class PostsList extends Component {
     //     this.setState({ isLoading: false })
     //   });
     this.setState({
-      postList: jsonPostData.reverse(),
+      // serve posts in reverse chronological order
+      postList: jsonPostData.sort((post1, post2) => post1.id > post2.id ? -1: 1),
       isLoading: false,
     })
 

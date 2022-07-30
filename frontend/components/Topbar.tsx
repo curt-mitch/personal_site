@@ -48,17 +48,11 @@ export default function Topbar() {
     if (router.pathname === "/posts") {
       return 1;
     }
-    if (router.pathname === "/projects") {
+    if (router.pathname === "/about") {
       return 2;
     }
-    if (router.pathname === "/about") {
-      return 3;
-    }
     if (router.pathname.includes("/post/")) {
-      return 4;
-    }
-    if (router.pathname.includes("/project/")) {
-      return 5;
+      return 3;
     }
   };
 
