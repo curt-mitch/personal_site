@@ -18,7 +18,6 @@ function About() {
         <div className={styles.pictureIntroDoubleColumn}>
           <div className={styles.imageContainer}>
             <Image
-              className={styles.profilePicture}
               layout="responsive"
               src="/images/profile.jpg"
               alt="Picture of the author"
@@ -59,10 +58,10 @@ function About() {
             Documents
         </Typography>
         <Typography variant='body1' className={styles.documentLink} >
-          <a className={styles.linkText} color="secondary" target="_blank" rel="noopener noreferrer" href="/documents/resume">Resume</a>
+          <a className={styles.linkText} color="secondary" target="_blank" rel="noopener noreferrer" href="/documents/cmitchell-website-resume.pdf">Resume</a>
         </Typography>
         <Typography variant='body1' className={styles.documentLink} >
-          <a className={styles.linkText} color="secondary" target="_blank" rel="noopener noreferrer" href="/documents/certificate">Springboard Certificate</a>
+          <a className={styles.linkText} color="secondary" target="_blank" rel="noopener noreferrer" href="/documents/springboard-certificate.pdf">Springboard Certificate</a>
         </Typography>
         <Typography variant='h5' className={styles.title} >
           External Links
