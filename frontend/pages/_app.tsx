@@ -1,4 +1,6 @@
 import '../styles/globals.css';
+import '../styles/Home.module.css';
+import '../styles/utils.module.css';
 import 'prismjs/themes/prism-okaidia.css';
 import '@fortawesome/fontawesome-svg-core/styles.css'; // import Font Awesome CSS
 import { config } from '@fortawesome/fontawesome-svg-core';
