@@ -115,7 +115,6 @@ export default function Topbar() {
                     {Menu.map((item, _index) => (
                       <Tab
                         key={item.label}
-                        // component={Link}
                         href={item.pathname}
                         classes={{ root: styles.tabItem }}
                         label={item.label}
