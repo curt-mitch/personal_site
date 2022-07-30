@@ -45,6 +45,9 @@ function EvaluatingMachineTranslationModels() {
 
     return <>
         <div className={styles.root}>
+            <Typography variant='h3' className={styles.title} >
+                How to Evaluate A Machine Translation Model
+            </Typography>
             <Typography variant='body1' className={styles.paragraph} >
                 Gauging how accurately a machine learning model performs is one of the key questions any ML practioner needs to answer during model development. For many types of tasks such as image recognition, evaluating how accurate a model’s results are is relatively straightfoward: the image label is either correct or it isn’t. But how do you measure how accurate a machine translation result is? After all, for any but the simplest ideas, it’s usually possible to convey that idea in multiple ways in any language. In this post we’ll examine a few of the most common NLP metrics and how they are computed when assessing the performance of machine translation models.
             </Typography>

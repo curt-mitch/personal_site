@@ -15,10 +15,6 @@ const Menu: IMenuItem[] = [
     pathname: '/posts'
   },
   {
-    label: 'Projects',
-    pathname: '/projects'
-  },
-  {
     label: 'About',
     pathname: '/about'
   },
@@ -27,11 +23,6 @@ const Menu: IMenuItem[] = [
     pathname: '/post',
     display: 'none'
   },
-  {
-    label: 'project',
-    pathname: '/project',
-    display: 'none'
-  }
 ];
 
 export default Menu;
