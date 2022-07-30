@@ -3,6 +3,7 @@ import Typography from '@mui/material/Typography';
 
 import styles from './posts.module.scss';
 import PrismCode from '../../components/PrismCode';
+import Topbar from '../../components/Topbar';
 
 const sqlContent1 =
 `  SELECT
@@ -33,6 +34,7 @@ const sqlContent1 =
 
 function SqlOrderOfExecution() {
     return <>
+        <Topbar />
         <div className={styles.root}>
             <Typography variant='h3' className={styles.title} >
                 SQL&apos;s Order of Execution

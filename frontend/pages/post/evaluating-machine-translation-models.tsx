@@ -3,6 +3,7 @@ import Typography from '@mui/material/Typography';
 
 import styles from './posts.module.scss';
 import PrismCode from '../../components/PrismCode';
+import Topbar from '../../components/Topbar';
 import { MathJax, MathJaxContext } from 'better-react-mathjax';
 
 const pyCode1 = `
@@ -44,6 +45,7 @@ function EvaluatingMachineTranslationModels() {
     };
 
     return <>
+        <Topbar />
         <div className={styles.root}>
             <Typography variant='h3' className={styles.title} >
                 How to Evaluate A Machine Translation Model
