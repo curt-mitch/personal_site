@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Typography from '@mui/material/Typography';
 import Hidden from '@mui/material/Hidden';
-import CssBaseline from '@mui/material/CssBaseline';
 import Link from 'next/link';
 import moment from 'moment';
 
@@ -22,7 +21,6 @@ class PostListing extends Component {
 
     return (
       <React.Fragment>
-        <CssBaseline />
         <Link
             href={this.props.postLink}
             passHref

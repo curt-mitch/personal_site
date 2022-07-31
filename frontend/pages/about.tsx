@@ -1,7 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
 import Typography from '@mui/material/Typography';
-import CssBaseline from '@mui/material/CssBaseline';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faLinkedin, faTwitter } from '@fortawesome/free-brands-svg-icons'
 
@@ -12,7 +11,6 @@ import Topbar from '../components/Topbar';
 function About() {
   return (
     <React.Fragment>
-      <CssBaseline />
       <Topbar />
       <div className={styles.root}>
         <div className={styles.pictureIntroDoubleColumn}>

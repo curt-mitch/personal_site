@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import CssBaseline from '@mui/material/CssBaseline';
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
@@ -74,7 +73,6 @@ class PostsList extends Component {
     const { postList } = this.state;
     return (
       <React.Fragment>
-        <CssBaseline />
         <Topbar />
         <div className={styles.root}>
           <div className={styles.backgroundGraph}></div>

@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import CssBaseline from '@mui/material/CssBaseline';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
@@ -12,7 +11,6 @@ class Homepage extends Component {
   render() {
     return (
       <React.Fragment>
-        <CssBaseline />
         <Topbar />
         <div className={styles.root}>
           <div className={styles.backgroundGraph}>
