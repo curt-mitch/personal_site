@@ -79,7 +79,7 @@ class PostsList extends Component {
         <div className={styles.root}>
           <div className={styles.backgroundGraph}></div>
           <Typography className={styles.subTitle} gutterBottom>
-            Articles on various technical topics in machine learning, web development, and related fields.
+            Articles on various topics in machine learning, web development, and related fields.
           </Typography>
           <Grid container>
             <Grid
@@ -87,7 +87,14 @@ class PostsList extends Component {
               container
               className={styles.grid}
             >
-              <Grid container item xs={12}>
+              <Grid
+                container
+                spacing={0}
+                direction="column"
+                alignItems="center"
+                justifyContent="center"
+                item xs={12}
+              >
                 <Grid item xs={12}>
                   {this.renderPostList(postList)}
                 </Grid>
