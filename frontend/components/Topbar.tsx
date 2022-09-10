@@ -57,7 +57,7 @@ export default function Topbar() {
   };
 
   return (
-    <AppBar color="default" className={styles.appBar}>
+    <AppBar color="default" className={styles.appBar} style={{boxShadow: 'none'}}>
       <Toolbar>
         <Grid container spacing={10} alignItems="baseline">
           <Grid item xs={12} className={styles.flex}>
