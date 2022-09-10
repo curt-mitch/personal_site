@@ -4,12 +4,18 @@ import '@fortawesome/fontawesome-svg-core/styles.css'; // import Font Awesome CS
 import { config } from '@fortawesome/fontawesome-svg-core';
 import type { AppProps } from 'next/app';
 import { CssBaseline } from '@mui/material';
+import { CacheProvider } from '@emotion/react';
+import createEmotionCache from '../src/createEmotionCache';
 config.autoAddCss = false; // Tell Font Awesome to skip adding the CSS
+
+const cache = createEmotionCache();
 
 function MyApp({ Component, pageProps }: AppProps) {
   return <>
-    <CssBaseline />
-    <Component {...pageProps} />
+    <CacheProvider value={cache}>
+      <CssBaseline />
+      <Component {...pageProps} />
+    </CacheProvider>
   </>;
 }
 
