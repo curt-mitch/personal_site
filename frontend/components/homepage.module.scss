@@ -9,6 +9,7 @@
   height: 100%;
   width: 100%;
 }
+
 .backgroundGraph {
   position: absolute;
   background-color: $background-color;
@@ -16,6 +17,7 @@
   width: 100%;
   image-rendering: -webkit-optimize-contrast;
 }
+
 .backgroundImageContainer {
   height: 576;
   width: 100%;
@@ -29,6 +31,7 @@
     bottom: 0px;
   }
 }
+
 .title {
   padding-top: $spacer * 2;
   padding-right: $spacer * 3.5;

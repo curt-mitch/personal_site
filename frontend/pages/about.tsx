@@ -53,7 +53,7 @@ function About() {
           </div>
         </div>
         <Typography variant='h5' className={styles.title} >
-            Documents
+          Documents
         </Typography>
         <Typography variant='body1' className={styles.documentLink} >
           <a className={styles.linkText} color="secondary" target="_blank" rel="noopener noreferrer" href="/documents/cmitchell-website-resume.pdf">Resume</a>
