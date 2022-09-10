@@ -6,19 +6,23 @@
   background-color: $background-color;
   display: flex;
 }
+
 .inline {
   display: inline;
 }
+
 .flex {
   display: flex;
   @media only screen and (max-width: 600px) {
     justifyContent: space-between;
   }
 }
+
 .link {
   text-decoration: none;
   color: inherit;
 }
+
 .tagline {
   display: inline-block;
   cursor: pointer;
@@ -29,24 +33,28 @@
     margin-top: 6px;
   }
 }
+
 .iconContainer {
   display: none;
   @media only screen and (max-width: 600px) {
     display: block;
   }
 }
+
 .mobileSideMenu {
   background-color: transparent;
 }
+
 .tabContainer {
-  margin-left: 32;
+  margin-left: 32px;
   background-color: transparent;
   @media only screen and (max-width: 600px) {
     display: none;
   }
 }
+
 .tabItem {
-  padding-top: 20;
-  padding-bottom: 20;
+  padding-top: 20px;
+  padding-bottom: 20px;
   min-width: auto;
 }
