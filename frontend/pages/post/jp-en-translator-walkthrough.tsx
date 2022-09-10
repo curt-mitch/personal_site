@@ -5,7 +5,6 @@ import Link from 'next/link';
 
 import styles from './posts.module.scss';
 import PrismCode from '../../components/PrismCode';
-import Topbar from '../../components/Topbar';
 import encoderDecoderDiagram from '../../public/images/Encoder-Decoder-Model-for-Text-Translation.png';
 import LSTMCell from '../../public/images/LSTM-network-cell.png';
 import bahdanauAttentionDiagram from '../../public/images/attention_bahdanau.png';
@@ -27,7 +26,6 @@ mode = tokenizer.Tokenizer.SplitMode.A
 
 function JpEnTranslatorWalkthrough() {
     return <>
-        <Topbar />
         <div className={styles.root}>
           <Typography variant='h3' className={styles.title} >
             Creating A Japanese-English Translation Application

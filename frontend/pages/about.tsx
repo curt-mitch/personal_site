@@ -5,13 +5,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faLinkedin, faTwitter } from '@fortawesome/free-brands-svg-icons'
 
 import styles from './about.module.scss';
-import Topbar from '../components/Topbar';
 
 
 function About() {
   return (
     <React.Fragment>
-      <Topbar />
       <div className={styles.root}>
         <div className={styles.pictureIntroDoubleColumn}>
           <div className={styles.imageContainer}>

@@ -5,7 +5,6 @@ import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 
 import styles from './posts-list.module.scss';
-import Topbar from '../../components/Topbar';
 import PostListing from '../../components/PostListing';
 import PrimaryLoadingScreen from '../../components/PrimaryLoadingScreen';
 import jsonPostData from '../../data.json';
@@ -73,7 +72,6 @@ class PostsList extends Component {
     const { postList } = this.state;
     return (
       <React.Fragment>
-        <Topbar />
         <div className={styles.root}>
           <div className={styles.backgroundGraph}></div>
           <Typography className={styles.subTitle} gutterBottom>

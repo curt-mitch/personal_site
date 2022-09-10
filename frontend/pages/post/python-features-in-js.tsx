@@ -3,7 +3,6 @@ import Typography from '@mui/material/Typography';
 
 import styles from './posts.module.scss';
 import PrismCode from '../../components/PrismCode';
-import Topbar from '../../components/Topbar';
 
 const pyCode1 = `
 example_list = [1, 2, 3, 4]
@@ -45,7 +44,6 @@ rectangleArea({ height: h, width: w });
 
 function PythonFeaturesInJS() {
     return <>
-        <Topbar />
         <div className={styles.root}>
         <Typography variant='h3' className={styles.title} >
             Three Python Features I Would Love To Have In JavaScript

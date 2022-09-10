@@ -5,13 +5,11 @@ import Box from '@mui/material/Box';
 
 import styles from './homepage.module.scss';
 import radialGradient from '../public/images/radial_gradient1.png';
-import Topbar from './Topbar';
 
 class Homepage extends Component {
   render() {
     return (
       <React.Fragment>
-        <Topbar />
         <div className={styles.root}>
           <div className={styles.backgroundGraph}>
           <Box

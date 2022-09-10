@@ -2,11 +2,9 @@ import React from 'react';
 import Typography from '@mui/material/Typography';
 
 import styles from './posts.module.scss';
-import Topbar from '../../components/Topbar';
 
 function ConcludingSpringboard() {
     return <>
-        <Topbar />
         <div className={styles.root}>
             <Typography variant='h3' className={styles.title} >
                 Concluding my Springboard Journey, and Starting my Next Adventure
