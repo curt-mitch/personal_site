@@ -13,7 +13,7 @@
 
 .flex {
   display: flex;
-  @media only screen and (max-width: 600px) {
+  @media (max-width: 600px) {
     justifyContent: space-between;
   }
 }
@@ -26,19 +26,24 @@
 .tagline {
   display: inline-block;
   cursor: pointer;
-  @media only screen and (min-width: 900px) {
+  @media (min-width: 900px) {
     padding-top: $spacer;
   }
-  @media only screen and (max-width: 600px) {
+  @media (max-width: 600px) {
     margin-top: 6px;
   }
 }
 
 .iconContainer {
   display: none;
-  @media only screen and (max-width: 600px) {
+  @media (max-width: 600px) {
     display: block;
   }
+}
+
+.iconButton {
+  margin-top: 2px;
+  flex-direction: row-reverse;
 }
 
 .mobileSideMenu {
@@ -48,7 +53,7 @@
 .tabContainer {
   margin-left: 32px;
   background-color: transparent;
-  @media only screen and (max-width: 600px) {
+  @media (max-width: 600px) {
     display: none;
   }
 }

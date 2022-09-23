@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import Grid from '@mui/material/Grid';
@@ -7,7 +7,7 @@ import Toolbar from '@mui/material/Toolbar';
 import AppBar from '@mui/material/AppBar';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
-import MenuIcon from '@mui/material/Menu';
+import MenuIcon from '@mui/icons-material/Menu';
 import IconButton from '@mui/material/IconButton';
 import List from '@mui/material/List';
 import ListItemButton from '@mui/material/ListItemButton';
@@ -19,39 +19,29 @@ import styles from './top-bar.module.scss';
 
 
 export default function Topbar() {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+  const [menuDrawerOpen, setMenuDrawer] = useState(false);
 
   const router = useRouter();
-  const state = {
-    value: 0,
-    menuDrawer: false
-  };
 
   const handleChange = (_event: React.SyntheticEvent, value: number) => {
-    state.value = value;
+    toggleMenuDrawer();
   };
 
-  const mobileMenuOpen = (_event: React.MouseEvent<HTMLButtonElement>) => {
-    state.menuDrawer = true;
-  };
-
-  const mobileMenuClose = (_event: React.MouseEvent<HTMLButtonElement>) => {
-    state.menuDrawer = false;
-  };
+  const toggleMenuDrawer = () => {
+    setMenuDrawer(current => !current);
+  }
 
   const current = () => {
-    if (router.pathname === "/home") {
+    if (router.asPath === "/") {
       return 0;
     }
-    if (router.pathname === "/posts") {
+    if (router.asPath === "/posts") {
       return 1;
     }
-    if (router.pathname === "/about") {
+    if (router.asPath === "/about") {
       return 2;
     }
-    if (router.pathname.includes("/post/")) {
+    if (router.asPath.includes("/post/")) {
       return 3;
     }
   };
@@ -76,38 +66,41 @@ export default function Topbar() {
               <React.Fragment>
                 <div className={styles.iconContainer}>
                   <IconButton
-                    onClickCapture={mobileMenuOpen}
+                    onClickCapture={toggleMenuDrawer}
                     className={styles.iconButton}
                     color="inherit"
                     aria-label="Menu"
                   >
-                    <MenuIcon open={false} />
+                    <MenuIcon />
                   </IconButton>
                 </div>
                 <div className={styles.tabContainer}>
                   <SwipeableDrawer
                     className={styles.mobileSideMenu}
                     anchor="right"
-                    open={state.menuDrawer}
-                    onClose={mobileMenuClose}
-                    onOpen={mobileMenuOpen}
+                    open={menuDrawerOpen}
+                    onClose={toggleMenuDrawer}
+                    onOpen={toggleMenuDrawer}
                   >
                     <AppBar title="Menu" />
                     <List>
                       {Menu.map((item, _index) => (
-                        <ListItemButton
-                          component={Link}
+                        <Link
                           href={item.pathname}
-                          style={{ display: item.display }}
-                          key={item.label}
+                          key={item.key}
                         >
-                          <ListItemText primary={item.label} />
-                        </ListItemButton>
+                          <ListItemButton
+                            style={{ display: item.display }}
+                            key={item.label}
+                          >
+                            <ListItemText primary={item.label} />
+                          </ListItemButton>
+                        </Link>
                       ))}
                     </List>
                   </SwipeableDrawer>
                   <Tabs
-                    value={current() || state.value}
+                    value={current()}
                     indicatorColor="primary"
                     textColor="primary"
                     onChange={handleChange}
@@ -115,6 +108,7 @@ export default function Topbar() {
                     {Menu.map((item, _index) => (
                       <Tab
                         key={item.label}
+                        value={item.key}
                         href={item.pathname}
                         classes={{ root: styles.tabItem }}
                         label={item.label}

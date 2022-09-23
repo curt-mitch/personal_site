@@ -1,5 +1,6 @@
 interface IMenuItem {
   label: string;
+  key: number;
   pathname: string;
   display?: string;
   external?: boolean;
@@ -8,20 +9,24 @@ interface IMenuItem {
 const Menu: IMenuItem[] = [
   {
     label: 'Home',
-    pathname: '/'
+    pathname: '/',
+    key: 0,
   },
   {
     label: 'Posts',
-    pathname: '/posts'
+    pathname: '/posts',
+    key: 1,
   },
   {
     label: 'About',
-    pathname: '/about'
+    pathname: '/about',
+    key: 2,
   },
   {
     label: 'post',
     pathname: '/post',
-    display: 'none'
+    display: 'none',
+    key: 3,
   },
 ];
 
